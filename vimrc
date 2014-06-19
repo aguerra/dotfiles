@@ -23,6 +23,7 @@ filetype plugin indent on
 
 " Look and feel
 syntax on
+set title
 set background=dark
 set number
 set laststatus=2
