@@ -88,6 +88,9 @@ noremap  <silent> <C-Left>  <C-W>h
 noremap  <silent> <C-Right> <C-W>l
 nnoremap <silent> <Leader>a :A<CR>
 
+" vim-go
+let g:go_disable_autoinstall = 1
+
 " Functions
 function! Ctags()
 	let output = system('ctags')
