@@ -1,7 +1,7 @@
 # zshrc
 
 # Exports
-export PATH="~/bin:$PATH:/sbin:/usr/sbin"
+export PATH="~/bin:/usr/lib/ccache:$PATH:/sbin:/usr/sbin"
 export EDITOR='vim'
 export HISTSIZE='5000'
 export HISTFILE="$HOME/.zsh_history"
