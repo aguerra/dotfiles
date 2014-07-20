@@ -36,7 +36,8 @@ precmd()
 
 # vcs_info
 zstyle ':vcs_info:*' enable git hg
-zstyle ':vcs_info:git*' formats "(%s/%b)"
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:git*' formats "(%s/%b/%c/%u)"
 
 # User specific aliases
 alias ls='ls --color=auto'
