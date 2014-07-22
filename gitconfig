@@ -13,3 +13,7 @@ lineNumber = true
 
 [alias]
 g = grep --break --heading
+
+# Example
+# [credential "http://xxx"]
+# username = john.doe
