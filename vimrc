@@ -36,6 +36,9 @@ set statusline+=\ %{fugitive#statusline()}
 set statusline+=\ (%c%V,\ %P)
 set statusline+=\ [%p%%,\ %L\ lines]
 
+" ctrlp
+let g:ctrlp_cmd = 'CtrlPMRU'
+
 " Misc options
 set showmatch
 set textwidth=79
