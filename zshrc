@@ -7,6 +7,7 @@ export HISTSIZE='5000'
 export HISTFILE="$HOME/.zsh_history"
 export SAVEHIST="$HISTSIZE"
 export GOPATH="$HOME/go"
+export KEYTIMEOUT=1
 
 # Options
 setopt AUTO_CD
@@ -21,10 +22,32 @@ colors
 compinit
 promptinit
 
+# zle
+bindkey -v
+
+bindkey '^r' history-incremental-search-backward
+
+zle-line-init zle-keymap-select()
+{
+	zle reset-prompt
+}
+
+zle -N zle-line-init
+zle -N zle-keymap-select
+
 # Prompt
-PROMPT="%{$fg_bold[magenta]%}%n@%m:%{$reset_color%}%{$fg_bold[blue]%}%~\
-%{$reset_color%}%{$fg_bold[yellow]%}\${vcs_info_msg_0_}%{$reset_color%}\
-%{$fg_bold[cyan]%}[%?]%{$reset_color%}%#> "
+VI_MODE_CMD="%{$fg_bold[red]%}<%{$reset_color%}"
+VI_MODE_INS="%{$fg_bold[green]%}>%{$reset_color%}"
+
+vi_mode_prompt_info()
+{
+	[ "$KEYMAP" = 'vicmd' ] && echo $VI_MODE_CMD || \
+	    echo $VI_MODE_INS
+}
+
+PROMPT='%{$fg_bold[magenta]%}%n@%m:%{$reset_color%}%{$fg_bold[blue]%}%~\
+%{$reset_color%}%{$fg_bold[yellow]%}${vcs_info_msg_0_}%{$reset_color%}\
+%{$fg_bold[cyan]%}[%?]%{$reset_color%}$(vi_mode_prompt_info) '
 
 # Hook functions
 precmd()
@@ -52,9 +75,6 @@ alias tree='tree -C'
 alias dlnf='aptitude search ~i~snon-free'
 alias dlnd='aptitude search ~i\!~ODebian'
 alias mirror='rsync -aci --delete'
-
-# zle
-bindkey -e
 
 # misc
 umask 022
