@@ -17,7 +17,7 @@ setopt PROMPT_SUBST
 setopt SHARE_HISTORY
 
 # Modules
-autoload -U colors compinit promptinit vcs_info
+autoload -U colors compinit promptinit terminfo vcs_info
 colors
 compinit
 promptinit
@@ -25,7 +25,9 @@ promptinit
 # zle
 bindkey -v
 
-bindkey '^r' history-incremental-search-backward
+bindkey "${terminfo[khome]}" beginning-of-line
+bindkey "${terminfo[kend]}"  end-of-line
+bindkey '^r'                 history-incremental-search-backward
 
 zle-line-init zle-keymap-select()
 {
