@@ -90,6 +90,7 @@ alias mirror='rsync -aci --delete'
 
 # misc
 umask 022
+setxkbmap -option -option caps:escape
 
 # git: Show +N/-N when your local branch is ahead-of or behind remote HEAD
 # Make sure you have added misc to your 'formats': %m
