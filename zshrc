@@ -29,13 +29,23 @@ bindkey "${terminfo[khome]}" beginning-of-line
 bindkey "${terminfo[kend]}"  end-of-line
 bindkey '^r'                 history-incremental-search-backward
 
+# Custom widgets
+accept-search-vi-end-of-line()
+{
+	zle accept-search
+	zle vi-end-of-line
+}
+
 zle-line-init zle-keymap-select()
 {
 	zle reset-prompt
 }
 
+zle -N accept-search-vi-end-of-line
 zle -N zle-line-init
 zle -N zle-keymap-select
+
+bindkey '^g' accept-search-vi-end-of-line
 
 # Prompt
 VI_MODE_CMD="%{$fg_bold[red]%}<%{$reset_color%}"
