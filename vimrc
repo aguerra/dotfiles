@@ -16,6 +16,8 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'sirver/ultisnips'
 Plugin 'fatih/vim-go'
+Plugin 'tomasr/molokai'
+Plugin 'bling/vim-airline'
 
 " Required
 call vundle#end()
@@ -26,15 +28,15 @@ syntax on
 set title
 set background=dark
 set number
+set cursorline
 set laststatus=2
-highlight colorcolumn ctermbg=magenta
+set guioptions-=T
+set guioptions-=r
+set guifont=Ubuntu\ Mono\ 12
 
-" statusline
-set statusline=%<%f\ %y\ %h%m%r
-set statusline+=\ %{tagbar#currenttag('[%s]','')}
-set statusline+=\ %{fugitive#statusline()}
-set statusline+=\ (%c%V,\ %P)
-set statusline+=\ [%p%%,\ %L\ lines]
+if has('gui_running')
+	colorscheme molokai
+endif
 
 " ctrlp
 let g:ctrlp_cmd = 'CtrlPMRU'
