@@ -38,9 +38,6 @@ if has('gui_running')
 	colorscheme molokai
 endif
 
-" ctrlp
-let g:ctrlp_cmd = 'CtrlPMRU'
-
 " Misc options
 set hidden
 set history=1000
@@ -76,6 +73,9 @@ endif
 nnoremap <Leader>m :silent make!<CR>: echo 'make done'<CR>
 autocmd quickfixcmdpost make botright cwindow 15
 autocmd filetype qf call UnsetNuAndCc()
+
+" ctrlp
+let g:ctrlp_cmd = 'CtrlPMRU'
 
 " tagbar
 "autocmd filetype * nested :call tagbar#autoopen(0)
