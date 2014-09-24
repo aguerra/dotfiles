@@ -32,7 +32,7 @@ set cursorline
 set laststatus=2
 set guioptions-=T
 set guioptions-=r
-set guifont=Ubuntu\ Mono\ 12
+set guifont=DejaVu\ Sans\ Mono\ 11
 
 if has('gui_running')
 	colorscheme molokai
@@ -42,11 +42,21 @@ endif
 let g:ctrlp_cmd = 'CtrlPMRU'
 
 " Misc options
+set hidden
+set history=1000
+set wildmenu
 set showmatch
 set textwidth=79
 set ignorecase
+set smartcase
+set scrolloff=3
 set colorcolumn=+1
-set listchars=tab:>_,trail:. 
+set directory=~/.vim-tmp,~/tmp,/var/tmp,/tmp
+set hlsearch
+set incsearch
+set visualbell
+set shortmess=atI
+set listchars=tab:..
 set list
 let g:is_posix = 1 " Fix shell command substitution syntax
 set completeopt=menu,preview,longest
