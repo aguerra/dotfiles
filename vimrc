@@ -58,10 +58,6 @@ set list
 let g:is_posix = 1 " Fix shell command substitution syntax
 set completeopt=menu,preview,longest
 
-" Indentation
-set shiftwidth=8
-set softtabstop=8
-
 " Make customization
 if isdirectory('build')
 	let &makeprg .= ' -C build'
