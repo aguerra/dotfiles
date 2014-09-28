@@ -87,6 +87,7 @@ autocmd filetype cpp    set tags+=~/tags/cpp
 autocmd filetype help call UnsetNuAndCc()
 autocmd cursormovedi * if pumvisible() == 0 | pclose | endif
 autocmd insertleave  * if pumvisible() == 0 | pclose | endif
+autocmd guienter * call system('wmctrl -i -b add,maximized_vert,maximized_horz -r '.v:windowid)
 
 " Misc mappings
 inoremap <silent> jj        <Esc>
