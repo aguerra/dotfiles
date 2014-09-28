@@ -73,9 +73,12 @@ autocmd filetype qf call UnsetNuAndCc()
 " ctrlp
 let g:ctrlp_cmd = 'CtrlPMRU'
 
-" tagbar
-"autocmd filetype * nested :call tagbar#autoopen(0)
-"let g:tagbar_width = 35
+" ycm
+let g:ycm_collect_identifiers_from_tags_files = 1
+
+" airline
+let g:airline#extensions#whitespace#checks = [ 'trailing' ]
+let g:airline#extensions#tabline#enabled = 1
 
 " Tags
 set tags=./tags,tags
