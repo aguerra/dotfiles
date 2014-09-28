@@ -67,7 +67,7 @@ if filereadable('/proc/cpuinfo')
 endif
 
 nnoremap <Leader>m :silent make!<CR>: echo 'make done'<CR>
-autocmd quickfixcmdpost make botright cwindow 15
+autocmd quickfixcmdpost make botright cwindow
 autocmd filetype qf call UnsetNuAndCc()
 
 " ctrlp
