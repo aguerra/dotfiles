@@ -68,7 +68,7 @@ endif
 
 nnoremap <Leader>m :silent make!<CR>: echo 'make done'<CR>
 autocmd quickfixcmdpost make botright cwindow
-autocmd filetype qf call UnsetNuAndCc()
+autocmd filetype qf call UnsetNumberAndColorColumn()
 
 " ctrlp
 let g:ctrlp_cmd = 'CtrlPMRU'
@@ -87,13 +87,13 @@ autocmd filetype c,cpp  set tags+=~/tags/c
 autocmd filetype cpp    set tags+=~/tags/cpp
 
 " Misc autocmds
-autocmd filetype help call UnsetNuAndCc()
+autocmd filetype help call UnsetNumberAndColorColumn()
 autocmd cursormovedi * if pumvisible() == 0 | pclose | endif
 autocmd insertleave  * if pumvisible() == 0 | pclose | endif
 autocmd guienter * call system('wmctrl -i -b add,maximized_vert,maximized_horz -r '.v:windowid)
 
 " Misc mappings
-nnoremap <silent> <Leader>t  :call Ctags()<CR>
+nnoremap <silent> <Leader>t  :call GenerateCtags()<CR>
 nnoremap <silent> <Leader>q  :q<CR>
 noremap  <silent> <C-Down>   <C-W>j
 noremap  <silent> <C-Up>     <C-W>k
@@ -107,7 +107,7 @@ nnoremap <silent> <Leader>gd :Gdiff<CR>
 let g:go_disable_autoinstall = 1
 
 " Functions
-function! Ctags()
+function! GenerateCtags()
 	let output = system('ctags')
 	if !empty(output)
 		echo output
@@ -116,7 +116,7 @@ function! Ctags()
 	endif
 endfunction
 
-function! UnsetNuAndCc()
+function! UnsetNumberAndColorColumn()
 	setlocal nonumber
 	setlocal colorcolumn=
 endfunction
