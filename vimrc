@@ -93,15 +93,15 @@ autocmd insertleave  * if pumvisible() == 0 | pclose | endif
 autocmd guienter * call system('wmctrl -i -b add,maximized_vert,maximized_horz -r '.v:windowid)
 
 " Misc mappings
-inoremap <silent> jj        <Esc>
-nnoremap <silent> <Leader>t :call Ctags()<CR>
-nnoremap <silent> <Leader>q :q<CR>
-inoremap <silent> <C-O>     <C-X><C-O>
-noremap  <silent> <C-Down>  <C-W>j
-noremap  <silent> <C-Up>    <C-W>k
-noremap  <silent> <C-Left>  <C-W>h
-noremap  <silent> <C-Right> <C-W>l
-nnoremap <silent> <Leader>a :A<CR>
+nnoremap <silent> <Leader>t  :call Ctags()<CR>
+nnoremap <silent> <Leader>q  :q<CR>
+noremap  <silent> <C-Down>   <C-W>j
+noremap  <silent> <C-Up>     <C-W>k
+noremap  <silent> <C-Left>   <C-W>h
+noremap  <silent> <C-Right>  <C-W>l
+nnoremap <silent> <Leader>a  :A<CR>
+nnoremap <silent> <Leader>gs :Gstatus<CR>
+nnoremap <silent> <Leader>gd :Gdiff<CR>
 
 " vim-go
 let g:go_disable_autoinstall = 1
