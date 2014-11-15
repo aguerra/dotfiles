@@ -69,6 +69,10 @@ precmd()
     printf "\e]0;${USER}@${HOST}:${PWD}\a"
 }
 
+# Completion configuration
+zstyle ':completion:*' menu select # Keyboard navigable completion list
+zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
+
 # vcs_info
 zstyle ':vcs_info:*' enable git hg
 zstyle ':vcs_info:*' check-for-changes true
