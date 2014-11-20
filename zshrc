@@ -45,7 +45,9 @@ zle -N accept-search-vi-end-of-line
 zle -N zle-line-init
 zle -N zle-keymap-select
 
-bindkey '^g' accept-search-vi-end-of-line
+bindkey '^g'   accept-search-vi-end-of-line
+bindkey '^[[A' up-line-or-search
+bindkey '^[[B' down-line-or-search
 
 # Prompt
 VI_MODE_CMD="%{$fg_bold[red]%}<%{$reset_color%}"
