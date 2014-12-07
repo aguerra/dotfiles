@@ -101,6 +101,7 @@ noremap  <silent> <C-Right>  <C-W>l
 nnoremap <silent> <Leader>a  :A<CR>
 nnoremap <silent> <Leader>gs :Gstatus<CR>
 nnoremap <silent> <Leader>gd :Gdiff<CR>
+nnoremap <silent> <Leader>gc :Gcommit<CR>
 
 " vim-go
 let g:go_disable_autoinstall = 1
