@@ -78,7 +78,6 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 
 " airline
 let g:airline#extensions#whitespace#checks = [ 'trailing' ]
-let g:airline#extensions#tabline#enabled = 1
 
 " Tags
 set tags=./tags,tags
