@@ -92,16 +92,17 @@ autocmd insertleave  * if pumvisible() == 0 | pclose | endif
 autocmd guienter * call system('wmctrl -i -b add,maximized_vert,maximized_horz -r '.v:windowid)
 
 " Misc mappings
-nnoremap <silent> <Leader>t  :call GenerateCtags()<CR>
-nnoremap <silent> <Leader>q  :q<CR>
-noremap  <silent> <C-Down>   <C-W>j
-noremap  <silent> <C-Up>     <C-W>k
-noremap  <silent> <C-Left>   <C-W>h
-noremap  <silent> <C-Right>  <C-W>l
-nnoremap <silent> <Leader>a  :A<CR>
-nnoremap <silent> <Leader>gs :Gstatus<CR>
-nnoremap <silent> <Leader>gd :Gdiff<CR>
-nnoremap <silent> <Leader>gc :Gcommit<CR>
+nnoremap <silent> <leader>t  :call GenerateCtags()<cr>
+nnoremap <silent> <leader>q  :q<cr>
+nnoremap <silent> <leader>wq :wq<cr>
+noremap  <silent> <c-down>   <c-w>j
+noremap  <silent> <c-up>     <c-w>k
+noremap  <silent> <c-left>   <c-w>h
+noremap  <silent> <c-right>  <c-w>l
+nnoremap <silent> <leader>a  :A<cr>
+nnoremap <silent> <leader>gs :Gstatus<cr>
+nnoremap <silent> <leader>gd :Gdiff<cr>
+nnoremap <silent> <leader>gc :Gcommit<cr>
 
 " vim-go
 let g:go_disable_autoinstall = 1
