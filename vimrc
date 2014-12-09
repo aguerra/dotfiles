@@ -109,10 +109,10 @@ let g:go_disable_autoinstall = 1
 " Functions
 function! GenerateCtags()
 	let output = system('ctags')
-	if !empty(output)
-		echo output
-	else
+	if empty(output)
 		echo 'ctags done'
+	else
+		echo output
 	endif
 endfunction
 
