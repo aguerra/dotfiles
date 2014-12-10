@@ -89,7 +89,8 @@ autocmd filetype cpp    set tags+=~/tags/cpp
 autocmd filetype help call UnsetNumberAndColorColumn()
 autocmd cursormovedi * if pumvisible() == 0 | pclose | endif
 autocmd insertleave  * if pumvisible() == 0 | pclose | endif
-autocmd guienter * call system('wmctrl -i -b add,maximized_vert,maximized_horz -r '.v:windowid)
+autocmd guienter * call system('wmctrl -i -b add,maximized_vert,maximized_horz
+                               \ -r ' . v:windowid)
 
 " Misc mappings
 nnoremap <silent> <leader>t  :call GenerateCtags()<cr>
