@@ -87,8 +87,7 @@ autocmd filetype cpp    set tags+=~/tags/cpp
 
 " Misc autocmds
 autocmd filetype help call UnsetNumberAndColorColumn()
-autocmd cursormovedi * if pumvisible() == 0 | pclose | endif
-autocmd insertleave  * if pumvisible() == 0 | pclose | endif
+autocmd completedone * pclose
 autocmd guienter * call system('wmctrl -i -b add,maximized_vert,maximized_horz
                                \ -r ' . v:windowid)
 
