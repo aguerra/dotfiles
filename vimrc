@@ -79,19 +79,22 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 " airline
 let g:airline#extensions#whitespace#checks = [ 'trailing' ]
 
+" vim-go
+let g:go_disable_autoinstall = 1
+
 " Tags
 set tags=./tags,tags
 autocmd filetype python set tags+=~/tags/python
 autocmd filetype c,cpp  set tags+=~/tags/c
 autocmd filetype cpp    set tags+=~/tags/cpp
 
-" Misc autocmds
+" Autocmds
 autocmd filetype help call UnsetNumberAndColorColumn()
 autocmd completedone * pclose
 autocmd guienter * call system('wmctrl -i -b add,maximized_vert,maximized_horz
                                \ -r ' . v:windowid)
 
-" Misc mappings
+" Mappings
 nnoremap <silent> <leader>t  :call GenerateCtags()<cr>
 nnoremap <silent> <leader>q  :q<cr>
 nnoremap <silent> <leader>wq :wq<cr>
@@ -103,9 +106,6 @@ nnoremap <silent> <leader>a  :A<cr>
 nnoremap <silent> <leader>gs :Gstatus<cr>
 nnoremap <silent> <leader>gd :Gdiff<cr>
 nnoremap <silent> <leader>gc :Gcommit<cr>
-
-" vim-go
-let g:go_disable_autoinstall = 1
 
 " Functions
 function! GenerateCtags()
