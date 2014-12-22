@@ -84,9 +84,6 @@ let g:go_disable_autoinstall = 1
 
 " Tags
 set tags=./tags,tags
-autocmd filetype python set tags+=~/tags/python
-autocmd filetype c,cpp  set tags+=~/tags/c
-autocmd filetype cpp    set tags+=~/tags/cpp
 
 " Autocmds
 autocmd filetype help call UnsetNumberAndColorColumn()
