@@ -103,6 +103,8 @@ nnoremap <silent> <leader>a  :A<cr>
 nnoremap <silent> <leader>gs :Gstatus<cr>
 nnoremap <silent> <leader>gd :Gdiff<cr>
 nnoremap <silent> <leader>gc :Gcommit<cr>
+nnoremap <silent> <leader>sp :setlocal spell spelllang=pt_br<cr>
+nnoremap <silent> <leader>se :setlocal spell spelllang=en_us<cr>
 
 " Functions
 function! GenerateCtags()
