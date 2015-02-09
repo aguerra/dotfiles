@@ -70,14 +70,11 @@ nnoremap <Leader>m :silent make!<CR>: echo 'make done'<CR>
 autocmd quickfixcmdpost make botright cwindow
 autocmd filetype qf call UnsetNumberAndColorColumn()
 
-" ctrlp
-let g:ctrlp_cmd = 'CtrlPMRU'
-
 " ycm
 let g:ycm_collect_identifiers_from_tags_files = 1
 
 " airline
-let g:airline#extensions#whitespace#checks = [ 'trailing' ]
+let g:airline#extensions#whitespace#checks = ['trailing']
 
 " vim-go
 let g:go_disable_autoinstall = 1
