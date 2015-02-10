@@ -18,6 +18,7 @@ Plugin 'sirver/ultisnips'
 Plugin 'fatih/vim-go'
 Plugin 'tomasr/molokai'
 Plugin 'bling/vim-airline'
+Plugin 'honza/vim-snippets'
 
 " Required
 call vundle#end()
@@ -72,6 +73,8 @@ autocmd filetype qf call UnsetNumberAndColorColumn()
 
 " ycm
 let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_key_list_select_completion = []
+let g:ycm_key_list_previous_completion = []
 
 " airline
 let g:airline#extensions#whitespace#checks = ['trailing']
