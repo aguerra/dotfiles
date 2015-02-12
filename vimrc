@@ -68,8 +68,6 @@ if filereadable('/proc/cpuinfo')
 endif
 
 nnoremap <Leader>m :silent make!<CR>: echo 'make done'<CR>
-autocmd quickfixcmdpost make botright cwindow
-autocmd filetype qf call UnsetNumberAndColorColumn()
 
 " ycm
 let g:ycm_collect_identifiers_from_tags_files = 1
@@ -86,7 +84,8 @@ let g:go_disable_autoinstall = 1
 set tags=./tags,tags
 
 " Autocmds
-autocmd filetype help call UnsetNumberAndColorColumn()
+autocmd quickfixcmdpost make botright cwindow
+autocmd filetype help,qf call UnsetNumberAndColorColumn()
 autocmd completedone * pclose
 autocmd guienter * call system('wmctrl -i -b add,maximized_vert,maximized_horz
                                \ -r ' . v:windowid)
