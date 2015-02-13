@@ -67,8 +67,6 @@ if filereadable('/proc/cpuinfo')
 	let &makeprg .= ' -j' . (system('grep -c ^processor /proc/cpuinfo'))
 endif
 
-nnoremap <Leader>m :silent make!<CR>: echo 'make done'<CR>
-
 " ycm
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_key_list_select_completion = []
@@ -91,6 +89,7 @@ autocmd guienter * call system('wmctrl -i -b add,maximized_vert,maximized_horz
                                \ -r ' . v:windowid)
 
 " Mappings
+nnoremap <silent> <leader>m  :silent make!<cr>: echo 'make done'<cr>
 nnoremap <silent> <leader>t  :call GenerateCtags()<cr>
 nnoremap <silent> <leader>q  :q<cr>
 nnoremap <silent> <leader>wq :wq<cr>
