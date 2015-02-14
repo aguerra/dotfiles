@@ -60,12 +60,7 @@ let g:is_posix = 1 " Fix shell command substitution syntax
 set completeopt=menu,preview,longest
 
 " Make customization
-if isdirectory('build')
-	let &makeprg .= ' -C build'
-endif
-if filereadable('/proc/cpuinfo')
-	let &makeprg .= ' -j' . (system('grep -c ^processor /proc/cpuinfo'))
-endif
+let &makeprg .= ' -j' . system('getconf _NPROCESSORS_ONLN')
 
 " ycm
 let g:ycm_collect_identifiers_from_tags_files = 1
