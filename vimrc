@@ -7,7 +7,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim' " required
+Plugin 'gmarik/Vundle.vim'
 Plugin 'a.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
@@ -20,7 +20,6 @@ Plugin 'tomasr/molokai'
 Plugin 'bling/vim-airline'
 Plugin 'honza/vim-snippets'
 
-" Required
 call vundle#end()
 filetype plugin indent on
 
