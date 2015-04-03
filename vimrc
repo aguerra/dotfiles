@@ -30,7 +30,6 @@ set number
 set cursorline
 set laststatus=2
 set guioptions-=T
-set guioptions-=r
 
 let guifont_size = 13
 if winheight(0) < 40
