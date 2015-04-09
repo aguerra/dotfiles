@@ -27,6 +27,7 @@ filetype plugin indent on
 syntax on
 set background=dark
 set number
+set relativenumber
 set cursorline
 set laststatus=2
 set guioptions-=T
