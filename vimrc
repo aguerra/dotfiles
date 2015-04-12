@@ -91,6 +91,7 @@ nnoremap <silent> <leader>m  :silent make!<cr>: echo 'make done'<cr>
 nnoremap <silent> <leader>t  :call GenerateCtags()<cr>
 nnoremap <silent> <leader>q  :q<cr>
 nnoremap <silent> <leader>wq :wq<cr>
+nnoremap <silent> <leader>fq :q!<cr>
 noremap  <silent> <c-down>   <c-w>j
 noremap  <silent> <c-up>     <c-w>k
 noremap  <silent> <c-left>   <c-w>h
@@ -102,6 +103,7 @@ nnoremap <silent> <leader>gc :Gcommit<cr>
 nnoremap <silent> <leader>sp :setlocal spell spelllang=pt_br<cr>
 nnoremap <silent> <leader>se :setlocal spell spelllang=en_us<cr>
 nnoremap <silent> <leader>d  :YcmCompleter GoToDefinition<cr>
+nnoremap <silent> <leader>/  :nohlsearch<cr>
 
 " Functions
 function! GenerateCtags()
