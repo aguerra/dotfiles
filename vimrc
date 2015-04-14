@@ -104,6 +104,7 @@ nnoremap <silent> <leader>sp :setlocal spell spelllang=pt_br<cr>
 nnoremap <silent> <leader>se :setlocal spell spelllang=en_us<cr>
 nnoremap <silent> <leader>d  :YcmCompleter GoToDefinition<cr>
 nnoremap <silent> <leader>/  :nohlsearch<cr>
+noremap  <silent> <f2>       :set invpaste<cr>
 
 " Functions
 function! GenerateCtags()
