@@ -19,6 +19,7 @@ Plugin 'fatih/vim-go'
 Plugin 'tomasr/molokai'
 Plugin 'bling/vim-airline'
 Plugin 'honza/vim-snippets'
+Plugin 'nvie/vim-flake8'
 
 call vundle#end()
 filetype plugin indent on
