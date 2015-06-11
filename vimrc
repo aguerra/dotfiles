@@ -32,12 +32,7 @@ set relativenumber
 set cursorline
 set laststatus=2
 set guioptions-=T
-
-let guifont_size = 13
-if winheight(0) < 40
-	let guifont_size = 12
-endif
-let &guifont = 'Ubuntu Mono ' . guifont_size
+set guifont=Ubuntu\ Mono\ 12
 
 if has('gui_running')
 	colorscheme molokai
