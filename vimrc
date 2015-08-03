@@ -72,6 +72,9 @@ let g:airline#extensions#whitespace#checks = ['trailing']
 " vim-go
 let g:go_disable_autoinstall = 1
 
+" tagbar
+let g:tagbar_left = 1
+
 " Tags
 set tags=./tags,tags
 
@@ -81,6 +84,7 @@ autocmd filetype help,qf call UnsetNumberAndColorColumn()
 autocmd completedone * pclose
 autocmd guienter * call system('wmctrl -i -b add,maximized_vert,maximized_horz
                                \ -r ' . v:windowid)
+autocmd vimenter * nested :TagbarOpen
 
 " Mappings
 nnoremap <silent> <leader>m  :silent make!<cr>: echo 'make done'<cr>
