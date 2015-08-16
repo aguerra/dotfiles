@@ -77,6 +77,9 @@ let g:go_disable_autoinstall = 1
 let g:tagbar_left = 1
 let g:tagbar_width = 35
 
+" ultisnips
+let g:ultisnips_python_style = 'google'
+
 " Tags
 set tags=./tags,tags
 
