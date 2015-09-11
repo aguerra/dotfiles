@@ -75,7 +75,6 @@ let g:go_disable_autoinstall = 1
 
 " Tagbar
 let g:tagbar_left = 1
-let g:tagbar_width = 35
 
 " ultisnips
 let g:ultisnips_python_style = 'google'
@@ -89,7 +88,7 @@ autocmd filetype help,qf call UnsetNumberAndColorColumn()
 autocmd completedone * pclose
 autocmd guienter * call system('wmctrl -i -b add,maximized_vert,maximized_horz
                                \ -r ' . v:windowid)
-autocmd filetype * nested :call tagbar#autoopen(0)
+autocmd vimenter * nested :TagbarOpen
 
 " Mappings
 nnoremap <silent> <leader>m  :silent make!<cr>: echo 'make done'<cr>
