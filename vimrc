@@ -43,7 +43,7 @@ set hidden
 set history=1000
 set wildmenu
 set showmatch
-set textwidth=79
+set textwidth=99
 set ignorecase
 set smartcase
 set scrolloff=3
