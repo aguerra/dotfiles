@@ -68,7 +68,7 @@ let g:ycm_key_list_select_completion = []
 let g:ycm_key_list_previous_completion = []
 
 " airline
-let g:airline#extensions#whitespace#checks = ['trailing']
+let g:airline#extensions#default#layout = [['a', 'b', 'c', 'x', 'y', 'z'], ['warning']]
 
 " vim-go
 let g:go_disable_autoinstall = 1
