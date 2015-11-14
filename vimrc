@@ -59,6 +59,7 @@ set list
 let g:is_posix = 1 " Fix shell command substitution syntax
 set completeopt=menu,preview,longest
 set clipboard=unnamed,unnamedplus
+set cryptmethod=blowfish2
 
 " Make customization
 let &makeprg .= ' -j' . system('getconf _NPROCESSORS_ONLN')
