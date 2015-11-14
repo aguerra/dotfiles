@@ -94,6 +94,7 @@ alias tree='tree -C'
 alias dlnf='aptitude search ~i~snon-free'
 alias dlnd='aptitude search ~i\!~ODebian'
 alias mirror='rsync -aci --delete'
+alias safe-gvim='gvim -i NONE'
 
 # misc
 umask 022
