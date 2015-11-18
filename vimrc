@@ -33,7 +33,7 @@ set cursorline
 set laststatus=2
 set guioptions-=T
 set guioptions-=m
-set guifont=Inconsolata\ Medium\ 12
+set guifont=DejaVu\ Sans\ Mono\ 10
 
 if has('gui_running')
 	colorscheme molokai
