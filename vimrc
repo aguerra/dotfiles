@@ -71,8 +71,6 @@ let &makeprg .= ' -j' . system('getconf _NPROCESSORS_ONLN')
 
 " ycm
 let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_key_list_select_completion = []
-let g:ycm_key_list_previous_completion = []
 
 " airline
 let g:airline#extensions#default#layout = [['a', 'b', 'c', 'x', 'y', 'z'], ['warning']]
