@@ -20,6 +20,7 @@ Plugin 'tomasr/molokai'
 Plugin 'bling/vim-airline'
 Plugin 'honza/vim-snippets'
 Plugin 'nvie/vim-flake8'
+Plugin 'scrooloose/nerdtree'
 
 call vundle#end()
 filetype plugin indent on
@@ -89,6 +90,10 @@ let g:UltiSnipsExpandTrigger = "<c-j>"
 let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 
+" NERDTree
+let g:NERDTreeWinPos = "right"
+let NERDTreeIgnore = ["\.pyc$"]
+
 " Tags
 set tags=./tags,tags
 
@@ -99,6 +104,9 @@ autocmd completedone * pclose
 autocmd guienter * call system('wmctrl -i -b add,maximized_vert,maximized_horz
                                \ -r ' . v:windowid)
 autocmd vimenter * nested :TagbarOpen
+autocmd vimenter * NERDTree | wincmd p
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q |
+                   \ endif
 
 " Mappings
 nnoremap <silent> <leader>m  :silent make!<cr>: echo 'make done'<cr>
