@@ -81,8 +81,13 @@ let g:go_disable_autoinstall = 1
 " Tagbar
 let g:tagbar_left = 1
 
+" vim-snippets
+let g:ultisnips_python_style = "google"
+
 " ultisnips
-let g:ultisnips_python_style = 'google'
+let g:UltiSnipsExpandTrigger = "<c-j>"
+let g:UltiSnipsJumpForwardTrigger = "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 
 " Tags
 set tags=./tags,tags
