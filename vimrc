@@ -21,6 +21,7 @@ Plugin 'bling/vim-airline'
 Plugin 'honza/vim-snippets'
 Plugin 'nvie/vim-flake8'
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
 
 call vundle#end()
 filetype plugin indent on
@@ -93,6 +94,13 @@ let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 " NERDTree
 let g:NERDTreeWinPos = "right"
 let NERDTreeIgnore = ["\.pyc$"]
+
+" syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_quiet_messages = {"type": "style"}
 
 " Tags
 set tags=./tags,tags
