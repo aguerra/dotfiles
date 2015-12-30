@@ -81,9 +81,6 @@ let g:airline#extensions#default#layout = [['a', 'b', 'c', 'x', 'y', 'z'], ['war
 " vim-go
 let g:go_disable_autoinstall = 1
 
-" Tagbar
-let g:tagbar_left = 1
-
 " vim-snippets
 let g:ultisnips_python_style = "google"
 
@@ -93,7 +90,6 @@ let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 
 " NERDTree
-let g:NERDTreeWinPos = "right"
 let NERDTreeIgnore = ["\.pyc$"]
 
 " syntastic
