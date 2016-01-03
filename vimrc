@@ -70,6 +70,11 @@ else
 	set cryptmethod=blowfish
 endif
 
+" Folding
+set foldenable
+set foldlevelstart=3
+set foldnestmax=10
+
 " Make customization
 let &makeprg .= ' -j' . system('getconf _NPROCESSORS_ONLN')
 
@@ -114,6 +119,11 @@ autocmd vimenter * NERDTree | wincmd p
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q |
                    \ endif
 
+augroup config_languages
+    autocmd!
+    autocmd filetype python setlocal foldmethod=indent
+augroup END
+
 " Mappings
 nnoremap <silent> <leader>m  :silent make!<cr>: echo 'make done'<cr>
 nnoremap <silent> <leader>t  :call GenerateCtags()<cr>
@@ -135,6 +145,7 @@ nnoremap <silent> <leader>/  :nohlsearch<cr>
 noremap  <silent> <f2>       :set invpaste<cr>
 nnoremap <silent> <leader>ev :e  $MYVIMRC<cr>
 nnoremap <silent> <leader>rv :so $MYVIMRC<cr>
+nnoremap <silent> <leader><space> za
 
 " Functions
 function! GenerateCtags()
