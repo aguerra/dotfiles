@@ -62,6 +62,7 @@ set list
 let g:is_posix = 1 " Fix shell command substitution syntax
 set completeopt=menu,preview,longest
 set clipboard=unnamed,unnamedplus
+set showcmd
 
 if v:version == 704 && has('patch399')
 	set cryptmethod=blowfish2
