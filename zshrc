@@ -74,6 +74,7 @@ precmd()
 # Completion configuration
 zstyle ':completion:*' menu select # Keyboard navigable completion list
 zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
+zstyle ':completion:*' rehash true
 
 # vcs_info
 zstyle ':vcs_info:*' enable git hg
