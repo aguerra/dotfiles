@@ -118,3 +118,7 @@ function +vi-git-aheadbehind()
 
     hook_com[misc]+=${(j::)gitstatus}
 }
+
+# venv support
+export VIRTUALENVWRAPPER_SCRIPT=/usr/share/virtualenvwrapper/virtualenvwrapper.sh
+source /usr/share/virtualenvwrapper/virtualenvwrapper_lazy.sh
