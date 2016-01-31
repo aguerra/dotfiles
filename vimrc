@@ -72,7 +72,7 @@ endif
 
 " Folding
 set foldenable
-set foldlevelstart=3
+set foldlevelstart=10
 set foldnestmax=10
 
 " Make customization
