@@ -49,7 +49,7 @@ bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
 
 # Prompt
-VI_MODE_CMD="%{$fg_bold[red]%}<%{$reset_color%}"
+VI_MODE_CMD="%{$fg_bold[red]%}>%{$reset_color%}"
 VI_MODE_INS="%{$fg_bold[green]%}>%{$reset_color%}"
 
 vi_mode_prompt_info()
@@ -58,9 +58,10 @@ vi_mode_prompt_info()
 	    echo $VI_MODE_INS
 }
 
-PROMPT='%{$fg_bold[magenta]%}%n@%m:%{$reset_color%}%{$fg_bold[blue]%}%~\
+PROMPT='%{$fg_bold[white]%}%n@%m:%{$reset_color%}%{$fg_bold[blue]%}%~\
 %{$reset_color%}%{$fg_bold[yellow]%}${vcs_info_msg_0_}%{$reset_color%}\
-%{$fg_bold[cyan]%}[%?]%{$reset_color%}$(vi_mode_prompt_info) '
+%{$fg_bold[magenta]%}{$(basename "$VIRTUAL_ENV")}%{$fg_bold[cyan]%}[%?]\
+%{$reset_color%}%{$reset_color%}$(vi_mode_prompt_info) '
 
 # Hook functions
 precmd()
