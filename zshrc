@@ -14,7 +14,6 @@ setopt AUTO_CD
 setopt EXTENDED_GLOB
 setopt HIST_IGNORE_ALL_DUPS
 setopt PROMPT_SUBST
-setopt SHARE_HISTORY
 
 # Modules
 autoload -U colors compinit promptinit terminfo vcs_info
