@@ -123,4 +123,5 @@ function +vi-git-aheadbehind()
 # venv support
 export VIRTUALENVWRAPPER_SCRIPT=/usr/share/virtualenvwrapper/virtualenvwrapper.sh
 source /usr/share/virtualenvwrapper/virtualenvwrapper_lazy.sh
+alias mkvirtualenv="mkvirtualenv --always-copy"
 alias mkvirtualenv3="mkvirtualenv -p /usr/bin/python3 --always-copy"
