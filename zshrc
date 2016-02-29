@@ -1,12 +1,12 @@
 # zshrc
 
 # Exports
-export PATH="~/bin:/usr/lib/ccache:$PATH:/sbin:/usr/sbin:/usr/local/go/bin"
 export EDITOR='vim'
 export HISTSIZE='5000'
 export HISTFILE="$HOME/.zsh_history"
 export SAVEHIST="$HISTSIZE"
 export GOPATH="$HOME/go"
+export PATH="~/bin:/usr/lib/ccache:$PATH:/sbin:/usr/sbin:/usr/local/go/bin:$GOPATH/bin"
 export KEYTIMEOUT=1
 
 # Options
