@@ -182,7 +182,9 @@ function! ActivateVenv()
     if !empty($WORKON_HOME)
         let l:dir = $WORKON_HOME
     endif
-    let l:python = l:dir . '/' . l:venv . '/bin/python'
+    let l:dir .=  '/' . l:venv . '/bin'
+    let $PATH .= ':' . l:dir
+    let l:python = l:dir . '/python'
     execute 'YcmCompleter RestartServer ' . l:python
 endfunction
 
