@@ -28,7 +28,6 @@ call vundle#end()
 filetype plugin indent on
 
 " Look and feel
-let python_highlight_all = 1
 syntax on
 set background=dark
 set number
@@ -38,9 +37,10 @@ set laststatus=2
 set guioptions-=T
 set guioptions-=m
 set guifont=Ubuntu\ Mono\ 12
+let python_highlight_all = 1
 
 if has('gui_running')
-	colorscheme molokai
+    colorscheme molokai
 endif
 
 " Misc options
