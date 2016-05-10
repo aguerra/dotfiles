@@ -22,6 +22,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'nvie/vim-flake8'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'sjl/gundo.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -176,6 +177,7 @@ nnoremap <silent> <leader>v :call ActivateVenv()<cr>
 noremap <silent> <f3> :call TogglePython3()<cr>
 nnoremap j gj
 nnoremap k gk
+nnoremap <f5> :GundoToggle<cr>
 
 " Functions
 
