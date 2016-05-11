@@ -60,17 +60,12 @@ set visualbell
 set shortmess=atI
 set listchars=tab:..
 set list
-let g:is_posix = 1 " Fix shell command substitution syntax
 set completeopt=menu,preview,longest
 set clipboard=unnamed,unnamedplus
 set showcmd
+set cryptmethod=blowfish2
+let g:is_posix = 1  " Fix shell command substitution syntax
 let mapleader = ','
-
-if v:version == 704 && has('patch399')
-	set cryptmethod=blowfish2
-else
-	set cryptmethod=blowfish
-endif
 
 " Folding
 set foldenable
