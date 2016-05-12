@@ -66,14 +66,12 @@ set showcmd
 set cryptmethod=blowfish2
 let g:is_posix = 1  " Fix shell command substitution syntax
 let mapleader = ','
+let &makeprg .= ' -j' . system('getconf _NPROCESSORS_ONLN')
 
 " Folding
 set foldenable
 set foldlevelstart=10
 set foldnestmax=10
-
-" Make customization
-let &makeprg .= ' -j' . system('getconf _NPROCESSORS_ONLN')
 
 " ycm
 let g:ycm_collect_identifiers_from_tags_files = 1
