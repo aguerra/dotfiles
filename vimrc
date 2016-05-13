@@ -73,7 +73,8 @@ set foldenable
 set foldlevelstart=10
 set foldnestmax=10
 
-" ycm
+" Ycm
+let g:ycm_server_python_interpreter = '/usr/bin/python3'
 let g:ycm_collect_identifiers_from_tags_files = 1
 
 " airline
