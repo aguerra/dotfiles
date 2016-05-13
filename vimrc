@@ -168,10 +168,13 @@ nnoremap <silent> <leader>rv :so $MYVIMRC<cr>
 nnoremap <silent> <leader><space> za
 nnoremap <silent> <leader>v :call ActivateVenv()<cr>
 noremap <silent> <f3> :call TogglePython3()<cr>
+
 nnoremap j gj
 nnoremap k gk
 nnoremap <f5> :GundoToggle<cr>
 nnoremap <f6> :NERDTreeFind<cr>
+nnoremap gV `[v`]
+nnoremap <leader>s :mksession
 
 " Functions
 
