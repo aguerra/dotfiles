@@ -78,9 +78,6 @@ let g:ctrlp_working_path_mode = 0
 let g:ycm_server_python_interpreter = '/usr/bin/python3'
 let g:ycm_collect_identifiers_from_tags_files = 1
 
-" airline
-let g:airline#extensions#default#layout = [['a', 'b', 'c', 'x', 'y', 'z'], ['warning']]
-
 " vim-go
 let g:go_disable_autoinstall = 1
 
