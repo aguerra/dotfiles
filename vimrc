@@ -65,16 +65,16 @@ set completeopt=menu,preview,longest
 set clipboard=unnamed,unnamedplus
 set showcmd
 set cryptmethod=blowfish2
+set foldenable
+set foldlevelstart=10
+set foldnestmax=10
 let g:is_posix = 1  " Fix shell command substitution syntax
 let mapleader = ','
 let &makeprg .= ' -j' . system('getconf _NPROCESSORS_ONLN')
 
-" Folding
-set foldenable
-set foldlevelstart=10
-set foldnestmax=10
+" Plugins options
+let g:ctrlp_working_path_mode = 0
 
-" Ycm
 let g:ycm_server_python_interpreter = '/usr/bin/python3'
 let g:ycm_collect_identifiers_from_tags_files = 1
 
