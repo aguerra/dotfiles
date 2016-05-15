@@ -75,6 +75,8 @@ let &makeprg .= ' -j' . system('getconf _NPROCESSORS_ONLN')
 " Plugins options
 let g:ctrlp_working_path_mode = 0
 
+let g:gundo_prefer_python3 = 1
+
 let g:ycm_server_python_interpreter = '/usr/bin/python3'
 let g:ycm_collect_identifiers_from_tags_files = 1
 
