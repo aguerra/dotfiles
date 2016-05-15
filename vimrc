@@ -173,7 +173,7 @@ noremap <silent> <f3> :call TogglePython3()<cr>
 nnoremap gV `[v`]
 nnoremap j gj
 nnoremap k gk
-nnoremap <f5> :GundoToggle<cr>
+nnoremap <f4> :GundoToggle<cr>
 nnoremap <f6> :NERDTreeFind<cr>
 nnoremap <leader>b :Ag
 nnoremap <leader>s :mksession
