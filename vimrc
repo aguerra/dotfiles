@@ -74,9 +74,7 @@ let &makeprg .= ' -j' . system('getconf _NPROCESSORS_ONLN')
 
 " Plugins options
 let g:ctrlp_working_path_mode = 0
-
 let g:gundo_prefer_python3 = 1
-
 let g:ycm_server_python_interpreter = '/usr/bin/python3'
 let g:ycm_collect_identifiers_from_tags_files = 1
 
@@ -93,9 +91,6 @@ let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 
 " NERDTree
 let NERDTreeIgnore = ["\.pyc$"]
-
-" vim-flake8
-let g:flake8_cmd = 'flake8'
 
 " Tags
 set tags=./tags,tags
@@ -168,7 +163,6 @@ nnoremap <silent> <leader>ev :e  $MYVIMRC<cr>
 nnoremap <silent> <leader>rv :so $MYVIMRC<cr>
 nnoremap <silent> <leader><space> za
 nnoremap <silent> <leader>v :call ActivateVenv()<cr>
-noremap <silent> <f3> :call TogglePython3()<cr>
 
 nnoremap gV `[v`]
 nnoremap j gj
@@ -191,16 +185,6 @@ function! ActivateVenv()
     let l:python = l:dir . '/python'
     execute 'YcmCompleter RestartServer ' . l:python
 endfunction
-
-
-function! TogglePython3()
-    if g:flake8_cmd == 'flake8'
-        let g:flake8_cmd = 'python3-flake8'
-    else
-        let g:flake8_cmd = 'flake8'
-    endif
-endfunction
-
 
 function! GenerateCtags()
 	let output = system('ctags')
