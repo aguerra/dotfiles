@@ -74,23 +74,15 @@ let &makeprg .= ' -j' . system('getconf _NPROCESSORS_ONLN')
 
 " Plugins options
 let g:ctrlp_working_path_mode = 0
-let g:gundo_prefer_python3 = 1
-let g:ycm_server_python_interpreter = '/usr/bin/python3'
-let g:ycm_collect_identifiers_from_tags_files = 1
-
-" vim-go
 let g:go_disable_autoinstall = 1
-
-" vim-snippets
-let g:ultisnips_python_style = "google"
-
-" ultisnips
-let g:UltiSnipsExpandTrigger = "<c-j>"
-let g:UltiSnipsJumpForwardTrigger = "<c-j>"
-let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
-
-" NERDTree
-let NERDTreeIgnore = ["\.pyc$"]
+let g:gundo_prefer_python3 = 1
+let NERDTreeIgnore = ['\.pyc$', '__pycache__']
+let g:UltiSnipsExpandTrigger = '<c-j>'
+let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
+let g:UltiSnipsJumpForwardTrigger = '<c-j>'
+let g:ultisnips_python_style = 'sphinx'
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_server_python_interpreter = '/usr/bin/python3'
 
 " Tags
 set tags=./tags,tags
