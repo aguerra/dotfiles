@@ -71,6 +71,7 @@ set foldnestmax=10
 let g:is_posix = 1  " Fix shell command substitution syntax
 let mapleader = ','
 let &makeprg .= ' -j' . system('getconf _NPROCESSORS_ONLN')
+set tags=./tags,tags
 
 " Plugins options
 let g:ctrlp_working_path_mode = 0
@@ -83,9 +84,6 @@ let g:UltiSnipsJumpForwardTrigger = '<c-j>'
 let g:ultisnips_python_style = 'sphinx'
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_server_python_interpreter = '/usr/bin/python3'
-
-" Tags
-set tags=./tags,tags
 
 " Tagbar gotags integration
 let g:tagbar_type_go = {
