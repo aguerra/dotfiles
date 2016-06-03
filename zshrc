@@ -125,3 +125,6 @@ export VIRTUALENVWRAPPER_SCRIPT=/usr/share/virtualenvwrapper/virtualenvwrapper.s
 source /usr/share/virtualenvwrapper/virtualenvwrapper_lazy.sh
 alias mkvirtualenv="mkvirtualenv --always-copy"
 alias mkvirtualenv3="mkvirtualenv -p /usr/bin/python3 --always-copy"
+
+# local hook
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
