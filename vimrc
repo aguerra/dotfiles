@@ -7,23 +7,23 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim'
 Plugin 'a.vim'
+Plugin 'bling/vim-airline'
+Plugin 'fatih/vim-go'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'honza/vim-snippets'
+Plugin 'kien/ctrlp.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'nvie/vim-flake8'
+Plugin 'rking/ag.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'sirver/ultisnips'
+Plugin 'sjl/gundo.vim'
+Plugin 'tomasr/molokai'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'kien/ctrlp.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'sirver/ultisnips'
-Plugin 'fatih/vim-go'
-Plugin 'tomasr/molokai'
-Plugin 'bling/vim-airline'
-Plugin 'honza/vim-snippets'
-Plugin 'nvie/vim-flake8'
-Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'sjl/gundo.vim'
-Plugin 'rking/ag.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -31,13 +31,14 @@ filetype plugin indent on
 " Look and feel
 syntax on
 set background=dark
-set number
-set relativenumber
 set cursorline
-set laststatus=2
+set guifont=Ubuntu\ Mono\ 12
 set guioptions-=T
 set guioptions-=m
-set guifont=Ubuntu\ Mono\ 12
+set laststatus=2
+set number
+set relativenumber
+
 let python_highlight_all = 1
 
 if has('gui_running')
@@ -45,61 +46,62 @@ if has('gui_running')
 endif
 
 " Misc options
-set hidden
-set history=1000
-set wildmenu
-set showmatch
-set textwidth=79
-set ignorecase
-set smartcase
-set scrolloff=3
-set colorcolumn=+1
-set directory=~/.vim-tmp,~/tmp,/var/tmp,/tmp
-set hlsearch
-set incsearch
-set visualbell
-set shortmess=atI
-set listchars=tab:..
-set list
-set completeopt=menu,preview,longest
 set clipboard=unnamed,unnamedplus
-set showcmd
 set cryptmethod=blowfish2
+set colorcolumn=+1
+set completeopt=menu,preview,longest
+set directory=~/.vim-tmp,~/tmp,/var/tmp,/tmp
 set foldenable
 set foldlevelstart=10
 set foldnestmax=10
+set hidden
+set history=1000
+set hlsearch
+set ignorecase
+set incsearch
+set list
+set listchars=tab:..
+set scrolloff=3
+set shortmess=atI
+set showcmd
+set showmatch
+set smartcase
+set textwidth=79
+set visualbell
+set wildmenu
+
 let g:is_posix = 1  " Fix shell command substitution syntax
-let mapleader = ','
 let &makeprg .= ' -j' . system('getconf _NPROCESSORS_ONLN')
+let mapleader = ','
 set tags=./tags,tags
 
 " Plugins options
 let g:ctrlp_working_path_mode = 0
 let g:go_disable_autoinstall = 1
 let g:gundo_prefer_python3 = 1
-let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 let g:UltiSnipsExpandTrigger = '<c-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
 let g:UltiSnipsJumpForwardTrigger = '<c-j>'
 let g:ultisnips_python_style = 'sphinx'
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_server_python_interpreter = '/usr/bin/python3'
+let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 
 " Autocmds
-autocmd quickfixcmdpost make botright cwindow
-autocmd filetype help,qf call UnsetNumberAndColorColumn()
-autocmd completedone * pclose
-autocmd guienter * call system('wmctrl -i -b add,maximized_vert,maximized_horz
-                               \ -r ' . v:windowid)
-autocmd vimenter * nested :TagbarOpen
-autocmd vimenter * NERDTree | wincmd p
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q |
-                   \ endif
-
 augroup config_languages
     autocmd!
     autocmd filetype python setlocal foldmethod=indent
 augroup END
+
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q |
+                   \ endif
+autocmd completedone * pclose
+autocmd filetype help,qf call UnsetNumberAndColorColumn()
+autocmd guienter * call system('wmctrl -i -b add,maximized_vert,maximized_horz
+                               \ -r ' . v:windowid)
+autocmd quickfixcmdpost make botright cwindow
+autocmd vimenter * NERDTree | wincmd p
+autocmd vimenter * nested :TagbarOpen
 
 " Mappings
 nnoremap <silent> <leader>m  :silent make!<cr>: echo 'make done'<cr>
