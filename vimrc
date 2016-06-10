@@ -136,17 +136,18 @@ nnoremap <leader>b :Ag
 nnoremap <leader>s :mksession
 
 " Functions
-
 function! ActivateVenv()
     let l:venv = input('Virtualenv: ')
     let l:dir = $HOME . '/.virtualenvs'
+
     if !empty($WORKON_HOME)
         let l:dir = $WORKON_HOME
     endif
+
     let l:dir .=  '/' . l:venv . '/bin'
     let $PATH .= ':' . l:dir
-    let l:python = l:dir . '/python'
-    execute 'YcmCompleter RestartServer ' . l:python
+    execute 'YcmCompleter RestartServer ' . l:dir . '/python'
+    echo ' activated'
 endfunction
 
 function! GenerateCtags()
