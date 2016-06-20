@@ -147,19 +147,20 @@ function! ActivateVenv()
     let l:dir .=  '/' . l:venv . '/bin'
     let $PATH .= ':' . l:dir
     execute 'YcmCompleter RestartServer ' . l:dir . '/python'
-    echo ' activated'
+    echo ' done'
 endfunction
 
 function! GenerateCtags()
-	let output = system('ctags')
-	if empty(output)
-		echo 'ctags done'
-	else
-		echo output
-	endif
+    let l:output = system('ctags')
+
+    if empty(l:output)
+        echo 'ctags done'
+    else
+        echo l:output
+    endif
 endfunction
 
 function! UnsetNumberAndColorColumn()
-	setlocal nonumber
-	setlocal colorcolumn=
+    setlocal nonumber
+    setlocal colorcolumn=
 endfunction
