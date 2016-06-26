@@ -1,0 +1,11 @@
+# Alternate xxx github user
+Host xxx.github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/xxx-key
+    IdentitiesOnly yes
+
+# Jump host example
+Host server
+    HostName 10.0.0.1
+    ProxyCommand ssh -W %h:%p JUMP_HOST
