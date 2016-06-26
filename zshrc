@@ -124,6 +124,14 @@ function +vi-git-aheadbehind()
     hook_com[misc]+=${(j::)gitstatus}
 }
 
+function reverse-tunel()
+{
+    local port="$1"
+    local server="$2"
+
+    ssh -R $port:localhost:22 -N $server
+}
+
 # venv support
 export VIRTUALENVWRAPPER_SCRIPT=/usr/share/virtualenvwrapper/virtualenvwrapper.sh
 source /usr/share/virtualenvwrapper/virtualenvwrapper_lazy.sh
