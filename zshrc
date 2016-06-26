@@ -96,6 +96,10 @@ alias dlnf='aptitude search ~i~snon-free'
 alias dlnd='aptitude search ~i\!~ODebian'
 alias mirror='rsync -aci --delete'
 alias safe-gvim='gvim -i NONE'
+alias http-mirror='wget -mkEp'
+alias http-server='python3 -mhttp.server 8080'
+alias gwl='grep -c'
+alias ppager='ps axuf | pager'
 
 # misc
 umask 022
