@@ -104,9 +104,9 @@ autocmd vimenter * NERDTree | wincmd p
 autocmd vimenter * nested :TagbarOpen
 
 " Mappings
+nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
 nnoremap <silent> <leader>m  :silent make!<cr>: echo 'make done'<cr>
