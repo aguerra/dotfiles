@@ -104,15 +104,16 @@ autocmd vimenter * NERDTree | wincmd p
 autocmd vimenter * nested :TagbarOpen
 
 " Mappings
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+
 nnoremap <silent> <leader>m  :silent make!<cr>: echo 'make done'<cr>
 nnoremap <silent> <leader>t  :call GenerateCtags()<cr>
 nnoremap <silent> <leader>q  :q<cr>
 nnoremap <silent> <leader>wq :wq<cr>
 nnoremap <silent> <leader>fq :q!<cr>
-noremap  <silent> <c-down>   <c-w>j
-noremap  <silent> <c-up>     <c-w>k
-noremap  <silent> <c-left>   <c-w>h
-noremap  <silent> <c-right>  <c-w>l
 nnoremap <silent> <leader>a  :A<cr>
 nnoremap <silent> <leader>gs :Gstatus<cr>
 nnoremap <silent> <leader>gd :Gdiff<cr>
