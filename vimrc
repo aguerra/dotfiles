@@ -109,6 +109,7 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 nnoremap <silent> <f2> :set invpaste<cr>
+nnoremap <silent> <f3> :nohlsearch<cr>
 nnoremap <silent> <f4> :GundoToggle<cr>
 nnoremap <silent> <f6> :NERDTreeFind<cr>
 
@@ -124,7 +125,6 @@ nnoremap <silent> <leader>gc :Gcommit<cr>
 nnoremap <silent> <leader>sp :setlocal spell spelllang=pt_br<cr>
 nnoremap <silent> <leader>se :setlocal spell spelllang=en_us<cr>
 nnoremap <silent> <leader>d  :YcmCompleter GoToDefinitionElseDeclaration<cr>
-nnoremap <silent> <leader>/  :nohlsearch<cr>
 nnoremap <silent> <leader>ev :e  $MYVIMRC<cr>
 nnoremap <silent> <leader>rv :so $MYVIMRC<cr>
 nnoremap <silent> <leader><space> za
