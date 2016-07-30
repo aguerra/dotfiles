@@ -10,6 +10,7 @@ call vundle#begin()
 Plugin 'a.vim'
 Plugin 'bling/vim-airline'
 Plugin 'fatih/vim-go'
+Plugin 'fisadev/vim-isort'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'honza/vim-snippets'
 Plugin 'kien/ctrlp.vim'
@@ -129,6 +130,7 @@ nnoremap <silent> <leader>ev :e  $MYVIMRC<cr>
 nnoremap <silent> <leader>rv :so $MYVIMRC<cr>
 nnoremap <silent> <leader><space> za
 nnoremap <silent> <leader>v :call ActivateVenv()<cr>
+nnoremap <silent> <leader>i :Isort<cr>
 
 nnoremap gV `[v`]
 nnoremap j gj
