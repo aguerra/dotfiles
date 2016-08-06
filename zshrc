@@ -132,6 +132,14 @@ function reverse-tunel()
     ssh -R $port:localhost:22 -N $server
 }
 
+function tcp_file()
+{
+    local file="$1"
+    local port="$2"
+
+    socat -u FILE:"$file"  TCP-L:"$port",reuseaddr,fork
+}
+
 # venv support
 export VIRTUALENVWRAPPER_SCRIPT=/usr/share/virtualenvwrapper/virtualenvwrapper.sh
 source /usr/share/virtualenvwrapper/virtualenvwrapper_lazy.sh
