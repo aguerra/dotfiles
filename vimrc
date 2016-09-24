@@ -1,6 +1,6 @@
 " vimrc
 
-" Required
+" Vundle stuff
 set nocompatible
 filetype off
 
@@ -11,7 +11,6 @@ Plugin 'a.vim'
 Plugin 'bling/vim-airline'
 Plugin 'fatih/vim-go'
 Plugin 'fisadev/vim-isort'
-Plugin 'gmarik/Vundle.vim'
 Plugin 'honza/vim-snippets'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
@@ -25,6 +24,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'VundleVim/Vundle.vim'
 
 call vundle#end()
 filetype plugin indent on
