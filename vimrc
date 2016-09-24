@@ -63,6 +63,7 @@ set incsearch
 set list
 set listchars=tab:..
 set scrolloff=3
+set shell=/bin/sh
 set shortmess=atI
 set showcmd
 set showmatch
