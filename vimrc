@@ -64,7 +64,7 @@ set list
 set listchars=tab:..
 set scrolloff=3
 set shell=/bin/sh
-set shortmess=atI
+set shortmess+=filmnrxoOtT
 set showcmd
 set showmatch
 set smartcase
