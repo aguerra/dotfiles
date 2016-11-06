@@ -68,6 +68,8 @@ set shortmess+=filmnrxoOtT
 set showcmd
 set showmatch
 set smartcase
+set spell
+set spelllang=en_us,pt_br
 set textwidth=79
 set visualbell
 set wildmenu
@@ -124,8 +126,6 @@ nnoremap <silent> <leader>a  :A<cr>
 nnoremap <silent> <leader>gs :Gstatus<cr>
 nnoremap <silent> <leader>gd :Gdiff<cr>
 nnoremap <silent> <leader>gc :Gcommit<cr>
-nnoremap <silent> <leader>sp :setlocal spell spelllang=pt_br<cr>
-nnoremap <silent> <leader>se :setlocal spell spelllang=en_us<cr>
 nnoremap <silent> <leader>d  :YcmCompleter GoToDefinitionElseDeclaration<cr>
 nnoremap <silent> <leader>ev :e  $MYVIMRC<cr>
 nnoremap <silent> <leader>rv :so $MYVIMRC<cr>
