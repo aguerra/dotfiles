@@ -1,37 +1,35 @@
 " vimrc
 
-" Vundle stuff
-set nocompatible
-filetype off
+" Auto install vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-Plugin 'a.vim'
-Plugin 'bling/vim-airline'
-Plugin 'fatih/vim-go'
-Plugin 'fisadev/vim-isort'
-Plugin 'honza/vim-snippets'
-Plugin 'kien/ctrlp.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'nvie/vim-flake8'
-Plugin 'rking/ag.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'sirver/ultisnips'
-Plugin 'sjl/gundo.vim'
-Plugin 'tomasr/molokai'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'VundleVim/Vundle.vim'
+" Plugin list
+Plug 'a.vim'
+Plug 'fatih/vim-go'
+Plug 'fisadev/vim-isort'
+Plug 'honza/vim-snippets'
+Plug 'kien/ctrlp.vim'
+Plug 'majutsushi/tagbar'
+Plug 'nvie/vim-flake8'
+Plug 'rking/ag.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'sirver/ultisnips'
+Plug 'sjl/gundo.vim'
+Plug 'tomasr/molokai'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'Valloric/YouCompleteMe'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
-call vundle#end()
-filetype plugin indent on
+call plug#end()
 
 " Look and feel
-syntax on
-set background=dark
 set cursorline
 set guifont=Ubuntu\ Mono\ 12
 set guioptions-=T
