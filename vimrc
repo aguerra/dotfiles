@@ -100,7 +100,6 @@ autocmd guienter * call system('wmctrl -i -b add,maximized_vert,maximized_horz
                                \ -r ' . v:windowid)
 autocmd quickfixcmdpost make botright cwindow
 autocmd vimenter * NERDTree | wincmd p
-autocmd vimenter * nested :TagbarOpen
 
 " Mappings
 nnoremap <c-h> <c-w>h
