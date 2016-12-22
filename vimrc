@@ -9,23 +9,22 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Plugin list
-Plug 'a.vim'
-Plug 'fatih/vim-go'
-Plug 'fisadev/vim-isort'
+Plug 'ctrlpvim/ctrlp.vim', { 'tag': '1.80' }
+Plug 'fatih/vim-go', { 'tag': 'v1.10' }
 Plug 'honza/vim-snippets'
-Plug 'kien/ctrlp.vim'
-Plug 'majutsushi/tagbar'
-Plug 'nvie/vim-flake8'
-Plug 'rking/ag.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'sirver/ultisnips'
-Plug 'sjl/gundo.vim'
+Plug 'majutsushi/tagbar', { 'tag': 'v2.6.1' }
+Plug 'mileszs/ack.vim', { 'tag': '1.0.9' }
+Plug 'nvie/vim-flake8', { 'tag': '1.6' }
+Plug 'scrooloose/nerdtree', { 'tag': '5.0.0' }
+Plug 'sirver/ultisnips', { 'tag': '3.1' }
+Plug 'sjl/gundo.vim', { 'tag': 'v2.6.2' }
 Plug 'tomasr/molokai'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'Valloric/YouCompleteMe'
-Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-fugitive', { 'tag': 'v2.2' }
+Plug 'tpope/vim-surround', { 'tag': 'v2.1' }
+Plug 'valloric/youcompleteme'
+Plug 'vim-airline/vim-airline', { 'tag': 'v0.8' }
 Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-scripts/a.vim', { 'tag': '2.18' }
 
 call plug#end()
 
@@ -95,8 +94,6 @@ augroup config_languages
     autocmd filetype python setlocal foldmethod=indent
 augroup END
 
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q |
-                   \ endif
 autocmd completedone * pclose
 autocmd filetype help,qf call UnsetNumberAndColorColumn()
 autocmd guienter * call system('wmctrl -i -b add,maximized_vert,maximized_horz
@@ -129,12 +126,10 @@ nnoremap <silent> <leader>ev :e  $MYVIMRC<cr>
 nnoremap <silent> <leader>rv :so $MYVIMRC<cr>
 nnoremap <silent> <leader><space> za
 nnoremap <silent> <leader>v :call ActivateVenv()<cr>
-nnoremap <silent> <leader>i :Isort<cr>
 
 nnoremap gV `[v`]
 nnoremap j gj
 nnoremap k gk
-nnoremap <leader>b :Ag
 nnoremap <leader>s :mksession
 
 " Functions
