@@ -38,7 +38,6 @@ let python_highlight_all = 1 " enable all features
 set background=dark
 set guifont=Ubuntu\ Mono\ 12
 set guioptions-=T            " disable the tool bar
-set guioptions-=m            " disable the menu bar
 set laststatus=2             " always show the status line
 set number                   " show line numbers
 set relativenumber           " show number relative to the line with the cursor
