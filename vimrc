@@ -31,7 +31,9 @@ call plug#end()
 " Look and feel
 autocmd insertEnter,insertLeave * set cursorline! " highlight on insert mode
 
-colorscheme molokai
+if has('gui_running')
+  colorscheme molokai
+endif
 
 let python_highlight_all = 1 " enable all features
 
