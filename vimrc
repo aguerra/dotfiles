@@ -63,7 +63,6 @@ set shortmess+=filmnrxoOtT
 set showcmd
 set showmatch
 set smartcase
-set spell
 set spelllang=en_us,pt_br
 set textwidth=79
 set visualbell
@@ -107,6 +106,7 @@ nnoremap <c-l> <c-w>l
 nnoremap <silent> <f2> :set invpaste<cr>
 nnoremap <silent> <f3> :nohlsearch<cr>
 nnoremap <silent> <f4> :GundoToggle<cr>
+nnoremap <silent> <f5> :setlocal spell!<cr>
 nnoremap <silent> <f6> :NERDTreeFind<cr>
 
 nnoremap <silent> <leader>m  :silent make!<cr>: echo 'make done'<cr>
