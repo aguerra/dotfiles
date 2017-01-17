@@ -50,9 +50,6 @@ set colorcolumn=+1                            " highlight textwidth + 1
 set completeopt=menu,preview,longest          " insert mode completion options
 set cryptmethod=blowfish2                     " strong encryption
 set directory=~/.vim-tmp,~/tmp,/var/tmp,/tmp  " dirs for the swap file
-set foldenable
-set foldlevelstart=10
-set foldnestmax=10
 set hidden
 set history=1000
 set hlsearch
