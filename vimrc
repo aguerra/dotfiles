@@ -47,17 +47,17 @@ set relativenumber           " show number relative to the line with the cursor
 " Misc options
 set clipboard=unnamed,unnamedplus            " use + register for copy-paste
 set colorcolumn=+1                           " highlight textwidth + 1
-set completeopt=menu,preview,longest         " insert mode completion options
+set completeopt=menu,preview,longest         " menu + doc + longest common text
 set cryptmethod=blowfish2                    " strong encryption
 set directory=~/.vim-tmp,~/tmp,/var/tmp,/tmp " dirs for the swap file
 set foldlevelstart=10                        " initial fold level
 set foldnestmax=10                           " maximum nesting of folds
-set hidden
-set history=1000
-set hlsearch
-set ignorecase
-set incsearch
-set list
+set hidden                                   " hide abandoned buffers
+set history=1000                             " for commands and search patterns
+set hlsearch                                 " highlight matches
+set ignorecase                               " in search patterns
+set incsearch                                " update screen with the results
+set list                                     " show tabs and end of lines
 set listchars=tab:..
 set scrolloff=3
 set shell=/bin/sh
