@@ -45,11 +45,13 @@ set number                   " show line numbers
 set relativenumber           " show number relative to the line with the cursor
 
 " Misc options
-set clipboard=unnamed,unnamedplus             " use + register for copy-paste
-set colorcolumn=+1                            " highlight textwidth + 1
-set completeopt=menu,preview,longest          " insert mode completion options
-set cryptmethod=blowfish2                     " strong encryption
-set directory=~/.vim-tmp,~/tmp,/var/tmp,/tmp  " dirs for the swap file
+set clipboard=unnamed,unnamedplus            " use + register for copy-paste
+set colorcolumn=+1                           " highlight textwidth + 1
+set completeopt=menu,preview,longest         " insert mode completion options
+set cryptmethod=blowfish2                    " strong encryption
+set directory=~/.vim-tmp,~/tmp,/var/tmp,/tmp " dirs for the swap file
+set foldlevelstart=10                        " initial fold level
+set foldnestmax=10                           " maximum nesting of folds
 set hidden
 set history=1000
 set hlsearch
