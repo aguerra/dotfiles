@@ -58,22 +58,22 @@ set hlsearch                                 " highlight matches
 set ignorecase                               " in search patterns
 set incsearch                                " update screen with the results
 set list                                     " show tabs and end of lines
-set listchars=tab:..
-set scrolloff=3
-set shell=/bin/sh
-set shortmess+=filmnrxoOtT
-set showcmd
-set showmatch
-set smartcase
-set spelllang=en_us,pt_br
-set textwidth=79
-set visualbell
-set wildmenu
+set listchars=tab:..                         " only show tabs
+set scrolloff=3                              " min lines above and below cursor
+set shell=/bin/sh                            " use posix shell
+set shortmess+=filmnrxoOtT                   " helps to avoid hit-enter prompts
+set showcmd                                  " show partial commands in st line
+set showmatch                                " show matching brackets/parens
+set smartcase                                " case sensitive when uc present
+set spelllang=en_us,pt_br                    " word list names
+set textwidth=79                             " max width of text inserted text
+set visualbell                               " visual bell instead of beeping
+set wildmenu                                 " cmdline completion enhanced mode
 
-let g:is_posix = 1  " Fix shell command substitution syntax
-let &makeprg .= ' -j' . system('getconf _NPROCESSORS_ONLN')
-let mapleader = ','
-set tags=./tags,tags
+let g:is_posix = 1  " fix shell command substitution syntax
+let &makeprg .= ' -j' . system('getconf _NPROCESSORS_ONLN') " parallel make
+let mapleader = ',' " define <Leader>
+set tags=./tags,tags " in the dir of the current file and current dir
 
 " Plugins options
 let g:ctrlp_working_path_mode = 0
