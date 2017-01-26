@@ -45,6 +45,11 @@ set number                   " show line numbers
 set relativenumber           " show number relative to the line with the cursor
 
 " Misc options
+let g:is_posix = 1  " fix shell command substitution syntax
+let mapleader = ',' " define new <Leader>
+
+let &makeprg .= ' -j' . system('getconf _NPROCESSORS_ONLN') " parallel make
+
 set clipboard=unnamed,unnamedplus            " use + register for copy-paste
 set colorcolumn=+1                           " highlight textwidth + 1
 set completeopt=menu,preview,longest         " menu + doc + longest common text
@@ -66,14 +71,10 @@ set showcmd                                  " show partial commands in st line
 set showmatch                                " show matching brackets/parens
 set smartcase                                " case sensitive when uc present
 set spelllang=en_us,pt_br                    " word list names
+set tags=./tags,tags                         " dir of the cur file and cur dir
 set textwidth=79                             " max width of text inserted text
 set visualbell                               " visual bell instead of beeping
 set wildmenu                                 " cmdline completion enhanced mode
-
-let g:is_posix = 1  " fix shell command substitution syntax
-let &makeprg .= ' -j' . system('getconf _NPROCESSORS_ONLN') " parallel make
-let mapleader = ',' " define <Leader>
-set tags=./tags,tags " in the dir of the current file and current dir
 
 " Plugins options
 let g:ctrlp_working_path_mode = 0
