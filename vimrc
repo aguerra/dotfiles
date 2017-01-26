@@ -44,7 +44,7 @@ set laststatus=2             " always show the status line
 set number                   " show line numbers
 set relativenumber           " show number relative to the line with the cursor
 
-" Misc options
+" General options
 let g:is_posix = 1  " fix shell command substitution syntax
 let mapleader = ',' " define new <Leader>
 
