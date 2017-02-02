@@ -17,7 +17,6 @@ Plug 'mileszs/ack.vim', { 'tag': '1.0.9' }
 Plug 'nvie/vim-flake8', { 'tag': '1.6' }
 Plug 'scrooloose/nerdtree', { 'tag': '5.0.0' }
 Plug 'sirver/ultisnips', { 'tag': '3.1' }
-Plug 'sjl/gundo.vim', { 'tag': 'v2.6.2' }
 Plug 'tomasr/molokai'
 Plug 'tpope/vim-fugitive', { 'tag': 'v2.2' }
 Plug 'tpope/vim-surround', { 'tag': 'v2.1' }
@@ -78,8 +77,6 @@ set wildmenu                                 " cmdline completion enhanced mode
 
 " Plugins options
 let g:ctrlp_cmd = 'CtrlPBuffer'              " open in find buffer mode
-
-let g:gundo_prefer_python3 = 1
 
 let g:UltiSnipsExpandTrigger = '<c-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
