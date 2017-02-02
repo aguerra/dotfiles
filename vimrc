@@ -78,13 +78,14 @@ set wildmenu                                 " cmdline completion enhanced mode
 " Plugins options
 let g:ctrlp_cmd = 'CtrlPBuffer'              " open in find buffer mode
 
-let g:UltiSnipsExpandTrigger = '<c-j>'
-let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
-let g:UltiSnipsJumpForwardTrigger = '<c-j>'
-let g:ultisnips_python_style = 'sphinx'
+" remap for compatibility with ycm
+let g:UltiSnipsExpandTrigger = '<C-j>'
+let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_server_python_interpreter = '/usr/bin/python3'
+
 let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 
 " Autocmds
