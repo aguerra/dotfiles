@@ -77,7 +77,8 @@ set visualbell                               " visual bell instead of beeping
 set wildmenu                                 " cmdline completion enhanced mode
 
 " Plugins options
-let g:ctrlp_working_path_mode = 0
+let g:ctrlp_cmd = 'CtrlPBuffer'              " open in find buffer mode
+
 let g:go_disable_autoinstall = 1
 let g:gundo_prefer_python3 = 1
 let g:UltiSnipsExpandTrigger = '<c-j>'
