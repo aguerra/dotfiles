@@ -55,6 +55,7 @@ set completeopt=menu,preview,longest         " menu + doc + longest common text
 set cryptmethod=blowfish2                    " strong encryption
 set directory=~/.vim-tmp,~/tmp,/var/tmp,/tmp " dirs for the swap file
 set foldlevelstart=10                        " initial fold level
+set foldmethod=syntax                        " no manual folding
 set foldnestmax=10                           " maximum nesting of folds
 set hidden                                   " hide abandoned buffers
 set history=1000                             " for commands and search patterns
