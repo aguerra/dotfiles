@@ -93,17 +93,21 @@ let NERDTreeIgnore = [
   \]
 
 " Autocmds
-augroup config_languages
-    autocmd!
-    autocmd filetype python setlocal foldmethod=indent
+augroup configs
+  autocmd!
+  autocmd filetype python setlocal foldmethod=indent
+  autocmd filetype help,qf call UnsetNumberAndColorColumn()
 augroup END
 
-autocmd completedone * pclose
-autocmd filetype help,qf call UnsetNumberAndColorColumn()
-autocmd guienter * call system('wmctrl -i -b add,maximized_vert,maximized_horz
-                               \ -r ' . v:windowid)
-autocmd quickfixcmdpost make botright cwindow
-autocmd vimenter * NERDTree | wincmd p
+augroup actions
+  autocmd!
+  autocmd completedone * pclose
+  autocmd guienter * call system(
+    \'wmctrl -i -b add,maximized_vert,maximized_horz -r ' . v:windowid
+    \)
+  autocmd quickfixcmdpost make botright cwindow
+  autocmd vimenter * NERDTree | wincmd p
+augroup END
 
 " Mappings
 nnoremap <c-h> <c-w>h
