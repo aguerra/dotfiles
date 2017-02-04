@@ -110,10 +110,12 @@ augroup actions
 augroup END
 
 " Mappings
-nnoremap <c-h> <c-w>h
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-l> <c-w>l
+" easier moving in windows
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+
 nnoremap <silent> <f2> :set invpaste<cr>
 nnoremap <silent> <f3> :nohlsearch<cr>
 nnoremap <silent> <f4> :GundoToggle<cr>
