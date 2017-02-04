@@ -142,30 +142,27 @@ nnoremap <leader>s :mksession
 
 " Functions
 function! ActivateVenv()
-    let l:venv = input('Virtualenv: ')
-    let l:dir = $HOME . '/.virtualenvs'
-
-    if !empty($WORKON_HOME)
-        let l:dir = $WORKON_HOME
-    endif
-
-    let l:dir .=  '/' . l:venv . '/bin'
-    let $PATH .= ':' . l:dir
-    execute 'YcmCompleter RestartServer ' . l:dir . '/python'
-    echo ' done'
+  let l:venv = input('Virtualenv: ')
+  let l:dir = $HOME . '/.virtualenvs'
+  if !empty($WORKON_HOME)
+    let l:dir = $WORKON_HOME
+  endif
+  let l:dir .=  '/' . l:venv . '/bin'
+  let $PATH .= ':' . l:dir
+  execute 'YcmCompleter RestartServer ' . l:dir . '/python'
+  echo ' done'
 endfunction
 
 function! GenerateCtags()
-    let l:output = system('ctags')
-
-    if empty(l:output)
-        echo 'ctags done'
-    else
-        echo l:output
-    endif
+  let l:output = system('ctags')
+  if empty(l:output)
+    echo 'ctags done'
+  else
+    echo l:output
+  endif
 endfunction
 
 function! UnsetNumberAndColorColumn()
-    setlocal nonumber
-    setlocal colorcolumn=
+  setlocal nonumber
+  setlocal colorcolumn=
 endfunction
