@@ -77,6 +77,8 @@ set visualbell                               " visual bell instead of beeping
 set wildmenu                                 " cmdline completion enhanced mode
 
 " Plugins options
+let g:ackprg = 'ag --vimgrep' " ag is faster than ack
+
 let g:ctrlp_cmd = 'CtrlPBuffer' " open in find buffer mode
 
 " remap for compatibility with ycm
@@ -124,7 +126,10 @@ nnoremap <silent> <f6> :NERDTreeFind<cr>
 nnoremap j gj
 nnoremap k gk
 
+nnoremap <leader>c :Ack!<space>
+
 nnoremap <silent> <leader>a :A<cr>
+
 nnoremap <silent> <leader>m  :silent make!<cr>: echo 'make done'<cr>
 nnoremap <silent> <leader>t  :call GenerateCtags()<cr>
 nnoremap <silent> <leader>q  :q<cr>
