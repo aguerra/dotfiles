@@ -110,7 +110,6 @@ augroup actions
 augroup END
 
 " Mappings
-" easier moving in windows
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
@@ -118,7 +117,6 @@ noremap <C-l> <C-w>l
 
 nnoremap <silent> <f2> :set invpaste<cr>
 nnoremap <silent> <f3> :nohlsearch<cr>
-nnoremap <silent> <f4> :GundoToggle<cr>
 nnoremap <silent> <f5> :setlocal spell!<cr>
 nnoremap <silent> <f6> :NERDTreeFind<cr>
 
