@@ -120,12 +120,16 @@ nnoremap <silent> <f3> :nohlsearch<cr>
 nnoremap <silent> <f5> :setlocal spell!<cr>
 nnoremap <silent> <f6> :NERDTreeFind<cr>
 
+" move to next row
+nnoremap j gj
+nnoremap k gk
+
+nnoremap <silent> <leader>a :A<cr>
 nnoremap <silent> <leader>m  :silent make!<cr>: echo 'make done'<cr>
 nnoremap <silent> <leader>t  :call GenerateCtags()<cr>
 nnoremap <silent> <leader>q  :q<cr>
 nnoremap <silent> <leader>wq :wq<cr>
 nnoremap <silent> <leader>fq :q!<cr>
-nnoremap <silent> <leader>a  :A<cr>
 nnoremap <silent> <leader>gs :Gstatus<cr>
 nnoremap <silent> <leader>gd :Gdiff<cr>
 nnoremap <silent> <leader>gc :Gcommit<cr>
@@ -136,8 +140,6 @@ nnoremap <silent> <leader><space> za
 nnoremap <silent> <leader>v :call ActivateVenv()<cr>
 
 nnoremap gV `[v`]
-nnoremap j gj
-nnoremap k gk
 nnoremap <leader>s :mksession
 
 " Functions
