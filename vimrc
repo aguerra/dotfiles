@@ -129,6 +129,7 @@ nnoremap k gk
 nnoremap <leader>c :Ack!<space>
 
 nnoremap <silent> <leader>a :A<cr>
+nnoremap <silent> <leader>d :YcmCompleter GoToDefinitionElseDeclaration<cr>
 
 nnoremap <silent> <leader>m  :silent make!<cr>: echo 'make done'<cr>
 nnoremap <silent> <leader>t  :call GenerateCtags()<cr>
@@ -138,7 +139,6 @@ nnoremap <silent> <leader>fq :q!<cr>
 nnoremap <silent> <leader>gs :Gstatus<cr>
 nnoremap <silent> <leader>gd :Gdiff<cr>
 nnoremap <silent> <leader>gc :Gcommit<cr>
-nnoremap <silent> <leader>d  :YcmCompleter GoToDefinitionElseDeclaration<cr>
 nnoremap <silent> <leader>ev :e  $MYVIMRC<cr>
 nnoremap <silent> <leader>rv :so $MYVIMRC<cr>
 nnoremap <silent> <leader><space> za
