@@ -101,6 +101,7 @@ alias http-server='python3 -mhttp.server 8080'
 alias gwl='grep -c'
 alias ppager='ps axuf | pager'
 alias disassemble='objdump -d'
+alias openssl-cert-info='openssl x509 -text -noout -in'
 
 # misc
 umask 022
