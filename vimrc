@@ -86,6 +86,8 @@ let g:UltiSnipsExpandTrigger = '<C-j>'
 let g:UltiSnipsJumpForwardTrigger = '<C-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
+let g:ultisnips_python_quoting_style = 'single'
+
 let g:ycm_collect_identifiers_from_tags_files = 1        " use tag files
 let g:ycm_server_python_interpreter = '/usr/bin/python3' " no more python 2
 
