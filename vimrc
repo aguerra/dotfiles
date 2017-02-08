@@ -120,6 +120,11 @@ augroup actions
   autocmd vimenter * NERDTree | wincmd p
 augroup END
 
+augroup go
+  autocmd filetype go nmap <leader>b <plug>(go-build)
+  autocmd filetype go nmap <leader>r <plug>(go-run)
+augroup END
+
 " Mappings
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
