@@ -104,13 +104,7 @@ let NERDTreeIgnore = [
   \]
 
 " Autocmds
-augroup configs
-  autocmd!
-  autocmd filetype python setlocal foldmethod=indent
-  autocmd filetype help,qf call UnsetNumberAndColorColumn()
-augroup END
-
-augroup actions
+augroup action
   autocmd!
   autocmd completedone * pclose
   autocmd guienter * call system(
@@ -120,9 +114,20 @@ augroup actions
   autocmd vimenter * NERDTree | wincmd p
 augroup END
 
+augroup config
+  autocmd!
+  autocmd filetype help,qf call UnsetNumberAndColorColumn()
+augroup END
+
 augroup go
   autocmd filetype go nmap <leader>b <plug>(go-build)
   autocmd filetype go nmap <leader>r <plug>(go-run)
+augroup END
+
+augroup python
+  autocmd!
+  autocmd filetype python setlocal foldmethod=indent
+  autocmd filetype python nnoremap <silent> <leader>v :call ActivateVenv()<cr>
 augroup END
 
 " Mappings
@@ -156,7 +161,6 @@ nnoremap <silent> <leader>gc :Gcommit<cr>
 nnoremap <silent> <leader>ev :e  $MYVIMRC<cr>
 nnoremap <silent> <leader>rv :so $MYVIMRC<cr>
 nnoremap <silent> <leader><space> za
-nnoremap <silent> <leader>v :call ActivateVenv()<cr>
 
 nnoremap gV `[v`]
 nnoremap <leader>s :mksession
