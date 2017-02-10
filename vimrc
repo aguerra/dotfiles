@@ -136,19 +136,17 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
-nnoremap <silent> <f2> :set invpaste<cr>
-nnoremap <silent> <f3> :nohlsearch<cr>
-nnoremap <silent> <f5> :setlocal spell!<cr>
-nnoremap <silent> <f6> :NERDTreeFind<cr>
+nnoremap <f2> :set invpaste<cr>
+nnoremap <f3> :nohlsearch<cr>
+nnoremap <f5> :setlocal spell!<cr>
+nnoremap <f6> :NERDTreeFind<cr>
 
 " move to next row
 nnoremap j gj
 nnoremap k gk
 
 nnoremap <leader>c :Ack!<space>
-
-nnoremap <silent> <leader>a :A<cr>
-nnoremap <silent> <leader>d :YcmCompleter GoToDefinitionElseDeclaration<cr>
+nnoremap <leader>d :YcmCompleter GoToDefinitionElseDeclaration<cr>
 
 nnoremap <silent> <leader>m  :silent make!<cr>: echo 'make done'<cr>
 nnoremap <silent> <leader>t  :call GenerateCtags()<cr>
