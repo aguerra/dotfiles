@@ -119,6 +119,10 @@ augroup config
   autocmd filetype help,qf call UnsetNumberAndColorColumn()
 augroup END
 
+augroup c
+  autocmd filetype c nnoremap <leader>h :A<cr>
+augroup END
+
 augroup go
   autocmd filetype go nmap <leader>b <plug>(go-build)
   autocmd filetype go nmap <leader>r <plug>(go-run)
@@ -135,6 +139,8 @@ noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
+noremap <C-m> :cprevious<cr>
+noremap <C-n> :cnext<cr>
 
 nnoremap <f2> :set invpaste<cr>
 nnoremap <f3> :nohlsearch<cr>
@@ -145,6 +151,7 @@ nnoremap <f6> :NERDTreeFind<cr>
 nnoremap j gj
 nnoremap k gk
 
+nnoremap <leader>a :cclose<cr>
 nnoremap <leader>c :Ack!<space>
 nnoremap <leader>d :YcmCompleter GoToDefinitionElseDeclaration<cr>
 
