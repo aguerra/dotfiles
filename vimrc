@@ -9,7 +9,6 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Plugin list
-Plug 'ctrlpvim/ctrlp.vim', { 'tag': '1.80' }
 Plug 'fatih/vim-go', { 'tag': 'v1.10' }
 Plug 'honza/vim-snippets'
 Plug 'majutsushi/tagbar', { 'tag': 'v2.6.1' }
@@ -64,6 +63,8 @@ set ignorecase                               " in search patterns
 set incsearch                                " update screen with the results
 set list                                     " show tabs and end of lines
 set listchars=tab:..                         " only show tabs
+" Search directory of the current file, current dir and down into subfolders
+set path=.,,**
 set scrolloff=3                              " min lines above and below cursor
 set shell=/bin/sh                            " use posix shell
 set shortmess+=filmnrxoOtT                   " helps to avoid hit-enter prompts
@@ -78,8 +79,6 @@ set wildmenu                                 " cmdline completion enhanced mode
 
 " Plugins options
 let g:ackprg = 'ag --vimgrep' " ag is faster than ack
-
-let g:ctrlp_cmd = 'CtrlPBuffer' " open in find buffer mode
 
 " golang beautification
 let g:go_highlight_build_constraints = 1
@@ -152,6 +151,9 @@ nnoremap j gj
 nnoremap k gk
 
 nnoremap <leader>a :cclose<cr>
+nnoremap <leader>b :buffer<space>
+nnoremap <leader>f :find<space>
+
 nnoremap <leader>c :Ack!<space>
 nnoremap <leader>d :YcmCompleter GoToDefinitionElseDeclaration<cr>
 
@@ -159,7 +161,6 @@ nnoremap <silent> <leader>m  :silent make!<cr>: echo 'make done'<cr>
 nnoremap <silent> <leader>t  :call GenerateCtags()<cr>
 nnoremap <silent> <leader>q  :q<cr>
 nnoremap <silent> <leader>wq :wq<cr>
-nnoremap <silent> <leader>fq :q!<cr>
 nnoremap <silent> <leader>gs :Gstatus<cr>
 nnoremap <silent> <leader>gd :Gdiff<cr>
 nnoremap <silent> <leader>gc :Gcommit<cr>
