@@ -10,8 +10,6 @@ call plug#begin('~/.vim/plugged')
 
 " Plugin list
 Plug 'fatih/vim-go', { 'tag': 'v1.10' }
-Plug 'honza/vim-snippets'
-Plug 'majutsushi/tagbar', { 'tag': 'v2.6.1' }
 Plug 'mileszs/ack.vim', { 'tag': '1.0.9' }
 Plug 'nvie/vim-flake8', { 'tag': '1.6' }
 Plug 'scrooloose/nerdtree', { 'tag': '5.0.0' }
@@ -91,8 +89,6 @@ let g:go_highlight_types = 1
 let g:UltiSnipsExpandTrigger = '<C-j>'
 let g:UltiSnipsJumpForwardTrigger = '<C-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
-
-let g:ultisnips_python_quoting_style = 'single'
 
 let g:ycm_collect_identifiers_from_tags_files = 1        " use tag files
 let g:ycm_server_python_interpreter = '/usr/bin/python3' " no more python 2
