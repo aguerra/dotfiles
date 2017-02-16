@@ -11,7 +11,6 @@ call plug#begin('~/.vim/plugged')
 " Plugin list
 Plug 'fatih/vim-go', { 'tag': 'v1.10' }
 Plug 'tomasr/molokai'
-Plug 'valloric/youcompleteme'
 Plug 'vim-airline/vim-airline', { 'tag': 'v0.8' }
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/a.vim', { 'tag': '2.18' }
@@ -79,10 +78,6 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_types = 1
 
-" remap for compatibility with ycm
-let g:ycm_collect_identifiers_from_tags_files = 1        " use tag files
-let g:ycm_server_python_interpreter = '/usr/bin/python3' " no more python 2
-
 " Autocmds
 augroup action
   autocmd!
@@ -134,8 +129,6 @@ nnoremap <leader>b :buffer<space>
 nnoremap <leader>f :find<space>
 nnoremap <leader>g :silent grep!<space>
 
-nnoremap <leader>d :YcmCompleter GoToDefinitionElseDeclaration<cr>
-
 nnoremap <silent> <leader>m  :silent make!<cr>: echo 'make done'<cr>
 nnoremap <silent> <leader>t  :call GenerateCtags()<cr>
 nnoremap <silent> <leader>q  :q<cr>
@@ -146,19 +139,6 @@ nnoremap <silent> <leader><space> za
 
 nnoremap gV `[v`]
 nnoremap <leader>s :mksession
-
-" Functions
-function! ActivateVenv()
-  let l:venv = input('Virtualenv: ')
-  let l:dir = $HOME . '/.virtualenvs'
-  if !empty($WORKON_HOME)
-    let l:dir = $WORKON_HOME
-  endif
-  let l:dir .=  '/' . l:venv . '/bin'
-  let $PATH .= ':' . l:dir
-  execute 'YcmCompleter RestartServer ' . l:dir . '/python'
-  echo ' done'
-endfunction
 
 function! GenerateCtags()
   let l:output = system('ctags')
