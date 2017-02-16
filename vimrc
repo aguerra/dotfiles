@@ -10,10 +10,7 @@ call plug#begin('~/.vim/plugged')
 
 " Plugin list
 Plug 'fatih/vim-go', { 'tag': 'v1.10' }
-Plug 'sirver/ultisnips', { 'tag': '3.1' }
 Plug 'tomasr/molokai'
-Plug 'tpope/vim-fugitive', { 'tag': 'v2.2' }
-Plug 'tpope/vim-surround', { 'tag': 'v2.1' }
 Plug 'valloric/youcompleteme'
 Plug 'vim-airline/vim-airline', { 'tag': 'v0.8' }
 Plug 'vim-airline/vim-airline-themes'
@@ -83,10 +80,6 @@ let g:go_highlight_structs = 1
 let g:go_highlight_types = 1
 
 " remap for compatibility with ycm
-let g:UltiSnipsExpandTrigger = '<C-j>'
-let g:UltiSnipsJumpForwardTrigger = '<C-j>'
-let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
-
 let g:ycm_collect_identifiers_from_tags_files = 1        " use tag files
 let g:ycm_server_python_interpreter = '/usr/bin/python3' " no more python 2
 
