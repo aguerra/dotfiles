@@ -10,7 +10,6 @@ call plug#begin('~/.vim/plugged')
 
 " Plugin list
 Plug 'fatih/vim-go', { 'tag': 'v1.10' }
-Plug 'mileszs/ack.vim', { 'tag': '1.0.9' }
 Plug 'nvie/vim-flake8', { 'tag': '1.6' }
 Plug 'scrooloose/nerdtree', { 'tag': '5.0.0' }
 Plug 'sirver/ultisnips', { 'tag': '3.1' }
@@ -54,6 +53,7 @@ set directory=~/.vim-tmp,~/tmp,/var/tmp,/tmp " dirs for the swap file
 set foldlevelstart=10                        " initial fold level
 set foldmethod=syntax                        " no manual folding
 set foldnestmax=10                           " maximum nesting of folds
+set grepprg=ag\ --vimgrep                    " use ag instead of grep
 set hidden                                   " hide abandoned buffers
 set history=1000                             " for commands and search patterns
 set hlsearch                                 " highlight matches
@@ -76,7 +76,6 @@ set visualbell                               " visual bell instead of beeping
 set wildmenu                                 " cmdline completion enhanced mode
 
 " Plugins options
-let g:ackprg = 'ag --vimgrep' " ag is faster than ack
 
 " golang beautification
 let g:go_highlight_build_constraints = 1
@@ -105,7 +104,7 @@ augroup action
   autocmd guienter * call system(
     \'wmctrl -i -b add,maximized_vert,maximized_horz -r ' . v:windowid
     \)
-  autocmd quickfixcmdpost make botright cwindow
+  autocmd quickfixcmdpost grep,make botright cwindow
   autocmd vimenter * NERDTree | wincmd p
 augroup END
 
@@ -134,8 +133,8 @@ noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
-noremap <C-m> :cprevious<cr>
 noremap <C-n> :cnext<cr>
+noremap <C-p> :cprevious<cr>
 
 nnoremap <f2> :set invpaste<cr>
 nnoremap <f3> :nohlsearch<cr>
@@ -149,17 +148,14 @@ nnoremap k gk
 nnoremap <leader>a :cclose<cr>
 nnoremap <leader>b :buffer<space>
 nnoremap <leader>f :find<space>
+nnoremap <leader>g :silent grep!<space>
 
-nnoremap <leader>c :Ack!<space>
 nnoremap <leader>d :YcmCompleter GoToDefinitionElseDeclaration<cr>
 
 nnoremap <silent> <leader>m  :silent make!<cr>: echo 'make done'<cr>
 nnoremap <silent> <leader>t  :call GenerateCtags()<cr>
 nnoremap <silent> <leader>q  :q<cr>
 nnoremap <silent> <leader>wq :wq<cr>
-nnoremap <silent> <leader>gs :Gstatus<cr>
-nnoremap <silent> <leader>gd :Gdiff<cr>
-nnoremap <silent> <leader>gc :Gcommit<cr>
 nnoremap <silent> <leader>ev :e  $MYVIMRC<cr>
 nnoremap <silent> <leader>rv :so $MYVIMRC<cr>
 nnoremap <silent> <leader><space> za
