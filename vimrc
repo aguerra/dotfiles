@@ -13,7 +13,6 @@ Plug 'fatih/vim-go', { 'tag': 'v1.10' }
 Plug 'tomasr/molokai'
 Plug 'vim-airline/vim-airline', { 'tag': 'v0.8' }
 Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-scripts/a.vim', { 'tag': '2.18' }
 
 call plug#end()
 
@@ -91,10 +90,6 @@ augroup END
 augroup config
   autocmd!
   autocmd filetype help,qf call UnsetNumberAndColorColumn()
-augroup END
-
-augroup c
-  autocmd filetype c nnoremap <leader>h :A<cr>
 augroup END
 
 augroup go
