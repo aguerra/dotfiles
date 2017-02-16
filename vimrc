@@ -10,8 +10,6 @@ call plug#begin('~/.vim/plugged')
 
 " Plugin list
 Plug 'fatih/vim-go', { 'tag': 'v1.10' }
-Plug 'nvie/vim-flake8', { 'tag': '1.6' }
-Plug 'scrooloose/nerdtree', { 'tag': '5.0.0' }
 Plug 'sirver/ultisnips', { 'tag': '3.1' }
 Plug 'tomasr/molokai'
 Plug 'tpope/vim-fugitive', { 'tag': 'v2.2' }
@@ -92,11 +90,6 @@ let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 let g:ycm_collect_identifiers_from_tags_files = 1        " use tag files
 let g:ycm_server_python_interpreter = '/usr/bin/python3' " no more python 2
 
-let NERDTreeIgnore = [
-  \'\.pyc$',
-  \'__pycache__',
-  \]
-
 " Autocmds
 augroup action
   autocmd!
@@ -105,7 +98,6 @@ augroup action
     \'wmctrl -i -b add,maximized_vert,maximized_horz -r ' . v:windowid
     \)
   autocmd quickfixcmdpost grep,make botright cwindow
-  autocmd vimenter * NERDTree | wincmd p
 augroup END
 
 augroup config
@@ -139,7 +131,6 @@ noremap <C-p> :cprevious<cr>
 nnoremap <f2> :set invpaste<cr>
 nnoremap <f3> :nohlsearch<cr>
 nnoremap <f5> :setlocal spell!<cr>
-nnoremap <f6> :NERDTreeFind<cr>
 
 " move to next row
 nnoremap j gj
