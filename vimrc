@@ -36,8 +36,7 @@ set numberwidth=5            " number of columns to use for the line number
 set relativenumber           " show number relative to the line with the cursor
 
 " General options
-let g:is_posix = 1  " fix shell command substitution syntax
-let mapleader = ',' " define new <Leader>
+let mapleader = ',' " define new <leader>
 
 let &makeprg .= ' -j' . system('getconf _NPROCESSORS_ONLN') " parallel make
 
