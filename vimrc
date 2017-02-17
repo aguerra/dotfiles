@@ -19,7 +19,7 @@ Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 " Look and feel
-autocmd insertEnter,insertLeave * set cursorline! " highlight on insert mode
+autocmd insertenter,insertleave * set cursorline! " highlight on insert mode
 
 if has('gui_running')
   colorscheme molokai
@@ -32,6 +32,7 @@ set guifont=Ubuntu\ Mono\ 12
 set guioptions-=T            " disable the tool bar
 set laststatus=2             " always show the status line
 set number                   " show line numbers
+set numberwidth=5            " number of columns to use for the line number
 set relativenumber           " show number relative to the line with the cursor
 
 " General options
@@ -102,7 +103,7 @@ augroup END
 augroup python
   autocmd!
   autocmd filetype python setlocal foldmethod=indent
-  autocmd filetype python nnoremap <silent> <leader>v :call ActivateVenv()<cr>
+  "autocmd fileType python compiler flake8
 augroup END
 
 " Mappings
