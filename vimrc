@@ -37,7 +37,8 @@ set relativenumber           " show number relative to the line with the cursor
 " General options
 let mapleader = ',' " define new <leader>
 
-let &makeprg .= ' -j' . system('getconf _NPROCESSORS_ONLN') " parallel make
+" Parallel make
+let &makeprg = 'make -j' . systemlist('getconf _NPROCESSORS_ONLN')[0]
 
 set clipboard=unnamed,unnamedplus            " use + register for copy-paste
 set colorcolumn=+1                           " highlight textwidth + 1
