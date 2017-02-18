@@ -32,7 +32,6 @@ set guifont=Ubuntu\ Mono\ 12
 set guioptions-=T            " disable the tool bar
 set laststatus=2             " always show the status line
 set number                   " show line numbers
-set numberwidth=5            " number of columns to use for the line number
 set relativenumber           " show number relative to the line with the cursor
 
 " General options
