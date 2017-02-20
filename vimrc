@@ -40,35 +40,33 @@ let mapleader = ',' " define new <leader>
 " Parallel make
 let &makeprg = 'make -j' . systemlist('getconf _NPROCESSORS_ONLN')[0]
 
-set clipboard=unnamed,unnamedplus            " use + register for copy-paste
-set colorcolumn=+1                           " highlight textwidth + 1
-set completeopt=menu,preview,longest         " menu + doc + longest common text
-set cryptmethod=blowfish2                    " strong encryption
-set directory=~/.vim-tmp,~/tmp,/var/tmp,/tmp " dirs for the swap file
-set foldlevelstart=10                        " initial fold level
-set foldmethod=syntax                        " no manual folding
-set foldnestmax=10                           " maximum nesting of folds
-set grepprg=ag\ --vimgrep                    " use ag instead of grep
-set hidden                                   " hide abandoned buffers
-set history=1000                             " for commands and search patterns
-set hlsearch                                 " highlight matches
-set ignorecase                               " in search patterns
-set incsearch                                " update screen with the results
-set list                                     " show tabs and end of lines
-set listchars=tab:..                         " only show tabs
-" Search directory of the current file, current dir and down into subfolders
-set path=.,,**
-set scrolloff=3                              " min lines above and below cursor
-set shell=/bin/sh                            " use posix shell
-set shortmess+=filmnrxoOtT                   " helps to avoid hit-enter prompts
-set showcmd                                  " show partial commands in st line
-set showmatch                                " show matching brackets/parens
-set smartcase                                " case sensitive when uc present
-set spelllang=en_us,pt_br                    " word list names
-set tags=./tags,tags                         " dir of the cur file and cur dir
-set textwidth=79                             " max width of text inserted text
-set visualbell                               " visual bell instead of beeping
-set wildmenu                                 " cmdline completion enhanced mode
+set clipboard=unnamed,unnamedplus " use the system clipboard
+set colorcolumn=+1                " highlight col after textwidth
+set cryptmethod=blowfish2         " strong encryption
+set directory=~/.vim-tmp          " for the swap files
+set foldlevelstart=10             " initial fold level
+set foldmethod=syntax             " for C style languages
+set foldnestmax=10                " maximum nesting of folds
+set grepprg=ag\ --vimgrep         " ag is faster than grep
+set hidden                        " hide abandoned buffers
+set history=1000                  " for commands and search patterns
+set hlsearch                      " highlight matches
+set ignorecase                    " in search patterns
+set incsearch                     " update screen with the results
+set list                          " show tabs and end of lines
+set listchars=tab:..              " only show tabs
+set path=.,,**                    " dir of the cur file, cur dir and subdirs
+set scrolloff=3                   " min lines above and below cursor
+set shell=/bin/sh                 " use posix shell
+set shortmess+=filmnrxoOtT        " helps to avoid hit-enter prompts
+set showcmd                       " show partial commands in status line
+set showmatch                     " show matching brackets/parens
+set smartcase                     " case sensitive when uppercase present
+set spelllang=en_us,pt_br         " word lists names
+set tags=./tags,tags              " dir of the current file and current dir
+set textwidth=79                  " max width of inserted text
+set visualbell                    " visual bell instead of beeping
+set wildmenu                      " cmdline completion enhanced mode
 
 " Plugins options
 
