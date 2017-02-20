@@ -88,7 +88,7 @@ augroup END
 
 augroup config
   autocmd!
-  autocmd filetype help,qf call UnsetNumberAndColorColumn()
+  autocmd filetype help,qf call UnsetNumbersAndColorColumn()
 augroup END
 
 augroup go
@@ -143,7 +143,8 @@ function! GenerateCtags()
   endif
 endfunction
 
-function! UnsetNumberAndColorColumn()
+function! UnsetNumbersAndColorColumn()
   setlocal nonumber
+  setlocal norelativenumber
   setlocal colorcolumn=
 endfunction
