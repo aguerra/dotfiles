@@ -79,11 +79,11 @@ let g:go_highlight_types = 1
 " Autocmds
 augroup action
   autocmd!
-  autocmd completedone * pclose
+  autocmd completedone * pclose " close preview after completion
   autocmd guienter * call system(
     \'wmctrl -i -b add,maximized_vert,maximized_horz -r ' . v:windowid
-    \)
-  autocmd quickfixcmdpost grep,make botright cwindow
+  \)
+  autocmd quickfixcmdpost grep,make botright cwindow " open full qf at bottom
 augroup END
 
 augroup config
