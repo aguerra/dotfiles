@@ -92,7 +92,8 @@ augroup config
 augroup END
 
 augroup go
-  autocmd filetype go nmap <leader>b <plug>(go-build)
+  autocmd!
+  autocmd filetype go nmap <leader>c <plug>(go-build)
   autocmd filetype go nmap <leader>r <plug>(go-run)
 augroup END
 
