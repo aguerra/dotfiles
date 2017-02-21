@@ -98,8 +98,9 @@ augroup END
 
 augroup python
   autocmd!
+  autocmd filetype python compiler flake8
   autocmd filetype python setlocal foldmethod=indent
-  "autocmd fileType python compiler flake8
+  autocmd filetype python nnoremap <silent> <leader>v :call ActivateVenv()<cr>
 augroup END
 
 " Mappings
@@ -134,6 +135,7 @@ nnoremap <silent> <leader><space> za
 nnoremap gV `[v`]
 nnoremap <leader>s :mksession
 
+" Functions
 function! GenerateCtags()
   let l:output = system('ctags')
   if empty(l:output)
@@ -147,4 +149,14 @@ function! UnsetNumbersAndColorColumn()
   setlocal nonumber
   setlocal norelativenumber
   setlocal colorcolumn=
+endfunction
+
+function! ActivateVenv()
+  let l:venv = input('Virtualenv: ')
+  let l:dir = $HOME . '/.virtualenvs'
+  if !empty($WORKON_HOME)
+    let l:dir = $WORKON_HOME
+  endif
+  let $PATH .= ':' . l:dir . '/' . l:venv . '/bin'
+  echo ' done'
 endfunction
