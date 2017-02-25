@@ -83,6 +83,7 @@ zstyle ':vcs_info:git*' formats "(%s/%b/%c/%u/%m)"
 zstyle ':vcs_info:git*+set-message:*' hooks git-aheadbehind
 
 # User specific aliases
+alias debuild='debuild -us -uc'
 alias ls='ls --color=auto'
 alias ll='ls -l'
 alias la='ls -A'
