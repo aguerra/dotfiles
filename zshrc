@@ -103,6 +103,7 @@ alias gwl='grep -c'
 alias ppager='ps axuf | pager'
 alias disassemble='objdump -d'
 alias openssl-cert-info='openssl x509 -text -noout -in'
+alias reset-terminal='dconf reset -f /org/gnome/terminal/legacy/profiles:/'
 
 # misc
 umask 022
