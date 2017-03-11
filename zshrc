@@ -150,5 +150,13 @@ source /usr/share/virtualenvwrapper/virtualenvwrapper_lazy.sh
 alias mkvirtualenv="mkvirtualenv --always-copy"
 alias mkvirtualenv3="mkvirtualenv -p /usr/bin/python3 --always-copy"
 
-# local hook
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
+# Startup actions
+[[ -n $WINDOWID ]] && {
+    wmctrl -i -r $WINDOWID -b add,maximized_vert,maximized_horz
+}
+
+[[ $TERM =~ '^screen' ]] || tmux attach
+
+# Local hook
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
