@@ -102,6 +102,7 @@ augroup python
   autocmd bufwrite *.py :Dispatch
   autocmd filetype python compiler flake8
   autocmd filetype python setlocal foldmethod=indent
+  autocmd filetype python setlocal omnifunc=python3complete#Complete
   autocmd filetype python nnoremap <silent> <leader>v :call ActivateVenv()<cr>
 augroup END
 
