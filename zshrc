@@ -104,6 +104,8 @@ alias ppager='ps axuf | pager'
 alias disassemble='objdump -d'
 alias openssl-cert-info='openssl x509 -text -noout -in'
 alias reset-terminal='dconf reset -f /org/gnome/terminal/legacy/profiles:/'
+alias mkvirtualenv="mkvirtualenv --always-copy"
+alias mkvirtualenv3="mkvirtualenv -p /usr/bin/python3 --always-copy"
 
 # misc
 umask 022
@@ -144,19 +146,14 @@ function tcp_file()
     socat -u FILE:"$file"  TCP-L:"$port",reuseaddr,fork
 }
 
-# venv support
-export VIRTUALENVWRAPPER_SCRIPT=/usr/share/virtualenvwrapper/virtualenvwrapper.sh
-source /usr/share/virtualenvwrapper/virtualenvwrapper_lazy.sh
-alias mkvirtualenv="mkvirtualenv --always-copy"
-alias mkvirtualenv3="mkvirtualenv -p /usr/bin/python3 --always-copy"
-
-
 # Startup actions
 [[ -n $WINDOWID ]] && {
     wmctrl -i -r $WINDOWID -b add,maximized_vert,maximized_horz
 }
 
 [[ $TERM =~ '^screen' ]] || tmux attach
+
+source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 
 # Local hook
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
