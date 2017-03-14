@@ -130,20 +130,21 @@ function +vi-git-aheadbehind()
     hook_com[misc]+=${(j::)gitstatus}
 }
 
-function reverse-tunel()
+
+function reverse-tunnel()
 {
     local port="$1"
-    local server="$2"
+    local user_server="$2"
 
-    ssh -R $port:localhost:22 -N $server
+    ssh -R "$port":localhost:22 -N "$user_server"
 }
 
-function tcp_file()
+function tcp-file()
 {
     local file="$1"
     local port="$2"
 
-    socat -u FILE:"$file"  TCP-L:"$port",reuseaddr,fork
+    socat -u FILE:"$file" TCP-L:"$port",reuseaddr,fork
 }
 
 # Startup actions
