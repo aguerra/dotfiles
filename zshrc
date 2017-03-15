@@ -110,6 +110,9 @@ alias mkvirtualenv3="mkvirtualenv -p /usr/bin/python3 --always-copy"
 # misc
 umask 022
 
+
+# Functions
+
 # git: Show +N/-N when your local branch is ahead-of or behind remote HEAD
 # Make sure you have added misc to your 'formats': %m
 function +vi-git-aheadbehind()
@@ -117,19 +120,16 @@ function +vi-git-aheadbehind()
     local ahead behind
     local -a gitstatus
 
-    # for git prior to 1.7
-    # ahead=$(git rev-list origin/${hook_com[branch]}..HEAD | wc -l)
-    ahead=$(git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null | wc -l)
-    (( $ahead )) && gitstatus+=( "%B%F{blue}+${ahead}%f%b" )
+    ahead=$(git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null \
+            | wc -l)
+    (($ahead)) && gitstatus+=("%B%F{blue}+${ahead}%f%b")
 
-    # for git prior to 1.7
-    # behind=$(git rev-list HEAD..origin/${hook_com[branch]} | wc -l)
-    behind=$(git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null | wc -l)
-    (( $behind )) && gitstatus+=( "%B%F{red}-${behind}%f%b" )
+    behind=$(git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null \
+             | wc -l)
+    (($behind)) && gitstatus+=("%B%F{red}-${behind}%f%b")
 
     hook_com[misc]+=${(j::)gitstatus}
 }
-
 
 function reverse-tunnel()
 {
