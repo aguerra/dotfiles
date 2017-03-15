@@ -107,9 +107,9 @@ alias reset-terminal='dconf reset -f /org/gnome/terminal/legacy/profiles:/'
 alias mkvirtualenv="mkvirtualenv --always-copy"
 alias mkvirtualenv3="mkvirtualenv -p /usr/bin/python3 --always-copy"
 
-# misc
-umask 022
 
+# Misc
+umask 022
 
 # Functions
 
