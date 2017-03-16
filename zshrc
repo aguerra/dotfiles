@@ -82,31 +82,27 @@ zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:git*' formats "(%s/%b/%c/%u/%m)"
 zstyle ':vcs_info:git*+set-message:*' hooks git-aheadbehind
 
-# User specific aliases
-alias debuild='debuild -us -uc'
-alias ls='ls --color=auto'
-alias ll='ls -l'
-alias la='ls -A'
-alias grep='grep --color=auto'
-alias rm='rm -i'
+
+# User aliases
 alias cp='cp -i'
-alias mv='mv -i'
+alias debuild='debuild -us -uc'
+alias disassemble='objdump -d'
 alias g='xdg-open'
-alias tree='tree -C'
-alias dlnf='aptitude search ~i~snon-free'
-alias dlnd='aptitude search ~i\!~ODebian'
-alias mirror='rsync -aci --delete'
-alias safe-gvim='gvim -i NONE'
+alias grep='grep --color=auto'
 alias http-mirror='wget -mkEp'
 alias http-server='python3 -mhttp.server 8080'
-alias gwl='grep -c'
-alias ppager='ps axuf | pager'
-alias disassemble='objdump -d'
+alias la='ls -A'
+alias ll='ls -l'
+alias ls='ls --color=auto'
+alias mirror='rsync -aci --delete'
+alias mkvirtualenv3='mkvirtualenv -p /usr/bin/python3'
+alias mv='mv -i'
 alias openssl-cert-info='openssl x509 -text -noout -in'
+alias ppager='ps axuf | pager'
 alias reset-terminal='dconf reset -f /org/gnome/terminal/legacy/profiles:/'
-alias mkvirtualenv="mkvirtualenv --always-copy"
-alias mkvirtualenv3="mkvirtualenv -p /usr/bin/python3 --always-copy"
-
+alias safe-vim='vim -i NONE'
+alias rm='rm -i'
+alias tree='tree -C'
 
 # Misc
 umask 022
