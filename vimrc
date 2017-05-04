@@ -20,19 +20,14 @@ call plug#end()
 
 " Look and feel
 autocmd insertenter,insertleave * set cursorline! " highlight on insert mode
-
-if has('gui_running')
-  colorscheme molokai
-endif
+highlight cursorline cterm=none ctermbg=236
 
 let python_highlight_all = 1 " enable all features
 
 set background=dark
-set guifont=Ubuntu\ Mono\ 12
-set guioptions-=T            " disable the tool bar
-set laststatus=2             " always show the status line
-set number                   " show line numbers
-set relativenumber           " show number relative to the line with the cursor
+set laststatus=2    " always show the status line
+set number          " show line numbers
+set relativenumber  " show number relative to the line with the cursor
 
 " General options
 let mapleader = ',' " define new <leader>
