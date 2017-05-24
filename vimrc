@@ -18,15 +18,18 @@ Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 " Look and feel
-autocmd insertenter,insertleave * set cursorline! " highlight on insert mode
-highlight cursorline cterm=none ctermbg=236
+if has('gui_running')
+  colorscheme molokai
+endif
 
-let python_highlight_all = 1 " enable all features
+let python_highlight_all = 1
 
+set guifont=Inconsolata\ Medium\ 12
+set guioptions-=T " disable the tool bar
+set laststatus=2  " always show the status line
 set background=dark
-set laststatus=2    " always show the status line
-set number          " show line numbers
-set relativenumber  " show number relative to the line with the cursor
+set number
+set relativenumber
 
 " General options
 let mapleader = ',' " define new <leader>
