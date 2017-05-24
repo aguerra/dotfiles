@@ -10,10 +10,8 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Plugin list
-Plug 'drgarcia1986/python-compilers.vim', {'for': 'python'}
-Plug 'fatih/vim-go', {'tag': 'v1.11'}
+Plug 'fatih/vim-go', {'tag': 'v1.12'}
 Plug 'tomasr/molokai'
-Plug 'tpope/vim-dispatch', {'tag': 'v1.4'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
