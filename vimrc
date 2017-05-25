@@ -52,7 +52,7 @@ set hlsearch                      " highlight matches
 set ignorecase                    " in search patterns
 set incsearch                     " update screen with the results
 set list                          " show tabs and end of lines
-set listchars=tab:▸\              " only show tabs
+set listchars=tab:-\              " only show tabs
 set path=.,,**                    " dir of the cur file, cur dir and subdirs
 set scrolloff=3                   " min lines above and below cursor
 set shell=/bin/sh                 " use posix shell
