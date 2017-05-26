@@ -34,9 +34,7 @@ set number
 set relativenumber
 
 " General options
-let mapleader = ',' " define new <leader>
-
-" Parallel make
+let mapleader = ','
 let &makeprg = 'make -j' . systemlist('getconf _NPROCESSORS_ONLN')[0]
 
 set clipboard=unnamed,unnamedplus " use the system clipboard
