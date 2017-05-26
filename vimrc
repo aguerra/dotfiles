@@ -11,6 +11,7 @@ call plug#begin('~/.vim/plugged')
 
 " Plugin list
 Plug 'fatih/vim-go', {'tag': 'v1.12'}
+Plug 'majutsushi/tagbar', {'tag': 'v2.7'}
 Plug 'tomasr/molokai'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
