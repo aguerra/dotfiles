@@ -13,6 +13,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'fatih/vim-go', {'tag': 'v1.12'}
 Plug 'majutsushi/tagbar', {'tag': 'v2.7'}
 Plug 'tomasr/molokai'
+Plug 'tpope/vim-fugitive', {'tag': 'v2.2'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -132,6 +133,10 @@ nnoremap <silent> <leader><space> za
 
 nnoremap gV `[v`]
 nnoremap <leader>s :mksession
+
+nnoremap <silent> <leader>gs :Gstatus<cr>
+nnoremap <silent> <leader>gd :Gdiff<cr>
+nnoremap <silent> <leader>gc :Gcommit<cr>
 
 " Functions
 function! GenerateCtags()
