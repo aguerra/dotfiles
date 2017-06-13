@@ -39,32 +39,32 @@ let mapleader = ','
 let &makeprg = 'make -j' . systemlist('getconf _NPROCESSORS_ONLN')[0]
 
 set clipboard=unnamed,unnamedplus " use the system clipboard
-set colorcolumn=+1                " highlight col after textwidth
-set cryptmethod=blowfish2         " strong encryption
-set directory=~/.vim-tmp          " for the swap files
-set foldlevelstart=10             " initial fold level
-set foldmethod=syntax             " for C style languages
-set foldnestmax=10                " maximum nesting of folds
-set grepprg=ag\ --vimgrep         " ag is faster than grep
-set hidden                        " hide abandoned buffers
-set history=1000                  " for commands and search patterns
-set hlsearch                      " highlight matches
-set ignorecase                    " in search patterns
-set incsearch                     " update screen with the results
-set list                          " show tabs and end of lines
-set listchars=tab:-\              " only show tabs
-set path=.,,**                    " dir of the cur file, cur dir and subdirs
-set scrolloff=3                   " min lines above and below cursor
-set shell=/bin/sh                 " use posix shell
-set shortmess+=filmnrxoOtT        " helps to avoid hit-enter prompts
-set showcmd                       " show partial commands in status line
-set showmatch                     " show matching brackets/parens
-set smartcase                     " case sensitive when uppercase present
-set spelllang=en_us,pt_br         " word lists names
-set tags=./tags,tags              " dir of the current file and current dir
-set textwidth=79                  " max width of inserted text
-set visualbell                    " visual bell instead of beeping
-set wildmenu                      " cmdline completion enhanced mode
+set colorcolumn=+1
+set cryptmethod=blowfish2
+set directory=~/.vim-tmp
+set foldlevelstart=10
+set foldmethod=syntax
+set foldnestmax=10
+set grepprg=ag\ --vimgrep
+set hidden                 " hide abandoned buffers
+set history=1000
+set hlsearch
+set ignorecase
+set incsearch
+set list                   " show tabs and end of lines
+set listchars=tab:-\       " only show tabs
+set path=.,,**             " dir of the current file, current dir and subdirs
+set scrolloff=3            " min lines above and below cursor
+set shell=/bin/sh
+set shortmess+=filmnrxoOtT " helps to avoid hit-enter prompts
+set showcmd                " show partial commands in status line
+set showmatch
+set smartcase              " case sensitive when uppercase present
+set spelllang=en_us,pt_br
+set tags=./tags,tags       " dir of the current file and current dir
+set textwidth=79
+set visualbell
+set wildmenu               " cmdline completion enhanced mode
 
 " Plugins options
 let g:go_fmt_command = 'goimports'
