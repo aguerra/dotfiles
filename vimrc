@@ -53,7 +53,7 @@ set ignorecase
 set incsearch
 set list                   " show tabs and end of lines
 set listchars=tab:-\       " only show tabs
-set path=.,,**             " dir of the current file, current dir and subdirs
+set path=,,**              " current dir and subdirs
 set scrolloff=3            " min lines above and below cursor
 set shell=/bin/sh
 set shortmess+=filmnrxoOtT " helps to avoid hit-enter prompts
