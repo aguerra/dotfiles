@@ -10,21 +10,45 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Plugin list
-Plug 'fatih/vim-go', {'tag': 'v1.12'}
+Plug 'ctrlpvim/ctrlp.vim', {'tag': '1.80'}
+Plug 'easymotion/vim-easymotion', {'tag': 'v3.0.1'}
+Plug 'fatih/vim-go', {'tag': 'v1.13'}
+Plug 'godlygeek/tabular', {'tag': '1.0.0'}
+Plug 'jiangmiao/auto-pairs', {'tag': 'v1.3.1'}
 Plug 'majutsushi/tagbar', {'tag': 'v2.7'}
-Plug 'tomasr/molokai'
+Plug 'mbbill/undotree', {'tag': 'rel_5.0'}
+Plug 'mhinz/vim-signify', {'tag': 'v1.9'}
+Plug 'mileszs/ack.vim', {'tag': '1.0.9'}
+Plug 'morhetz/gruvbox'
+Plug 'python-mode/python-mode', {'tag': '0.9.2'}
+Plug 'reedes/vim-litecorrect', {'tag': 'v1.1'}
+Plug 'rhysd/conflict-marker.vim'
+Plug 'scrooloose/nerdtree', {'tag': '5.0.0'}
+Plug 'Shougo/neocomplete.vim', {'tag': 'ver.2.1'}
+Plug 'Shougo/neosnippet', {'tag': 'ver.4.2'}
+Plug 'Shougo/neosnippet-snippets'
+Plug 'terryma/vim-multiple-cursors', {'tag': 'v2.2'}
+Plug 'tpope/vim-commentary', {'tag': 'v1.3'}
 Plug 'tpope/vim-fugitive', {'tag': 'v2.2'}
+Plug 'tpope/vim-repeat', {'tag': 'v1.1'}
+Plug 'tpope/vim-surround', {'tag': 'v2.1'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-scripts/a.vim', {'tag': '2.18'}
+Plug 'vim-scripts/python.vim', {'tag': '1.13'}
+Plug 'vim-scripts/python_match.vim', {'tag': '0.5'}
+Plug 'vim-scripts/sessionman.vim', {'tag': '1.07'}
+Plug 'vim-syntastic/syntastic'
 
 call plug#end()
 
 " Look and feel
-if has('gui_running')
-  colorscheme molokai
-endif
+let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_italicize_comments = 0
 
-let python_highlight_all = 1
+if has('gui_running')
+  colorscheme gruvbox
+endif
 
 set background=dark
 set cursorline
@@ -65,6 +89,10 @@ set tags=./tags,tags       " dir of the current file and current dir
 set textwidth=79
 set visualbell
 set wildmenu               " cmdline completion enhanced mode
+
+if !isdirectory(&directory)
+    call mkdir(&directory, "p")
+endif
 
 " Plugins options
 let g:go_fmt_command = 'goimports'
@@ -163,3 +191,38 @@ function! ActivateVenv()
   let $PATH .= ':' . l:dir . '/' . l:venv . '/bin'
   echo ' done'
 endfunction
+
+let g:airline#extensions#tabline#enabled = 1
+let g:neocomplete#enable_at_startup = 1
+
+" Plugin key-mappings.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+autocmd bufnewfile,bufreadpost *.md set filetype=markdown
