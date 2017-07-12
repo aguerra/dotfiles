@@ -10,9 +10,13 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Plugin list
-Plug 'fatih/vim-go', {'tag': 'v1.12'}
+Plug 'ctrlpvim/ctrlp.vim', {'tag': '1.80'}
+Plug 'fatih/vim-go', {'tag': 'v1.13'}
 Plug 'majutsushi/tagbar', {'tag': 'v2.7'}
-Plug 'tomasr/molokai'
+Plug 'mileszs/ack.vim', {'tag': '1.0.9'}
+Plug 'morhetz/gruvbox'
+Plug 'python-mode/python-mode', {'tag': '0.9.2'}
+Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-fugitive', {'tag': 'v2.2'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -20,11 +24,12 @@ Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 " Look and feel
-if has('gui_running')
-  colorscheme molokai
-endif
+let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_italicize_comments = 0
 
-let python_highlight_all = 1
+if has('gui_running')
+  colorscheme gruvbox
+endif
 
 set background=dark
 set cursorline
@@ -45,26 +50,28 @@ set directory=~/.vim-tmp
 set foldlevelstart=10
 set foldmethod=syntax
 set foldnestmax=10
-set grepprg=ag\ --vimgrep
-set hidden                 " hide abandoned buffers
+set hidden                   " hide abandoned buffers
 set history=1000
 set hlsearch
 set ignorecase
 set incsearch
-set list                   " show tabs and end of lines
-set listchars=tab:-\       " only show tabs
-set path=,,**              " current dir and subdirs
-set scrolloff=3            " min lines above and below cursor
+set list                     " show tabs and end of lines
+set listchars=tab:-\         " only show tabs
+set scrolloff=3              " min lines above and below cursor
 set shell=/bin/sh
-set shortmess+=filmnrxoOtT " helps to avoid hit-enter prompts
-set showcmd                " show partial commands in status line
+set shortmess+=filmnrxoOtT   " helps to avoid hit-enter prompts
+set showcmd                  " show partial commands in status line
 set showmatch
-set smartcase              " case sensitive when uppercase present
+set smartcase                " case sensitive when uppercase present
 set spelllang=en_us,pt_br
-set tags=./tags,tags       " dir of the current file and current dir
+set tags=./tags;/,~/.vimtags
 set textwidth=79
 set visualbell
-set wildmenu               " cmdline completion enhanced mode
+set wildmenu                 " cmdline completion enhanced mode
+
+if !isdirectory(&directory)
+    call mkdir(&directory, "p")
+endif
 
 " Plugins options
 let g:go_fmt_command = 'goimports'
@@ -163,3 +170,38 @@ function! ActivateVenv()
   let $PATH .= ':' . l:dir . '/' . l:venv . '/bin'
   echo ' done'
 endfunction
+
+let g:airline#extensions#tabline#enabled = 1
+let g:neocomplete#enable_at_startup = 1
+
+" Plugin key-mappings.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+autocmd bufnewfile,bufreadpost *.md set filetype=markdown
