@@ -64,50 +64,49 @@ set showcmd                  " show partial commands in status line
 set showmatch
 set smartcase                " case sensitive when uppercase present
 set spelllang=en_us,pt_br
+set splitright
 set tags=./tags;/,~/.vimtags
 set textwidth=79
 set visualbell
 set wildmenu                 " cmdline completion enhanced mode
 
-if !isdirectory(&directory)
-    call mkdir(&directory, "p")
-endif
+silent! call mkdir(&directory, "p")
 
 " Plugins options
+let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
+let g:ctrlp_cmd = 'CtrlPBuffer'
 let g:go_fmt_command = 'goimports'
 let g:go_get_update = 0
-let g:go_highlight_build_constraints = 1
 let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_types = 1
+let g:pymode_python = 'python3'
 
 " Autocmds
-augroup action
+augroup general
   autocmd!
-  autocmd completedone * pclose " close preview after completion
+  autocmd bufnewfile,bufreadpost *.md set filetype=markdown
+  autocmd completedone * pclose
+  autocmd filetype help,qf setlocal nonumber | setlocal norelativenumber
   autocmd guienter * call system(
     \'wmctrl -i -b add,maximized_vert,maximized_horz -r ' . v:windowid
   \)
-  autocmd quickfixcmdpost grep,make botright cwindow " open full qf at bottom
-augroup END
-
-augroup config
-  autocmd!
-  autocmd filetype help,qf call UnsetNumbersAndColorColumn()
-augroup END
+  autocmd quickfixcmdpost grep,make botright cwindow
+augroup end
 
 augroup go
   autocmd!
-  autocmd filetype go nmap <leader>c <plug>(go-build)
+  autocmd filetype go setlocal colorcolumn= | setlocal textwidth=0
+  autocmd filetype go nmap <leader>b <plug>(go-build)
   autocmd filetype go nmap <leader>r <plug>(go-run)
-augroup END
+augroup end
 
 augroup python
   autocmd!
   autocmd filetype python setlocal foldmethod=indent
-  autocmd filetype python setlocal omnifunc=python3complete#Complete
   autocmd filetype python nnoremap <silent> <leader>v :call ActivateVenv()<cr>
-augroup END
+augroup end
 
 " Mappings
 noremap <C-h> <C-w>h
@@ -155,22 +154,8 @@ function! GenerateCtags()
   endif
 endfunction
 
-function! UnsetNumbersAndColorColumn()
-  setlocal nonumber
-  setlocal norelativenumber
-  setlocal colorcolumn=
-endfunction
-
 function! ActivateVenv()
   let l:venv = input('Virtualenv: ')
-  let l:dir = $HOME . '/.virtualenvs'
-  if !empty($WORKON_HOME)
-    let l:dir = $WORKON_HOME
-  endif
-  let $PATH .= ':' . l:dir . '/' . l:venv . '/bin'
-  echo ' done'
+  let l:dir = $HOME . '/.virtualenvs/' . l:venv
+  PymodeVirtualenv l:dir
 endfunction
-
-let g:airline#extensions#tabline#enabled = 1
-
-autocmd bufnewfile,bufreadpost *.md set filetype=markdown
