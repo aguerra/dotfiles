@@ -146,6 +146,7 @@ function tcp-file()
 # Startup actions
 [[ -n $WINDOWID ]] && {
     wmctrl -i -r $WINDOWID -b add,maximized_vert,maximized_horz
+    setxkbmap -option caps:swapescape
 }
 
 [[ $TERM =~ '^screen' ]] || tmux attach
