@@ -20,6 +20,7 @@ Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-fugitive', {'tag': 'v2.2'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-syntastic/syntastic'
 
 call plug#end()
 
@@ -81,6 +82,7 @@ let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_types = 1
+let g:pymode_lint = 0
 let g:pymode_python = 'python3'
 
 " Autocmds
@@ -109,6 +111,9 @@ augroup python
 augroup end
 
 " Mappings
+nnoremap <leader>a :Ack!<space>
+nnoremap <leader>c :cclose<cr>
+
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
@@ -124,10 +129,8 @@ nnoremap <f5> :setlocal spell!<cr>
 nnoremap j gj
 nnoremap k gk
 
-nnoremap <leader>a :cclose<cr>
 nnoremap <leader>b :buffer<space>
 nnoremap <leader>f :find<space>
-nnoremap <leader>g :silent grep!<space>
 
 nnoremap <silent> <leader>m  :silent make!<cr>: echo 'make done'<cr>
 nnoremap <silent> <leader>t  :call GenerateCtags()<cr>
