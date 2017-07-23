@@ -111,15 +111,17 @@ augroup python
 augroup end
 
 " Mappings
+map <C-h> <C-w>h<C-w>_
+map <C-j> <C-w>j<C-w>_
+map <C-k> <C-w>k<C-w>_
+map <C-l> <C-w>l<C-w>_
+
 nnoremap <leader>a :Ack!<space>
 nnoremap <leader>c :cclose<cr>
 
-noremap <C-h> <C-w>h
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
-noremap <C-n> :cnext<cr>
-noremap <C-p> :cprevious<cr>
+nnoremap <C-m> :cprevious<cr>
+nnoremap <C-n> :cnext<cr>
+
 
 nnoremap <f2> :set invpaste<cr>
 nnoremap <f3> :nohlsearch<cr>
