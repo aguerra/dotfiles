@@ -58,6 +58,7 @@ set ignorecase
 set incsearch
 set list                     " show tabs and end of lines
 set listchars=tab:-\         " only show tabs
+set pastetoggle=<f2>
 set scrolloff=3              " min lines above and below cursor
 set shell=/bin/sh
 set shortmess+=filmnrxoOtT   " helps to avoid hit-enter prompts
@@ -111,54 +112,38 @@ augroup python
 augroup end
 
 " Mappings
-map <C-h> <C-w>h<C-w>_
-map <C-j> <C-w>j<C-w>_
-map <C-k> <C-w>k<C-w>_
-map <C-l> <C-w>l<C-w>_
+map <c-h> <c-w>h<c-w>_
+map <c-j> <c-w>j<c-w>_
+map <c-k> <c-w>k<c-w>_
+map <c-l> <c-w>l<c-w>_
 
-nnoremap <leader>a :Ack!<space>
-nnoremap <leader>c :cclose<cr>
+nnoremap <c-m> :cprevious<cr>
+nnoremap <c-n> :cnext<cr>
 
-nnoremap <C-m> :cprevious<cr>
-nnoremap <C-n> :cnext<cr>
-
-
-nnoremap <f2> :set invpaste<cr>
-nnoremap <f3> :nohlsearch<cr>
+nnoremap <f3> :set invhlsearch<cr>
 nnoremap <f5> :setlocal spell!<cr>
 
-" move to next row
+nnoremap <leader><space> za
+nnoremap <leader>a :Ack!<space>
+nnoremap <leader>c :cclose<cr>
+nnoremap <leader>e :e $MYVIMRC<cr>
+nnoremap <silent> <leader>gc :Gcommit<cr>
+nnoremap <silent> <leader>gd :Gdiff<cr>
+nnoremap <silent> <leader>ge :Gedit<cr>
+nnoremap <silent> <leader>gl :Glog<cr>
+nnoremap <silent> <leader>gr :Gread<CR>
+nnoremap <silent> <leader>gs :Gstatus<cr>
+nnoremap <silent> <leader>gw :Gwrite<cr>
+nnoremap <leader>m :make!<cr>
+nnoremap <leader>q :q<cr>
+nnoremap <leader>s :source $MYVIMRC<cr>
+nnoremap <leader>w :w<cr>
+nnoremap <leader>z :wq<cr>
+
 nnoremap j gj
 nnoremap k gk
 
-nnoremap <leader>b :buffer<space>
-nnoremap <leader>f :find<space>
-
-nnoremap <silent> <leader>m  :silent make!<cr>: echo 'make done'<cr>
-nnoremap <silent> <leader>t  :call GenerateCtags()<cr>
-nnoremap <silent> <leader>q  :q<cr>
-nnoremap <silent> <leader>wq :wq<cr>
-nnoremap <silent> <leader>ev :e  $MYVIMRC<cr>
-nnoremap <silent> <leader>rv :so $MYVIMRC<cr>
-nnoremap <silent> <leader><space> za
-
-nnoremap gV `[v`]
-nnoremap <leader>s :mksession
-
-nnoremap <silent> <leader>gs :Gstatus<cr>
-nnoremap <silent> <leader>gd :Gdiff<cr>
-nnoremap <silent> <leader>gc :Gcommit<cr>
-
 " Functions
-function! GenerateCtags()
-  let l:output = system('ctags')
-  if empty(l:output)
-    echo 'ctags done'
-  else
-    echo l:output
-  endif
-endfunction
-
 function! ActivateVenv()
   let l:venv = input('Virtualenv: ')
   let l:dir = $HOME . '/.virtualenvs/' . l:venv
