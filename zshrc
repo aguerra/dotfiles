@@ -153,5 +153,7 @@ function tcp-file()
 
 source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 
+pgrep godoc >/dev/null || godoc -http localhost:6060 &|
+
 # Local hook
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
