@@ -17,3 +17,6 @@ g = grep --break --heading
 # Example
 # [credential "http://xxx"]
 # username = john.doe
+
+[pull]
+rebase = true
