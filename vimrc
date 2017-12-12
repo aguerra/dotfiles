@@ -15,8 +15,6 @@ Plug 'fatih/vim-go', {'tag': 'v1.13'}
 Plug 'majutsushi/tagbar', {'tag': 'v2.7'}
 Plug 'mileszs/ack.vim', {'tag': '1.0.9'}
 Plug 'morhetz/gruvbox'
-Plug 'python-mode/python-mode', {'tag': '0.9.2'}
-Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-fugitive', {'tag': 'v2.2'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -83,8 +81,6 @@ let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_types = 1
-let g:pymode_lint = 0
-let g:pymode_python = 'python3'
 
 " Autocmds
 augroup general
@@ -147,5 +143,4 @@ nnoremap k gk
 function! ActivateVenv()
   let l:venv = input('Virtualenv: ')
   let l:dir = $HOME . '/.virtualenvs/' . l:venv
-  PymodeVirtualenv l:dir
 endfunction
