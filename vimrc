@@ -1,6 +1,6 @@
 " vimrc
 
-" Auto install vim-plug and plugins
+" Auto install plugins
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -11,10 +11,12 @@ call plug#begin('~/.vim/plugged')
 
 " Plugin list
 Plug 'ctrlpvim/ctrlp.vim', {'tag': '1.80'}
-Plug 'fatih/vim-go', {'tag': 'v1.13'}
+Plug 'fatih/vim-go', {'tag': 'v1.16'}
+Plug 'honza/vim-snippets'
 Plug 'majutsushi/tagbar', {'tag': 'v2.7'}
 Plug 'mileszs/ack.vim', {'tag': '1.0.9'}
-Plug 'morhetz/gruvbox'
+Plug 'python-mode/python-mode', {'tag': '0.9.2'}
+Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-fugitive', {'tag': 'v2.2'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
