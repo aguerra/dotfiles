@@ -31,13 +31,13 @@ let g:gruvbox_italicize_comments = 0
 
 if has('gui_running')
   colorscheme gruvbox
+  set cursorline
 endif
 
 set background=dark
-set cursorline
-set guifont=Ubuntu\ Mono\ 12
-set guioptions-=T            " disable the tool bar
-set laststatus=2             " always show the status line
+set guifont=Monospace\ Regular\ 13
+set guioptions-=T  " disable the tool bar
+set laststatus=2   " always show the status line
 set number
 set relativenumber
 
