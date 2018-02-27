@@ -26,9 +26,7 @@ call plug#end()
 
 " Look and feel
 set background=dark
-set guifont=Monospace\ Regular\ 13
-set guioptions-=T  " disable the tool bar
-set laststatus=2   " always show the status line
+set laststatus=2  " always show the status line
 set number
 set relativenumber
 
