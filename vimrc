@@ -67,7 +67,7 @@ set wildmenu                 " cmdline completion enhanced mode
 silent! call mkdir(&directory, "p")
 
 " Plugins options
-let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
+let g:ackprg = 'ag --vimgrep'
 let g:ctrlp_cmd = 'CtrlPBuffer'
 let g:go_fmt_command = 'goimports'
 let g:go_get_update = 0
@@ -115,6 +115,7 @@ nnoremap <f5> :setlocal spell!<cr>
 
 nnoremap <leader><space> za
 nnoremap <leader>a :Ack!<space>
+nnoremap <leader>k :Ack!<cr>
 nnoremap <leader>c :cclose<cr>
 nnoremap <leader>e :e $MYVIMRC<cr>
 nnoremap <silent> <leader>gc :Gcommit<cr>
