@@ -15,7 +15,6 @@ Plug 'fatih/vim-go', {'tag': 'v1.16'}
 Plug 'honza/vim-snippets'
 Plug 'majutsushi/tagbar', {'tag': 'v2.7'}
 Plug 'mileszs/ack.vim', {'tag': '1.0.9'}
-Plug 'morhetz/gruvbox'
 Plug 'python-mode/python-mode', {'tag': '0.9.2'}
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-fugitive', {'tag': 'v2.2'}
@@ -26,14 +25,6 @@ Plug 'vim-syntastic/syntastic'
 call plug#end()
 
 " Look and feel
-let g:gruvbox_contrast_dark = 'hard'
-let g:gruvbox_italicize_comments = 0
-
-if has('gui_running')
-  colorscheme gruvbox
-  set cursorline
-endif
-
 set background=dark
 set guifont=Monospace\ Regular\ 13
 set guioptions-=T  " disable the tool bar
