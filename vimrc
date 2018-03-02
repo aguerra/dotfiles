@@ -13,6 +13,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'ctrlpvim/ctrlp.vim', {'tag': '1.80'}
 Plug 'fatih/vim-go', {'tag': 'v1.16'}
 Plug 'honza/vim-snippets'
+Plug 'junegunn/fzf', {'tag': '0.17.3'}
+Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar', {'tag': 'v2.7'}
 Plug 'mileszs/ack.vim', {'tag': '1.0.9'}
 Plug 'python-mode/python-mode', {'tag': '0.9.2'}
@@ -113,6 +115,8 @@ nnoremap <f5> :setlocal spell!<cr>
 
 nnoremap <leader><space> za
 nnoremap <leader>a :Ack!<space>
+nnoremap <leader>h :Snippets<cr>
+nnoremap <leader>f :Files<cr>
 nnoremap <leader>k :Ack!<cr>
 nnoremap <leader>c :cclose<cr>
 nnoremap <leader>e :e $MYVIMRC<cr>
@@ -129,6 +133,7 @@ nnoremap <leader>s :source $MYVIMRC<cr>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>z :wq<cr>
 
+nnoremap ; :Buffers<cr>
 nnoremap j gj
 nnoremap k gk
 
