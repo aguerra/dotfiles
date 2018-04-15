@@ -148,9 +148,10 @@ function tcp-file()
 
 [[ $TERM =~ '^screen' ]] || tmux attach
 
-source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+VENV_WRAPPER=/usr/share/virtualenvwrapper/virtualenvwrapper.sh
+[[ -f $VENV_WRAPPER ]] && source $VENV_WRAPPER
 
-pgrep godoc >/dev/null || godoc -http localhost:6060 &|
+[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 
 # Local hook
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
