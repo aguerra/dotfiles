@@ -127,12 +127,26 @@ function +vi-git-aheadbehind()
     hook_com[misc]+=${(j::)gitstatus}
 }
 
-function reverse-tunnel()
+function ssh-tunnel()
 {
-    local port="$1"
-    local user_server="$2"
+    local mode="$1"
+    local port="$2"
+    local host="$3"
+    local dest="$4"
+    shift 4
 
-    ssh -R "$port":localhost:22 -N "$user_server"
+    print ssh "$mode" "$port:$dest" "$host" "$@"
+    ssh "$mode" "$port:$dest" "$host" "$@"
+}
+
+function ssh-remote-tunnel()
+{
+    ssh-tunnel -R "$@"
+}
+
+function ssh-local-tunnel()
+{
+    ssh-tunnel -L "$@"
 }
 
 function tcp-file()
