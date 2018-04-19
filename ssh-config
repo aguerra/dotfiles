@@ -9,3 +9,15 @@ Host xxx.github.com
 Host server
     HostName 10.0.0.1
     ProxyCommand ssh -W %h:%p JUMP_HOST
+
+# Multiple connections
+Host multiple*
+    HostName 10.0.0.2
+    ControlPersist 4h
+    ControlMaster auto
+    ControlPath /tmp/ssh_mux_%h_%p_%r
+    ServerAliveInterval 120
+
+# Forwarding example
+Host db
+  LocalForward 5433 localhost:5432
