@@ -158,8 +158,6 @@ function tcp-file()
 }
 
 # Startup actions
-[[ -n $DISPLAY ]] && setxkbmap -option caps:swapescape
-
 [[ $TERM =~ '^screen' ]] || tmux attach
 
 VENV_WRAPPER=/usr/share/virtualenvwrapper/virtualenvwrapper.sh
