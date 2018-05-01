@@ -118,6 +118,7 @@ nnoremap <leader>f :Files<cr>
 nnoremap <leader>k :Ack!<cr>
 nnoremap <leader>c :cclose<cr>
 nnoremap <leader>e :e $MYVIMRC<cr>
+nnoremap <leader>r :Tags<cr>
 nnoremap <silent> <leader>gc :Gcommit<cr>
 nnoremap <silent> <leader>gd :Gdiff<cr>
 nnoremap <silent> <leader>ge :Gedit<cr>
@@ -134,6 +135,8 @@ nnoremap <leader>z :wq<cr>
 nnoremap ; :Buffers<cr>
 nnoremap j gj
 nnoremap k gk
+
+nmap <M-k> :Ack! "\b<cword>\b" <CR>
 
 " Functions
 function! ActivateVenv()
