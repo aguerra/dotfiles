@@ -10,19 +10,17 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Plugin list
-Plug 'ctrlpvim/ctrlp.vim', {'tag': '1.80'}
-Plug 'fatih/vim-go', {'tag': 'v1.16'}
+Plug 'davidhalter/jedi-vim', {'tag': '0.9.0'}
+Plug 'fatih/vim-go', {'tag': 'v1.17'}
 Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf', {'tag': '0.17.3'}
 Plug 'junegunn/fzf.vim'
-Plug 'majutsushi/tagbar', {'tag': 'v2.7'}
 Plug 'mileszs/ack.vim', {'tag': '1.0.9'}
-Plug 'python-mode/python-mode', {'tag': '0.9.2'}
+Plug 'neomake/neomake'
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-fugitive', {'tag': 'v2.2'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-syntastic/syntastic'
 
 call plug#end()
 
