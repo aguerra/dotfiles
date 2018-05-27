@@ -1,6 +1,6 @@
 " vimrc
 
-" Auto install plugins
+" Install plugins
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -10,22 +10,31 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Plugin list
-Plug 'davidhalter/jedi-vim', {'tag': '0.9.0'}
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'fatih/vim-go', {'tag': 'v1.17'}
 Plug 'honza/vim-snippets'
-Plug 'junegunn/fzf', {'tag': '0.17.3'}
-Plug 'junegunn/fzf.vim'
-Plug 'mileszs/ack.vim', {'tag': '1.0.9'}
-Plug 'neomake/neomake'
+Plug 'morhetz/gruvbox'
+Plug 'python-mode/python-mode', {'branch': 'develop'}
 Plug 'SirVer/ultisnips'
-Plug 'tpope/vim-fugitive', {'tag': 'v2.2'}
+Plug 'tpope/vim-fugitive', {'tag': 'v2.3'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
 " Look and feel
+let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_italicize_comments = 0
+
+if has('gui_running')
+  colorscheme gruvbox
+  set colorcolumn=+1
+  set cursorline
+endif
+
 set background=dark
+set guifont=Ubuntu\ Mono\ 15
+set guioptions-=T " disable the tool bar
 set laststatus=2  " always show the status line
 set number
 set relativenumber
@@ -35,7 +44,6 @@ let mapleader = ','
 let &makeprg = 'make -j' . systemlist('getconf _NPROCESSORS_ONLN')[0]
 
 set clipboard=unnamed,unnamedplus " use the system clipboard
-set colorcolumn=+1
 set cryptmethod=blowfish2
 set directory=~/.vim-tmp
 set foldlevelstart=10
@@ -48,6 +56,7 @@ set ignorecase
 set incsearch
 set list                     " show tabs and end of lines
 set listchars=tab:-\         " only show tabs
+set path=.,,
 set pastetoggle=<f2>
 set scrolloff=3              " min lines above and below cursor
 set shell=/bin/sh
@@ -100,6 +109,11 @@ augroup python
 augroup end
 
 " Mappings
+nnoremap <leader>b  :buffer<space>
+nnoremap <leader>f  :find<space>
+nnoremap <leader>sf :sfind<space>
+
+
 map <c-h> <c-w>h<c-w>_
 map <c-j> <c-w>j<c-w>_
 map <c-k> <c-w>k<c-w>_
@@ -114,7 +128,6 @@ nnoremap <f5> :setlocal spell!<cr>
 nnoremap <leader><space> za
 nnoremap <leader>a :Ack!<space>
 nnoremap <leader>h :Snippets<cr>
-nnoremap <leader>f :Files<cr>
 nnoremap <leader>k :Ack!<cr>
 nnoremap <leader>c :cclose<cr>
 nnoremap <leader>e :e $MYVIMRC<cr>
@@ -132,7 +145,6 @@ nnoremap <leader>s :source $MYVIMRC<cr>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>z :wq<cr>
 
-nnoremap ; :Buffers<cr>
 nnoremap j gj
 nnoremap k gk
 
