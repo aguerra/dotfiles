@@ -1,6 +1,6 @@
 " vimrc
 
-" Auto install plugins
+" Install plugins
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -10,7 +10,6 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Plugin list
-Plug 'davidhalter/jedi-vim', {'tag': '0.9.0'}
 Plug 'fatih/vim-go', {'tag': 'v1.17'}
 Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf', {'tag': '0.17.3'}
