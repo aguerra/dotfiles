@@ -24,42 +24,41 @@ Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 " Look and feel
+colorscheme slate
+
 set background=dark
-set laststatus=2  " always show the status line
+set laststatus=2
 set number
 set relativenumber
+
+highlight colorcolumn ctermbg=233
 
 " General options
 let mapleader = ','
 let &makeprg = 'make -j' . systemlist('getconf _NPROCESSORS_ONLN')[0]
 
-set clipboard=unnamed,unnamedplus " use the system clipboard
 set colorcolumn=+1
 set cryptmethod=blowfish2
 set directory=~/.vim-tmp
-set foldlevelstart=10
-set foldmethod=syntax
-set foldnestmax=10
-set hidden                   " hide abandoned buffers
+set hidden
 set history=1000
 set hlsearch
 set ignorecase
 set incsearch
-set list                     " show tabs and end of lines
-set listchars=tab:-\         " only show tabs
+set list
+set listchars=tab:-\  " quoted space
 set pastetoggle=<f2>
-set scrolloff=3              " min lines above and below cursor
-set shell=/bin/sh
-set shortmess+=filmnrxoOtT   " helps to avoid hit-enter prompts
-set showcmd                  " show partial commands in status line
+set scrolloff=5
+set shortmess=at
+set showcmd
 set showmatch
-set smartcase                " case sensitive when uppercase present
+set smartcase
 set spelllang=en_us,pt_br
 set splitright
-set tags=./tags;/,~/.vimtags
+set tags=./tags,tags,~/.tags
 set textwidth=79
 set visualbell
-set wildmenu                 " cmdline completion enhanced mode
+set wildmenu
 
 silent! call mkdir(&directory, "p")
 
