@@ -27,6 +27,7 @@ call plug#end()
 colorscheme slate
 
 set background=dark
+set cursorline
 set laststatus=2
 set number
 set relativenumber
