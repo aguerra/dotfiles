@@ -12,12 +12,12 @@ call plug#begin('~/.vim/plugged')
 " Plugin list
 Plug 'fatih/vim-go', {'tag': 'v1.17'}
 Plug 'honza/vim-snippets'
-Plug 'junegunn/fzf', {'tag': '0.17.3'}
+Plug 'junegunn/fzf', {'tag': '0.17.4'}
 Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim', {'tag': '1.0.9'}
-Plug 'neomake/neomake'
+Plug 'python-mode/python-mode', {'branch': 'develop'}
 Plug 'SirVer/ultisnips'
-Plug 'tpope/vim-fugitive', {'tag': 'v2.2'}
+Plug 'tpope/vim-fugitive', {'tag': 'v2.3'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
