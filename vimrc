@@ -56,7 +56,7 @@ set showmatch
 set smartcase
 set spelllang=en_us,pt_br
 set splitright
-set tags=./tags,tags,~/.tags
+set tags+=~/.tags
 set textwidth=79
 set visualbell
 set wildmenu
