@@ -65,13 +65,19 @@ silent! call mkdir(&directory, "p")
 
 " Plugins options
 let g:ackprg = 'ag --vimgrep'
-let g:ctrlp_cmd = 'CtrlPBuffer'
 let g:go_fmt_command = 'goimports'
 let g:go_get_update = 0
+let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
+let g:go_highlight_function_arguments = 1
+let g:go_highlight_function_calls = 1
 let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_types = 1
+let g:go_highlight_variable_assignments = 1
+let g:go_highlight_variable_declarations = 1
+let g:pymode_python = 'python3'
 
 " Autocmds
 augroup general
