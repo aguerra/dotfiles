@@ -24,7 +24,7 @@ Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 " Look and feel
-colorscheme slate
+colorscheme desert
 
 set background=dark
 set cursorline
