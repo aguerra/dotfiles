@@ -82,12 +82,8 @@ let g:pymode_python = 'python3'
 " Autocmds
 augroup general
   autocmd!
-  autocmd bufnewfile,bufreadpost *.md set filetype=markdown
   autocmd completedone * pclose
-  autocmd filetype help,qf setlocal nonumber | setlocal norelativenumber
-  autocmd guienter * call system(
-    \'wmctrl -i -b add,maximized_vert,maximized_horz -r ' . v:windowid
-  \)
+  autocmd filetype help,qf call DisableNumbers() | setlocal colorcolumn=
   autocmd quickfixcmdpost grep,make botright cwindow
 augroup end
 
@@ -100,8 +96,7 @@ augroup end
 
 augroup python
   autocmd!
-  autocmd filetype python setlocal foldmethod=indent
-  autocmd filetype python nnoremap <silent> <leader>v :call ActivateVenv()<cr>
+  autocmd filetype python setlocal foldlevelstart=10
 augroup end
 
 " Mappings
@@ -144,7 +139,7 @@ nnoremap k gk
 nmap <M-k> :Ack! "\b<cword>\b" <CR>
 
 " Functions
-function! ActivateVenv()
-  let l:venv = input('Virtualenv: ')
-  let l:dir = $HOME . '/.virtualenvs/' . l:venv
+function! DisableNumbers()
+  setlocal nonumber
+  setlocal norelativenumber
 endfunction
