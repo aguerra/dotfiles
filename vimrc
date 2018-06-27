@@ -83,7 +83,8 @@ let g:pymode_python = 'python3'
 augroup general
   autocmd!
   autocmd completedone * pclose
-  autocmd filetype help,qf call DisableNumbers() | setlocal colorcolumn=
+  autocmd filetype help,qf setlocal nonumber | setlocal norelativenumber
+    \ | setlocal colorcolumn=
   autocmd quickfixcmdpost grep,make botright cwindow
 augroup end
 
@@ -100,18 +101,14 @@ augroup python
 augroup end
 
 " Mappings
-map <c-h> <c-w>h<c-w>_
-map <c-j> <c-w>j<c-w>_
-map <c-k> <c-w>k<c-w>_
-map <c-l> <c-w>l<c-w>_
-
-nnoremap <c-m> :cprevious<cr>
-nnoremap <c-n> :cnext<cr>
-
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
 nnoremap <f3> :set invhlsearch<cr>
+nnoremap <f4> :call ToggleNumbers()<cr>
 nnoremap <f5> :setlocal spell!<cr>
 
-nnoremap <leader><space> za
 nnoremap <leader>a :Ack!<space>
 nnoremap <leader>h :Snippets<cr>
 nnoremap <leader>f :Files<cr>
@@ -139,7 +136,7 @@ nnoremap k gk
 nmap <M-k> :Ack! "\b<cword>\b" <CR>
 
 " Functions
-function! DisableNumbers()
-  setlocal nonumber
-  setlocal norelativenumber
+function! ToggleNumbers()
+  setlocal number!
+  setlocal relativenumber!
 endfunction
