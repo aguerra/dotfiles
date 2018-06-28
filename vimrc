@@ -108,21 +108,16 @@ nnoremap <c-l> <c-w>l
 nnoremap <f3> :set invhlsearch<cr>
 nnoremap <f4> :call ToggleNumbers()<cr>
 nnoremap <f5> :setlocal spell!<cr>
-
 nnoremap <leader>a :Ack!<space>
-nnoremap <leader>h :Snippets<cr>
-nnoremap <leader>f :Files<cr>
-nnoremap <leader>k :Ack!<cr>
 nnoremap <leader>c :cclose<cr>
-nnoremap <leader>e :e $MYVIMRC<cr>
+nnoremap <leader>e :edit $MYVIMRC<cr>
+nnoremap <leader>f :Files<cr>
+nnoremap <leader>gc :Gcommit<cr>
+nnoremap <leader>gd :Gvdiff<cr>
+nnoremap <leader>gs :Gstatus<cr
+
+nnoremap <leader>h :Snippets<cr>
 nnoremap <leader>r :Tags<cr>
-nnoremap <silent> <leader>gc :Gcommit<cr>
-nnoremap <silent> <leader>gd :Gdiff<cr>
-nnoremap <silent> <leader>ge :Gedit<cr>
-nnoremap <silent> <leader>gl :Glog<cr>
-nnoremap <silent> <leader>gr :Gread<CR>
-nnoremap <silent> <leader>gs :Gstatus<cr>
-nnoremap <silent> <leader>gw :Gwrite<cr>
 nnoremap <leader>m :make!<cr>
 nnoremap <leader>q :q<cr>
 nnoremap <leader>s :source $MYVIMRC<cr>
