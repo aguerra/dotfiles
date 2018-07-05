@@ -84,7 +84,7 @@ augroup general
   autocmd completedone * pclose
   autocmd filetype help,qf setlocal nonumber | setlocal norelativenumber
     \ | setlocal colorcolumn=
-  autocmd quickfixcmdpost grep,make botright cwindow
+  autocmd vimenter * command! -nargs=* Ag call fzf#vim#ag_raw(<q-args>)
 augroup end
 
 augroup go
