@@ -14,9 +14,9 @@ Plug 'fatih/vim-go', {'tag': 'v1.17'}
 Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf', {'tag': '0.17.4'}
 Plug 'junegunn/fzf.vim'
-Plug 'mileszs/ack.vim', {'tag': '1.0.9'}
 Plug 'python-mode/python-mode', {'branch': 'develop'}
 Plug 'SirVer/ultisnips'
+Plug 'tpope/vim-dispatch', {'tag': 'v1.5'}
 Plug 'tpope/vim-fugitive', {'tag': 'v2.3'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -64,7 +64,6 @@ set wildmenu
 silent! call mkdir(&directory, "p")
 
 " Plugins options
-let g:ackprg = 'ag --vimgrep'
 let g:go_fmt_command = 'goimports'
 let g:go_get_update = 0
 let g:go_highlight_fields = 1
@@ -108,7 +107,7 @@ nnoremap <c-l> <c-w>l
 nnoremap <f3> :set invhlsearch<cr>
 nnoremap <f4> :call ToggleNumbers()<cr>
 nnoremap <f5> :setlocal spell!<cr>
-nnoremap <leader>a :Ack!<space>
+nnoremap <leader>a :Ag<space>
 nnoremap <leader>c :cclose<cr>
 nnoremap <leader>e :edit $MYVIMRC<cr>
 nnoremap <leader>f :Files<cr>
