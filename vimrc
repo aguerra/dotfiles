@@ -114,11 +114,11 @@ nnoremap <leader>f :Files<cr>
 nnoremap <leader>gc :Gcommit<cr>
 nnoremap <leader>gd :Gvdiff<cr>
 nnoremap <leader>gs :Gstatus<cr
+nnoremap <leader>h :help<space>
+nnoremap <leader>m :Make<space>
 
-nnoremap <leader>h :Snippets<cr>
-nnoremap <leader>r :Tags<cr>
-nnoremap <leader>m :make!<cr>
 nnoremap <leader>q :q<cr>
+nnoremap <leader>r :Tags<cr>
 nnoremap <leader>s :source $MYVIMRC<cr>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>z :wq<cr>
