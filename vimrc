@@ -50,7 +50,7 @@ set list
 set listchars=tab:-\  " quoted space
 set pastetoggle=<f2>
 set scrolloff=5
-set shortmess=at
+set shortmess=aoOtT
 set showcmd
 set showmatch
 set smartcase
