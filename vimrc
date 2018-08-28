@@ -10,29 +10,32 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Plugin list
-Plug 'fatih/vim-go', {'tag': 'v1.17'}
+Plug 'ctrlpvim/ctrlp.vim', {'tag': '1.80'}
+Plug 'fatih/vim-go', {'tag': 'v1.18'}
 Plug 'honza/vim-snippets'
-Plug 'junegunn/fzf', {'tag': '0.17.4'}
-Plug 'junegunn/fzf.vim'
+Plug 'majutsushi/tagbar', {'tag': 'v2.7'}
+Plug 'mileszs/ack.vim', {'tag': '1.0.9'}
 Plug 'python-mode/python-mode', {'branch': 'develop'}
 Plug 'SirVer/ultisnips'
-Plug 'tpope/vim-dispatch', {'tag': 'v1.5'}
-Plug 'tpope/vim-fugitive', {'tag': 'v2.3'}
+Plug 'tomasr/molokai'
+Plug 'tpope/vim-fugitive', {'tag': 'v2.4'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
 " Look and feel
-colorscheme desert
+if has('gui_running')
+  colorscheme molokai
+endif
 
 set background=dark
 set cursorline
+set guifont=Ubuntu\ Mono\ 15
+set guioptions-=T
 set laststatus=2
 set number
 set relativenumber
-
-highlight colorcolumn ctermbg=233
 
 " General options
 let mapleader = ','
@@ -64,6 +67,8 @@ set wildmenu
 silent! call mkdir(&directory, "p")
 
 " Plugins options
+let g:ackprg = 'ag --vimgrep'
+let g:ctrlp_cmd = 'CtrlPBuffer'
 let g:go_fmt_command = 'goimports'
 let g:go_get_update = 0
 let g:go_highlight_fields = 1
@@ -74,8 +79,6 @@ let g:go_highlight_methods = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_types = 1
-let g:go_highlight_variable_assignments = 1
-let g:go_highlight_variable_declarations = 1
 let g:pymode_python = 'python3'
 
 " Autocmds
@@ -84,7 +87,6 @@ augroup general
   autocmd completedone * pclose
   autocmd filetype help,qf setlocal nonumber | setlocal norelativenumber
     \ | setlocal colorcolumn=
-  autocmd vimenter * command! -nargs=* Ag call fzf#vim#ag_raw(<q-args>)
 augroup end
 
 augroup go
@@ -92,6 +94,9 @@ augroup go
   autocmd filetype go setlocal colorcolumn= | setlocal textwidth=0
   autocmd filetype go nmap <leader>b <plug>(go-build)
   autocmd filetype go nmap <leader>r <plug>(go-run)
+  autocmd filetype go nmap <leader>t <plug>(go-test)
+  autocmd filetype go nmap <leader>l <plug>(go-alternate-edit)
+  autocmd filetype go nmap <leader>d <plug>(go-def)
 augroup end
 
 augroup python
@@ -104,30 +109,26 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
+nnoremap <c-m> :cprevious<cr>
+nnoremap <c-n> :cnext<cr>
 nnoremap <f3> :set invhlsearch<cr>
 nnoremap <f4> :call ToggleNumbers()<cr>
 nnoremap <f5> :setlocal spell!<cr>
-nnoremap <leader>a :Ag<space>
+nnoremap j gj
+nnoremap k gk
+nnoremap <leader>a :Ack!<space>
 nnoremap <leader>c :cclose<cr>
 nnoremap <leader>e :edit $MYVIMRC<cr>
-nnoremap <leader>f :Files<cr>
 nnoremap <leader>gc :Gcommit<cr>
 nnoremap <leader>gd :Gvdiff<cr>
 nnoremap <leader>gs :Gstatus<cr
 nnoremap <leader>h :help<space>
-nnoremap <leader>m :Make<space>
-
+nnoremap <leader>k :Ack! -w "<cword>"<cr>
+nnoremap <leader>m :make<space>
 nnoremap <leader>q :q<cr>
-nnoremap <leader>r :Tags<cr>
 nnoremap <leader>s :source $MYVIMRC<cr>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>z :wq<cr>
-
-nnoremap ; :Buffers<cr>
-nnoremap j gj
-nnoremap k gk
-
-nmap <M-k> :Ack! "\b<cword>\b" <CR>
 
 " Functions
 function! ToggleNumbers()
