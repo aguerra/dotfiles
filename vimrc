@@ -41,6 +41,7 @@ set relativenumber
 let mapleader = ','
 let &makeprg = 'make -j' . systemlist('getconf _NPROCESSORS_ONLN')[0]
 
+set clipboard=unnamed,unnamedplus
 set colorcolumn=+1
 set cryptmethod=blowfish2
 set directory=~/.vim-tmp
@@ -85,8 +86,7 @@ let g:pymode_python = 'python3'
 augroup general
   autocmd!
   autocmd completedone * pclose
-  autocmd filetype help,qf setlocal nonumber | setlocal norelativenumber
-    \ | setlocal colorcolumn=
+  autocmd filetype help,qf setlocal colorcolumn=
 augroup end
 
 augroup go
