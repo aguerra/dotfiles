@@ -4,24 +4,19 @@
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd vimenter * PlugInstall --sync | source $MYVIMRC
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 call plug#begin('~/.vim/plugged')
-
-" Plugin list
-Plug 'ctrlpvim/ctrlp.vim', {'tag': '1.80'}
 Plug 'fatih/vim-go', {'tag': 'v1.18'}
 Plug 'honza/vim-snippets'
 Plug 'majutsushi/tagbar', {'tag': 'v2.7'}
-Plug 'mileszs/ack.vim', {'tag': '1.0.9'}
 Plug 'python-mode/python-mode', {'branch': 'develop'}
 Plug 'SirVer/ultisnips'
 Plug 'tomasr/molokai'
 Plug 'tpope/vim-fugitive', {'tag': 'v2.4'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
 call plug#end()
 
 " Look and feel
