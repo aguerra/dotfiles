@@ -71,14 +71,9 @@ let g:ackprg = 'ag --vimgrep'
 let g:ctrlp_cmd = 'CtrlPBuffer'
 let g:go_fmt_command = 'goimports'
 let g:go_get_update = 0
-let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
-let g:go_highlight_function_arguments = 1
-let g:go_highlight_function_calls = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_types = 1
+let g:netrw_liststyle = 3
+let g:netrw_winsize = 25
 let g:pymode_python = 'python3'
 
 " Autocmds
