@@ -4,7 +4,7 @@
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  autocmd vimenter * PlugInstall --sync | source $MYVIMRC
 endif
 
 call plug#begin('~/.vim/plugged')
@@ -51,7 +51,7 @@ set ignorecase
 set incsearch
 set list
 set listchars=tab:-\  " quoted space
-set pastetoggle=<F2>
+set pastetoggle=<f2>
 set scrolloff=5
 set shortmess=aoOtT
 set showcmd
