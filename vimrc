@@ -26,6 +26,7 @@ endif
 
 set background=dark
 set cursorline
+set guicursor+=a:blinkon0
 set guifont=Ubuntu\ Mono\ 15
 set guioptions-=T
 set laststatus=2
