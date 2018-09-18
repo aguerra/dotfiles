@@ -39,7 +39,8 @@ set relativenumber
 let mapleader = ','
 let &makeprg = 'make -j' . systemlist('getconf _NPROCESSORS_ONLN')[0]
 
-set clipboard=unnamed,unnamedplus
+set autoindent
+set clipboard^=unnamed,unnamedplus
 set colorcolumn=+1
 set cryptmethod=blowfish2
 set directory=~/.vim-tmp
@@ -50,7 +51,7 @@ set ignorecase
 set incsearch
 set list
 set listchars=tab:-\  " quoted space
-set pastetoggle=<f2>
+set pastetoggle=<F2>
 set scrolloff=5
 set shortmess=aoOtT
 set showcmd
