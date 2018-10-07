@@ -1,7 +1,7 @@
 # zshrc
 
 # Exports
-export EDITOR='vim'
+export EDITOR='nano'
 export HISTSIZE='5000'
 export HISTFILE="$HOME/.zsh_history"
 export SAVEHIST="$HISTSIZE"
@@ -22,46 +22,29 @@ compinit
 promptinit
 
 # zle
-bindkey -v
+bindkey -e
 
 bindkey "${terminfo[khome]}" beginning-of-line
 bindkey "${terminfo[kend]}"  end-of-line
 bindkey '^r'                 history-incremental-search-backward
 
 # Custom widgets
-accept-search-vi-end-of-line()
-{
-	zle accept-search
-	zle vi-end-of-line
-}
-
 zle-line-init zle-keymap-select()
 {
 	zle reset-prompt
 }
 
-zle -N accept-search-vi-end-of-line
 zle -N zle-line-init
 zle -N zle-keymap-select
 
-bindkey '^g'   accept-search-vi-end-of-line
 bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
 
 # Prompt
-VI_MODE_CMD="%{$fg_bold[red]%}>%{$reset_color%}"
-VI_MODE_INS="%{$fg_bold[green]%}>%{$reset_color%}"
-
-vi_mode_prompt_info()
-{
-	[ "$KEYMAP" = 'vicmd' ] && echo $VI_MODE_CMD || \
-	    echo $VI_MODE_INS
-}
-
-PROMPT='%{$fg_bold[white]%}%n@%m:%{$reset_color%}%{$fg_bold[blue]%}%~\
+PROMPT='$fg_bold[white]%}%n:%{$reset_color%}%{$fg_bold[blue]%}%~\
 %{$reset_color%}%{$fg_bold[yellow]%}${vcs_info_msg_0_}%{$reset_color%}\
 %{$fg_bold[magenta]%}{$(basename "$VIRTUAL_ENV")}%{$fg_bold[cyan]%}[%?]\
-%{$reset_color%}%{$reset_color%}$(vi_mode_prompt_info) '
+%{$reset_color%}%{$reset_color%}> '
 
 # Hook functions
 precmd()
