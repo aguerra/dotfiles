@@ -7,7 +7,6 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 (global-hl-line-mode 1)
 (global-linum-mode 1)
-(scroll-bar-mode -1)
 (set-frame-font "Ubuntu Mono-15" nil t)
 (setq inhibit-startup-screen t)
 (setq ring-bell-function 'ignore)
@@ -82,5 +81,9 @@
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (when (file-exists-p custom-file)
   (load custom-file))
+
+(setq local-file (expand-file-name "local.el" user-emacs-directory))
+(when (file-exists-p local-file)
+    (load local-file))
 
 ;;(add-to-list 'load-path "~/.emacs.d/languages")
