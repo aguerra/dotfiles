@@ -4,7 +4,6 @@
 (load-theme 'wombat)
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (blink-cursor-mode -1)
-(fset 'yes-or-no-p 'y-or-n-p)
 (global-hl-line-mode 1)
 (global-linum-mode 1)
 (set-frame-font "Ubuntu Mono-15" nil t)
@@ -16,12 +15,10 @@
 (column-number-mode t)
 (size-indication-mode t)
 
-;; Backup and autosave files
-(defconst tmp-dir (expand-file-name "tmp/" user-emacs-directory))
-(unless (file-exists-p tmp-dir)
-  (make-directory tmp-dir))
-(setq backup-directory-alist `((".*" . ,tmp-dir)))
-(setq auto-save-file-name-transforms `((".*" ,tmp-dir t)))
+;; Misc settings
+(fset 'yes-or-no-p 'y-or-n-p)
+(setq auto-save-default nil)
+(setq make-backup-files nil)
 
 ;; Package stuff
 (require 'package)
@@ -31,10 +28,9 @@
 (unless package-archive-contents
   (package-refresh-contents))
 
+
 ;; Key bindings
 (define-key global-map (kbd "RET") 'newline-and-indent)
-
-;; Misc settings
 
 ;; Bootstrap use-package
 (unless (package-installed-p 'use-package)
