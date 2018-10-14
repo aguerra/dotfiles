@@ -7,13 +7,15 @@
 (global-hl-line-mode 1)
 (global-linum-mode 1)
 (set-frame-font "Ubuntu Mono-15" nil t)
-(setq inhibit-startup-screen t)
-(setq ring-bell-function 'ignore)
+(setq inhibit-startup-screen t
+      linum-format "%4d "
+      ring-bell-function 'ignore)
 (tool-bar-mode -1)
 
 ;; Mode line settings
-(column-number-mode t)
-(size-indication-mode t)
+(column-number-mode 1)
+(size-indication-mode 1)
+
 
 ;; Misc settings
 (fset 'yes-or-no-p 'y-or-n-p)
