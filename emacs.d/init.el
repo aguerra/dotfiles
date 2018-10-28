@@ -18,9 +18,24 @@
 (size-indication-mode 1)
 
 ;; Misc settings
+(add-hook 'focus-out-hook 'garbage-collect)
+(delete-selection-mode 1)
 (fset 'yes-or-no-p 'y-or-n-p)
-(setq auto-save-default nil)
-(setq make-backup-files nil)
+(global-auto-revert-mode 1)
+(prefer-coding-system 'utf-8)
+(setq auto-save-default nil
+      gc-cons-threshold 50000000
+      load-prefer-newer t
+      make-backup-files nil
+      tab-always-indent 'complete)
+(setq frame-title-format
+      '((:eval (if (buffer-file-name)
+                   (abbreviate-file-name (buffer-file-name))
+                 "%b"))))
+(setq-default indent-tabs-mode nil)
+(set-default-coding-systems 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-terminal-coding-system 'utf-8)
 
 ;; Package settings
 (require 'package)
@@ -31,6 +46,8 @@
   (package-refresh-contents))
 
 ;; Key bindings
+(global-set-key (kbd "M-<up>") #'beginning-of-buffer)
+(global-set-key (kbd "M-<down>") #'end-of-buffer)
 (global-set-key (kbd "RET") 'newline-and-indent)
 
 ;; Install use-package
@@ -44,13 +61,17 @@
   :config
   (show-paren-mode 1))
 
+(use-package which-function-mode
+  :init
+  (add-hook 'prog-mode-hook #'which-function-mode))
+
 (use-package whitespace
   :init
   (dolist (hook '(prog-mode-hook text-mode-hook))
     (add-hook hook #'whitespace-mode))
   :config
-  (setq whitespace-line-column 80)
-  (setq whitespace-style '(face tabs empty trailing lines-tail)))
+  (setq whitespace-line-column 80
+        whitespace-style '(face tabs empty trailing lines-tail)))
 
 ;; Changes from the customize UI
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
