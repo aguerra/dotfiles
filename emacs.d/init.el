@@ -61,9 +61,23 @@
   :config
   (show-paren-mode 1))
 
-(use-package which-function-mode
-  :init
-  (add-hook 'prog-mode-hook #'which-function-mode))
+(use-package company
+  :ensure t
+  :config
+  (setq company-minimum-prefix-length 2)
+  (global-company-mode 1))
+
+(use-package company-go
+  :ensure t
+  :config
+  (add-to-list 'company-backends 'company-go))
+
+(use-package go-mode
+  :ensure t
+  :config
+  (setq exec-path (append '("~/go/bin") exec-path)
+        gofmt-command "goimports")
+  (add-hook 'before-save-hook 'gofmt-before-save))
 
 (use-package whitespace
   :init
