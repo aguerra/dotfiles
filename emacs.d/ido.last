@@ -1,0 +1,29 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/" . "alex/")
+ ("/" . "home/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/alex/tmp/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "test.py"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/" (23488 51099 517947 419000) "go/" "guest/" "./" "../" "alex/")
+
+ ("/home/alex/tmp/" (23510 19726 727420 281000) "Welcome Book.pdf" "test.sh" "test.go" "test.py" "test.txt" "./" "../" "container-cpu-reverse-diagnosis.png" "tags" "test.yaml" "test.c" "test")
+
+ ("/home/alex/" (23511 6945 797510 771000) ".local/" ".zsh_history" ".lesshst" "attic/" "misc/" "bin/" "go/" ".gitconfig" ".gnome/" ".zcompdump" ".cache/" ".ccache/" ".pki/" "git/" ".viminfo" "challenges/" ".vim-tmp/" "Dropbox/" ".pam_environment" ".emacs.d/" "ssh/" ".mozilla/" "notebooks/" ".vimrc" ".gnupg/" ".vim/" "./" ".dropbox-dist/" "sounds/" "courses/" "books/" ".ICEauthority" "../" ".config/" ".ssh/" ".virtualenvs/" ".tmux.conf" "tmp/" ".zshrc" ".profile" ".dropbox/" ".sudo_as_admin_successful")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
