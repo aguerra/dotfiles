@@ -79,6 +79,12 @@
         gofmt-command "goimports")
   (add-hook 'before-save-hook 'gofmt-before-save))
 
+(use-package ido
+  :config
+  (setq ido-enable-flex-matching t
+        ido-file-extensions-order '(".org" ".txt" ".py" ".el" ".sh" ".go"))
+  (ido-mode 1))
+
 (use-package whitespace
   :init
   (dolist (hook '(prog-mode-hook text-mode-hook))
