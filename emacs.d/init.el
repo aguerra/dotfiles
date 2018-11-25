@@ -4,9 +4,6 @@
 (load-theme 'wombat)
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (blink-cursor-mode -1)
-(global-hl-line-mode 1)
-(global-linum-mode 1)
-(set-face-attribute hl-line-face nil :underline nil)
 (set-frame-font "Ubuntu Mono-15" nil t)
 (setq inhibit-startup-screen t
       linum-format "%4d "
@@ -19,6 +16,11 @@
 
 ;; Misc settings
 (add-hook 'focus-out-hook 'garbage-collect)
+(add-hook 'prog-mode-hook
+          (lambda ()
+            (linum-mode)
+            (hl-line-mode)
+            (set-face-attribute hl-line-face nil :underline nil)))
 (delete-selection-mode 1)
 (fset 'yes-or-no-p 'y-or-n-p)
 (global-auto-revert-mode 1)
