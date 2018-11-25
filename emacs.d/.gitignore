@@ -1,3 +1,5 @@
 elpa
 custom.el
 local.el
+eshell
+ido.last
