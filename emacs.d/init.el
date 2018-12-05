@@ -113,8 +113,15 @@
   (add-hook 'lisp-mode-hook #'paredit-mode)
   (add-hook 'eval-expression-minibuffer-setup-hook #'paredit-mode))
 
+
+
 (use-package rainbow-delimiters
   :ensure t)
+
+(use-package volatile-highlights
+  :ensure t
+  :config
+  (volatile-highlights-mode 1))
 
 (use-package whitespace
   :init
