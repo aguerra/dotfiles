@@ -136,7 +136,7 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
-;; Local hook
-(setq local-hook (expand-file-name "local.el" user-emacs-directory))
-(when (file-exists-p local-hook)
-  (load local-hook))
+;; Local file
+(setq local-file (expand-file-name "local.el" user-emacs-directory))
+(when (file-exists-p local-file)
+  (load local-file))
