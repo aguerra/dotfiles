@@ -113,6 +113,9 @@
   (add-hook 'eval-expression-minibuffer-setup-hook #'paredit-mode))
 
 
+(use-package magit
+  :ensure t
+  :bind (("C-x g" . magit-status)))
 
 (use-package rainbow-delimiters
   :ensure t)
