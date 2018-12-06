@@ -1,7 +1,6 @@
 ;; init.el
 
 ;; Look and feel
-(load-theme 'wombat)
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (blink-cursor-mode -1)
 (set-frame-font "Ubuntu Mono-15" nil t)
@@ -117,6 +116,11 @@
 
 (use-package rainbow-delimiters
   :ensure t)
+
+(use-package solarized-theme
+  :ensure t
+  :config
+  (load-theme 'solarized-dark t))
 
 (use-package volatile-highlights
   :ensure t
