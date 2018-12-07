@@ -125,11 +125,6 @@
   :config
   (load-theme 'solarized-dark t))
 
-(use-package volatile-highlights
-  :ensure t
-  :config
-  (volatile-highlights-mode 1))
-
 (use-package whitespace
   :init
   (dolist (hook '(prog-mode-hook text-mode-hook))
