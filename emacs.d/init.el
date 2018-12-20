@@ -113,9 +113,28 @@
   (add-hook 'eval-expression-minibuffer-setup-hook #'paredit-mode))
 
 
+(use-package flx
+  :ensure t)
+
+(use-package flx-ido
+  :ensure t
+  :config
+  (flx-ido-mode 1))
+
+(use-package ido-vertical-mode
+  :ensure t
+  :config
+  (ido-vertical-mode 1))
+
 (use-package magit
   :ensure t
   :bind (("C-x g" . magit-status)))
+
+(use-package projectile
+  :ensure t
+  :config
+  (define-key projectile-mode-map (kbd "M-p") 'projectile-command-map)
+  (projectile-mode 1))
 
 (use-package rainbow-delimiters
   :ensure t)
