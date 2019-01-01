@@ -58,10 +58,6 @@
 (setq use-package-verbose t)
 
 ;; Package list
-(use-package paren
-  :config
-  (show-paren-mode 1))
-
 (use-package clojure-mode
   :ensure t
   :config
@@ -102,15 +98,6 @@
         ido-file-extensions-order '(".org" ".txt" ".py" ".el" ".sh" ".go"))
   (ido-mode 1))
 
-(use-package paredit
-  :ensure t
-  :config
-  (add-hook 'emacs-lisp-mode-hook #'paredit-mode)
-  ;; enable in the *scratch* buffer
-  (add-hook 'lisp-interaction-mode-hook #'paredit-mode)
-  (add-hook 'ielm-mode-hook #'paredit-mode)
-  (add-hook 'lisp-mode-hook #'paredit-mode)
-  (add-hook 'eval-expression-minibuffer-setup-hook #'paredit-mode))
 
 
 (use-package flx
@@ -129,6 +116,19 @@
 (use-package magit
   :ensure t
   :bind (("C-x g" . magit-status)))
+
+(use-package paredit
+  :ensure t
+  :config
+  (add-hook 'emacs-lisp-mode-hook #'paredit-mode)
+  (add-hook 'lisp-interaction-mode-hook #'paredit-mode)
+  (add-hook 'ielm-mode-hook #'paredit-mode)
+  (add-hook 'lisp-mode-hook #'paredit-mode)
+  (add-hook 'eval-expression-minibuffer-setup-hook #'paredit-mode))
+
+(use-package paren
+  :config
+  (show-paren-mode 1))
 
 (use-package projectile
   :ensure t
