@@ -3,3 +3,4 @@ custom.el
 local.el
 eshell
 ido.last
+projectile-bookmarks.eld
