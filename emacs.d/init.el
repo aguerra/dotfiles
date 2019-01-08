@@ -50,6 +50,7 @@
 (global-set-key (kbd "M-<up>") #'beginning-of-buffer)
 (global-set-key (kbd "M-<down>") #'end-of-buffer)
 (global-set-key (kbd "RET") 'newline-and-indent)
+(global-set-key (kbd "<f6>") 'fci-mode)
 
 ;; Install use-package
 (unless (package-installed-p 'use-package)
@@ -99,6 +100,10 @@
   (ido-mode 1))
 
 
+(use-package fill-column-indicator
+  :ensure t
+  :config
+  (setq fci-rule-width 5))
 
 (use-package flx
   :ensure t)
@@ -116,6 +121,13 @@
 (use-package magit
   :ensure t
   :bind (("C-x g" . magit-status)))
+
+(use-package markdown-mode
+  :ensure t
+  :mode (("\\.md\\'" . gfm-mode)
+         ("\\.markdown\\'" . gfm-mode))
+  :config
+  (setq markdown-fontify-code-blocks-natively t))
 
 (use-package paredit
   :ensure t
@@ -150,7 +162,7 @@
     (add-hook hook #'whitespace-mode))
   :config
   (setq whitespace-line-column 80
-        whitespace-style '(face tabs empty trailing lines-tail)))
+        whitespace-style '(face tabs empty trailing)))
 
 ;; Changes from the customize UI
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
