@@ -124,6 +124,11 @@
   :config
   (setq markdown-fontify-code-blocks-natively t))
 
+(use-package material-theme
+  :ensure t
+  :config
+  (load-theme 'material t))
+
 (use-package paredit
   :ensure t
   :config
@@ -145,11 +150,6 @@
 
 (use-package rainbow-delimiters
   :ensure t)
-
-(use-package solarized-theme
-  :ensure t
-  :config
-  (load-theme 'solarized-dark t))
 
 (use-package whitespace
   :init
