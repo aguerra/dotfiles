@@ -105,14 +105,6 @@
   :config
   (setq fci-rule-width 5))
 
-(use-package flx
-  :ensure t)
-
-(use-package flx-ido
-  :ensure t
-  :config
-  (flx-ido-mode 1))
-
 (use-package ido-vertical-mode
   :ensure t
   :config
