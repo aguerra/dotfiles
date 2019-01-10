@@ -81,10 +81,18 @@
   (setq company-minimum-prefix-length 2)
   (global-company-mode 1))
 
+
+
 (use-package company-go
+  :after (go-mode)
   :ensure t
   :config
   (add-to-list 'company-backends 'company-go))
+
+(use-package fill-column-indicator
+  :ensure t
+  :config
+  (setq fci-rule-width 5))
 
 (use-package go-mode
   :ensure t
@@ -92,14 +100,6 @@
   (setq exec-path (append '("~/go/bin") exec-path)
         gofmt-command "goimports")
   (add-hook 'before-save-hook 'gofmt-before-save))
-
-
-
-
-(use-package fill-column-indicator
-  :ensure t
-  :config
-  (setq fci-rule-width 5))
 
 (use-package ido
   :config
