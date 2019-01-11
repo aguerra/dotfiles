@@ -59,6 +59,15 @@
 (setq use-package-verbose t)
 
 ;; Package list
+(use-package cider
+  :after (clojure-mode)
+  :ensure t
+  :config
+  (add-hook 'cider-mode-hook #'eldoc-mode)
+  (add-hook 'cider-repl-mode-hook #'eldoc-mode)
+  (add-hook 'cider-repl-mode-hook #'paredit-mode)
+  (add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode))
+
 (use-package clojure-mode
   :ensure t
   :config
@@ -66,22 +75,12 @@
   (add-hook 'clojure-mode-hook #'subword-mode)
   (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode))
 
-(use-package cider
-  :ensure t
-  :config
-  (setq nrepl-log-messages t)
-  (add-hook 'cider-mode-hook #'eldoc-mode)
-  (add-hook 'cider-repl-mode-hook #'eldoc-mode)
-  (add-hook 'cider-repl-mode-hook #'paredit-mode)
-  (add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode))
-
 (use-package company
   :ensure t
   :config
-  (setq company-minimum-prefix-length 2)
+  (setq company-minimum-prefix-length 2
+        company-idle-delay 0.3)
   (global-company-mode 1))
-
-
 
 (use-package company-go
   :after (go-mode)
