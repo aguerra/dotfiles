@@ -151,6 +151,12 @@
 (use-package rainbow-delimiters
   :ensure t)
 
+(use-package spaceline-config
+  :ensure spaceline
+  :config
+  (setq powerline-default-separator 'bar)
+  (spaceline-spacemacs-theme))
+
 (use-package whitespace
   :init
   (dolist (hook '(prog-mode-hook text-mode-hook))
