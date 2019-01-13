@@ -121,7 +121,9 @@
   :mode (("\\.md\\'" . gfm-mode)
          ("\\.markdown\\'" . gfm-mode))
   :config
-  (setq markdown-fontify-code-blocks-natively t))
+  (setq markdown-fontify-code-blocks-natively t
+        markdown-command
+        "pandoc -f markdown_github -t html5 -s --mathjax"))
 
 (use-package material-theme
   :ensure t
