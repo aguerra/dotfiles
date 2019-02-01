@@ -59,6 +59,9 @@
 (setq use-package-verbose t)
 
 ;; Package list
+(use-package ag
+  :ensure t)
+
 (use-package cider
   :after (clojure-mode)
   :ensure t
