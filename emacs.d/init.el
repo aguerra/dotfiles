@@ -172,6 +172,8 @@
   (spaceline-spacemacs-theme))
 
 (use-package whitespace
+  :bind
+  (("<F7>" . whitespace-cleanup))
   :init
   (dolist (hook '(prog-mode-hook text-mode-hook))
     (add-hook hook #'whitespace-mode))
