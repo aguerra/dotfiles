@@ -65,16 +65,24 @@
 (use-package cider
   :after (clojure-mode)
   :ensure t
+  :bind
+  (:map cider-mode-map
+   ([f9] . cider-show-repl-buffer))
   :config
   (add-hook 'cider-mode-hook #'eldoc-mode)
   (add-hook 'cider-repl-mode-hook #'eldoc-mode)
-  (add-hook 'cider-repl-mode-hook #'parinfer-mode)
-  (add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode))
+  (add-hook 'cider-repl-mode-hook #'paredit-mode)
+  (add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)
+  (setq cider-prompt-for-symbol nil
+        cider-repl-pop-to-buffer-on-connect 'display-only))
 
 (use-package clojure-mode
   :ensure t
+  :bind
+  (:map clojure-mode-map
+   ([f8] . cider-jack-in-clj))
   :config
-  (add-hook 'clojure-mode-hook #'parinfer-mode)
+  (add-hook 'clojure-mode-hook #'paredit-mode)
   (add-hook 'clojure-mode-hook #'subword-mode)
   (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode))
 
@@ -133,28 +141,18 @@
   :config
   (load-theme 'material t))
 
+(use-package paredit
+  :ensure t
+  :config
+  (add-hook 'emacs-lisp-mode-hook #'paredit-mode)
+  (add-hook 'lisp-interaction-mode-hook #'paredit-mode)
+  (add-hook 'ielm-mode-hook #'paredit-mode)
+  (add-hook 'lisp-mode-hook #'paredit-mode)
+  (add-hook 'eval-expression-minibuffer-setup-hook #'paredit-mode))
+
 (use-package paren
   :config
   (show-paren-mode 1))
-
-(use-package parinfer
-  :ensure t
-  :bind
-  (("C-," . parinfer-toggle-mode))
-  :init
-  (progn
-    (setq parinfer-extensions
-          '(defaults
-            pretty-parens
-            paredit
-            smart-tab
-            smart-yank)))
-  :config
-  (add-hook 'emacs-lisp-mode-hook #'parinfer-mode)
-  (add-hook 'lisp-interaction-mode-hook #'parinfer-mode)
-  (add-hook 'ielm-mode-hook #'parinfer-mode)
-  (add-hook 'lisp-mode-hook #'parinfer-mode)
-  (add-hook 'eval-expression-minibuffer-setup-hook #'parinfer-mode))
 
 (use-package projectile
   :ensure t
@@ -165,21 +163,21 @@
 (use-package rainbow-delimiters
   :ensure t)
 
-(use-package spaceline-config
-  :ensure spaceline
-  :config
-  (setq powerline-default-separator 'bar)
-  (spaceline-spacemacs-theme))
-
 (use-package whitespace
   :bind
-  (("<F7>" . whitespace-cleanup))
+  (([f1] . whitespace-cleanup))
   :init
   (dolist (hook '(prog-mode-hook text-mode-hook))
     (add-hook hook #'whitespace-mode))
   :config
   (setq whitespace-line-column 80
         whitespace-style '(face tabs empty trailing)))
+
+(defun cider-show-repl-buffer ()
+  (interactive)
+  (let ((buffer (current-buffer)))
+    (cider-switch-to-repl-buffer)
+    (pop-to-buffer buffer)))
 
 ;; Changes from the customize UI
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
