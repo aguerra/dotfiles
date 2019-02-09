@@ -76,6 +76,13 @@
   (setq cider-prompt-for-symbol nil
         cider-repl-pop-to-buffer-on-connect 'display-only))
 
+(use-package clj-refactor
+  :after (clojure-mode)
+  :ensure t
+  :config
+  (add-hook 'clojure-mode-hook #'clj-refactor-mode)
+  (add-hook 'clojure-mode-hook #'yas-minor-mode))
+
 (use-package clojure-mode
   :ensure t
   :bind
