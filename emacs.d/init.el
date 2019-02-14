@@ -51,6 +51,9 @@
 (global-set-key (kbd "M-<down>") #'end-of-buffer)
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "<f6>") 'fci-mode)
+(global-set-key (kbd "<f3>") 'jump-to-mark)
+(global-set-key (kbd "<f2>") 'push-mark-no-activate)
+(define-key global-map [remap exchange-point-and-mark] 'exchange-point-and-mark-no-activate)
 
 ;; Install use-package
 (unless (package-installed-p 'use-package)
@@ -191,6 +194,23 @@
   (let ((buffer (current-buffer)))
     (cider-switch-to-repl-buffer)
     (pop-to-buffer buffer)))
+
+;; From https://www.masteringemacs.org/article/fixing-mark-commands-transient-mark-mode
+(defun push-mark-no-activate ()
+  "Pushes `point' to `mark-ring' and does not activate the region"
+  (interactive)
+  (push-mark (point) t nil))
+
+(defun jump-to-mark ()
+  "Jumps to the local mark, respecting the `mark-ring' order"
+  (interactive)
+  (set-mark-command 1))
+
+(defun exchange-point-and-mark-no-activate ()
+  "Identical to \\[exchange-point-and-mark] but will not activate the region"
+  (interactive)
+  (exchange-point-and-mark)
+  (deactivate-mark nil))
 
 ;; Changes from the customize UI
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
