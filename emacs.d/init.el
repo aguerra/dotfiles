@@ -80,6 +80,7 @@
   :after (clojure-mode)
   :ensure t
   :config
+  (cljr-add-keybindings-with-prefix "C-c C-n")
   (add-hook 'clojure-mode-hook #'clj-refactor-mode)
   (add-hook 'clojure-mode-hook #'yas-minor-mode))
 
