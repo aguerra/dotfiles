@@ -177,9 +177,10 @@
   (dolist (hook '(prog-mode-hook text-mode-hook))
     (add-hook hook #'whitespace-mode))
   :config
-  (setq whitespace-line-column 80
+  (setq whitespace-line-column 100
         whitespace-style '(face tabs empty trailing)))
 
+;; Custom functions
 (defun cider-show-repl-buffer ()
   (interactive)
   (let ((buffer (current-buffer)))
