@@ -171,6 +171,11 @@
 (use-package rainbow-delimiters
   :ensure t)
 
+(use-package which-key
+  :ensure t
+  :config
+  (which-key-mode 1))
+
 (use-package whitespace
   :bind
   (([f1] . whitespace-cleanup))
