@@ -95,7 +95,27 @@
   :config
   (add-hook 'clojure-mode-hook #'paredit-mode)
   (add-hook 'clojure-mode-hook #'subword-mode)
-  (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode))
+  (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
+  (define-clojure-indent
+    (against-background 'defun)
+    (alet 'defun)
+    (as-customer 1)
+    (as-of 1)
+    (constraint-fn 'defun)
+    (data-fn 'defun)
+    (facts 'defun)
+    (fact 'defun)
+    (for-all 'defun)
+    (flow 'defun)
+    (future-fact 'defun)
+    (let-entities 'defun)
+    (log-messages 'defun)
+    (mlet 'defun)
+    (provided 'defun)
+    (request-context 'defun)
+    (tabular 'defun)
+    (tabular-flow 'defun)
+    (verify 'defun)))
 
 (use-package company
   :ensure t
