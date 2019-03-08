@@ -75,7 +75,6 @@
   (add-hook 'cider-mode-hook #'eldoc-mode)
   (add-hook 'cider-repl-mode-hook #'eldoc-mode)
   (add-hook 'cider-repl-mode-hook #'paredit-mode)
-  (add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)
   (setq cider-prompt-for-symbol nil
         cider-repl-pop-to-buffer-on-connect 'display-only))
 
@@ -95,7 +94,6 @@
   :config
   (add-hook 'clojure-mode-hook #'paredit-mode)
   (add-hook 'clojure-mode-hook #'subword-mode)
-  (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
   (define-clojure-indent
     (against-background 'defun)
     (alet 'defun)
@@ -192,7 +190,8 @@
   (projectile-mode 1))
 
 (use-package rainbow-delimiters
-  :ensure t)
+  :ensure t
+  :hook (prog-mode . rainbow-delimiters-mode))
 
 (use-package which-key
   :ensure t
