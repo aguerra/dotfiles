@@ -204,10 +204,14 @@
 
 (use-package whitespace
   :bind
-  (([f1] . whitespace-cleanup))
+  ([f1] . whitespace-cleanup)
   :hook ((prog-mode text-mode) . whitespace-mode)
   :config
   (setq whitespace-style '(face tabs empty trailing)))
+
+(use-package windmove
+  :config
+  (windmove-default-keybindings))
 
 ;; Custom functions
 (defun cider-show-repl-buffer ()
