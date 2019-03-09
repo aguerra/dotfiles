@@ -193,6 +193,10 @@
   :ensure t
   :hook (prog-mode . rainbow-delimiters-mode))
 
+(use-package uniquify
+  :config
+  (setq uniquify-buffer-name-style 'forward))
+
 (use-package which-key
   :ensure t
   :config
