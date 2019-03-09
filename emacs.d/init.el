@@ -205,9 +205,7 @@
 (use-package whitespace
   :bind
   (([f1] . whitespace-cleanup))
-  :init
-  (dolist (hook '(prog-mode-hook text-mode-hook))
-    (add-hook hook #'whitespace-mode))
+  :hook ((prog-mode text-mode) . whitespace-mode)
   :config
   (setq whitespace-style '(face tabs empty trailing)))
 
