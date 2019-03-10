@@ -152,18 +152,27 @@
   :config
   (ido-vertical-mode 1))
 
+
 (use-package magit
   :ensure t
-  :bind (("C-x g" . magit-status)))
+  :bind
+  ("C-x g" . magit-status))
 
 (use-package markdown-mode
   :ensure t
-  :mode (("\\.md\\'" . gfm-mode)
-         ("\\.markdown\\'" . gfm-mode))
+  :mode
+  (("\\.md\\'" . gfm-mode)
+   ("\\.markdown\\'" . gfm-mode))
   :config
   (setq markdown-fontify-code-blocks-natively t
         markdown-command
         "pandoc -f markdown_github -t html5 -s --mathjax"))
+
+(use-package move-text
+  :ensure t
+  :bind
+  (([(meta shift up)] . move-text-up)
+   ([(meta shift down)] . move-text-down)))
 
 (use-package material-theme
   :ensure t
@@ -175,8 +184,6 @@
   :config
   (add-hook 'emacs-lisp-mode-hook #'paredit-mode)
   (add-hook 'lisp-interaction-mode-hook #'paredit-mode)
-  (add-hook 'ielm-mode-hook #'paredit-mode)
-  (add-hook 'lisp-mode-hook #'paredit-mode)
   (add-hook 'eval-expression-minibuffer-setup-hook #'paredit-mode))
 
 (use-package paren
@@ -191,11 +198,41 @@
 
 (use-package rainbow-delimiters
   :ensure t
-  :hook (prog-mode . rainbow-delimiters-mode))
+  :hook
+  (prog-mode . rainbow-delimiters-mode))
+
+(use-package recentf
+  :config
+  (recentf-mode 1))
+
+(use-package savehist
+  :config
+  (setq savehist-additional-variables
+        '(search-ring regexp-search-ring))
+  (savehist-mode 1))
+
+(use-package saveplace
+  :config
+  (save-place-mode 1))
+
+(use-package super-save
+  :ensure t
+  :config
+  (super-save-mode 1))
+
+(use-package undo-tree
+  :ensure t
+  :config
+  (global-undo-tree-mode 1))
 
 (use-package uniquify
   :config
   (setq uniquify-buffer-name-style 'forward))
+
+(use-package volatile-highlights
+  :ensure t
+  :config
+  (volatile-highlights-mode 1))
 
 (use-package which-key
   :ensure t
@@ -205,13 +242,23 @@
 (use-package whitespace
   :bind
   ([f1] . whitespace-cleanup)
-  :hook ((prog-mode text-mode) . whitespace-mode)
+  :hook
+  ((prog-mode text-mode) . whitespace-mode)
   :config
   (setq whitespace-style '(face tabs empty trailing)))
 
 (use-package windmove
   :config
   (windmove-default-keybindings))
+
+(use-package yaml-mode
+  :ensure t)
+
+(use-package zop-to-char
+  :ensure t
+  :bind
+  (("M-z" . zop-up-to-char)
+   ("M-Z" . zop-to-char)))
 
 ;; Custom functions
 (defun cider-show-repl-buffer ()
