@@ -4,3 +4,7 @@ local.el
 eshell
 ido.last
 projectile-bookmarks.eld
+auto-save-list
+history
+places
+recentf
