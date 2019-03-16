@@ -63,7 +63,10 @@
 
 ;; Package list
 (use-package ag
-  :ensure t)
+  :ensure t
+  :config
+  (add-hook 'ag-search-finished-hook 'next-error-follow-minor-mode)
+  (setq ag-highlight-search t))
 
 (use-package cider
   :after (clojure-mode)
@@ -194,6 +197,7 @@
   :ensure t
   :config
   (define-key projectile-mode-map (kbd "M-p") 'projectile-command-map)
+  (define-key projectile-mode-map (kbd "M-p s") 'projectile-ag-regex)
   (projectile-mode 1))
 
 (use-package rainbow-delimiters
@@ -283,6 +287,11 @@
   (interactive)
   (exchange-point-and-mark)
   (deactivate-mark nil))
+
+(defun projectile-ag-regex ()
+  (interactive)
+  (let ((current-prefix-arg '(4)))
+    (call-interactively 'projectile-ag)))
 
 ;; Changes from the customize UI
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
