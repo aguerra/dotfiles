@@ -28,6 +28,7 @@
       gc-cons-threshold 50000000
       load-prefer-newer t
       make-backup-files nil
+      split-width-threshold 9999
       tab-always-indent 'complete)
 (setq frame-title-format
       '((:eval (if (buffer-file-name)
