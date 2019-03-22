@@ -63,12 +63,6 @@
 (setq use-package-verbose t)
 
 ;; Package list
-(use-package ag
-  :ensure t
-  :config
-  (add-hook 'ag-search-finished-hook 'next-error-follow-minor-mode)
-  (setq ag-highlight-search t))
-
 (use-package cider
   :after (clojure-mode)
   :ensure t
@@ -132,6 +126,11 @@
   :config
   (add-to-list 'company-backends 'company-go))
 
+(use-package counsel
+  :ensure t
+  :config
+  (counsel-mode 1))
+
 (use-package fill-column-indicator
   :ensure t
   :config
@@ -144,18 +143,13 @@
         gofmt-command "goimports")
   (add-hook 'before-save-hook 'gofmt-before-save))
 
-(use-package ido
-  :config
-  (setq ido-enable-flex-matching t
-        ido-everywhere t
-        ido-ignore-extensions t)
-  (ido-mode 1))
-
-(use-package ido-vertical-mode
+(use-package ivy
   :ensure t
   :config
-  (ido-vertical-mode 1))
-
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t)
+  (setq enable-recursive-minibuffers t)
+  (global-set-key (kbd "<f6>") 'ivy-resume))
 
 (use-package magit
   :ensure t
@@ -196,9 +190,11 @@
 
 (use-package projectile
   :ensure t
+  :init
+  (setq projectile-completion-system 'ivy)
   :config
   (define-key projectile-mode-map (kbd "M-p") 'projectile-command-map)
-  (define-key projectile-mode-map (kbd "M-p s") 'projectile-ag-regex)
+  (define-key projectile-mode-map (kbd "M-p s") 'counsel-ag)
   (projectile-mode 1))
 
 (use-package rainbow-delimiters
