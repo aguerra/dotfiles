@@ -221,6 +221,11 @@
   :config
   (super-save-mode 1))
 
+(use-package swiper
+  :ensure t
+  :bind
+  ("C-s" . swiper))
+
 (use-package undo-tree
   :ensure t
   :config
