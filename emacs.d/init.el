@@ -69,6 +69,14 @@
   (setq save-abbrevs 'silently)
   (setq-default abbrev-mode t))
 
+(use-package anzu
+  :ensure t
+  :bind
+  (([remap query-replace] . anzu-query-replace)
+   ([remap query-replace-regexp] . anzu-query-replace-regexp))
+  :config
+  (global-anzu-mode 1))
+
 (use-package cider
   :after (clojure-mode)
   :ensure t
