@@ -63,6 +63,12 @@
 (setq use-package-verbose t)
 
 ;; Package list
+(use-package abbrev
+  :config
+  (setq abbrev-file-name (expand-file-name "abbrev_defs" user-emacs-directory))
+  (setq save-abbrevs 'silently)
+  (setq-default abbrev-mode t))
+
 (use-package cider
   :after (clojure-mode)
   :ensure t
