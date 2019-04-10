@@ -86,15 +86,13 @@
   (add-hook 'cider-mode-hook 'eldoc-mode)
   (add-hook 'cider-repl-mode-hook 'paredit-mode)
   (setq cider-prompt-for-symbol nil)
-  (setq cider-replp-op-to-buffer-on-connect 'display-only))
+  (setq cider-repl-pop-to-buffer-on-connect 'display-only))
 
 (use-package clj-refactor
-  :after (clojure-mode)
   :ensure t
   :config
-  (cljr-add-keybindings-with-prefix "C-c C-n")
-  (add-hook 'clojure-mode-hook #'clj-refactor-mode)
-  (add-hook 'clojure-mode-hook #'yas-minor-mode))
+  (cljr-add-keybindings-with-prefix "C-c C-r")
+  (setq cljr-warn-on-eval nil))
 
 (use-package clojure-mode
   :ensure t
@@ -104,6 +102,8 @@
   :config
   (add-hook 'clojure-mode-hook #'paredit-mode)
   (add-hook 'clojure-mode-hook #'subword-mode)
+  (add-hook 'clojure-mode-hook #'clj-refactor-mode)
+  (add-hook 'clojure-mode-hook #'yas-minor-mode)
   (define-clojure-indent
     (against-background 'defun)
     (alet 'defun)
