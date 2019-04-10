@@ -78,17 +78,15 @@
   (global-anzu-mode 1))
 
 (use-package cider
-  :after (clojure-mode)
   :ensure t
   :bind
   (:map cider-mode-map
    ([f9] . cider-show-repl-buffer))
   :config
-  (add-hook 'cider-mode-hook #'eldoc-mode)
-  (add-hook 'cider-repl-mode-hook #'eldoc-mode)
-  (add-hook 'cider-repl-mode-hook #'paredit-mode)
-  (setq cider-prompt-for-symbol nil
-        cider-repl-pop-to-buffer-on-connect 'display-only))
+  (add-hook 'cider-mode-hook 'eldoc-mode)
+  (add-hook 'cider-repl-mode-hook 'paredit-mode)
+  (setq cider-prompt-for-symbol nil)
+  (setq cider-replp-op-to-buffer-on-connect 'display-only))
 
 (use-package clj-refactor
   :after (clojure-mode)
