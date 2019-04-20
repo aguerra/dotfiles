@@ -72,8 +72,8 @@
 (use-package anzu
   :ensure t
   :bind
-  (([remap query-replace] . anzu-query-replace)
-   ([remap query-replace-regexp] . anzu-query-replace-regexp))
+  (([f4] . anzu-query-replace)
+   ([f5] . anzu-query-replace-regexp))
   :config
   (global-anzu-mode 1))
 
