@@ -83,10 +83,11 @@
   (:map cider-mode-map
    ([f9] . cider-show-repl-buffer))
   :config
-  (add-hook 'cider-mode-hook 'eldoc-mode)
-  (add-hook 'cider-repl-mode-hook 'paredit-mode)
   (setq cider-prompt-for-symbol nil)
-  (setq cider-repl-pop-to-buffer-on-connect 'display-only))
+  (setq cider-repl-pop-to-buffer-on-connect 'display-only)
+  :hook
+  ((cider-mode . eldoc-mode)
+   (cider-repl-mode . paredit-mode)))
 
 (use-package clj-refactor
   :ensure t
@@ -100,10 +101,6 @@
   (:map clojure-mode-map
    ([f8] . cider-jack-in-clj))
   :config
-  (add-hook 'clojure-mode-hook #'paredit-mode)
-  (add-hook 'clojure-mode-hook #'subword-mode)
-  (add-hook 'clojure-mode-hook #'clj-refactor-mode)
-  (add-hook 'clojure-mode-hook #'yas-minor-mode)
   (define-clojure-indent
     (against-background 'defun)
     (alet 'defun)
@@ -123,17 +120,21 @@
     (request-context 'defun)
     (tabular 'defun)
     (tabular-flow 'defun)
-    (verify 'defun)))
+    (verify 'defun))
+  :hook
+  ((clojure-mode . paredit-mode)
+   (clojure-mode . subword-mode)
+   (clojure-mode . clj-refactor-mode)
+   (clojure-mode . yas-minor-mode)))
 
 (use-package company
   :ensure t
   :config
-  (setq company-minimum-prefix-length 2
-        company-idle-delay 0.3)
+  (setq company-idle-delay 0.3)
+  (setq company-minimum-prefix-length 2)
   (global-company-mode 1))
 
 (use-package company-go
-  :after (go-mode)
   :ensure t
   :config
   (add-to-list 'company-backends 'company-go))
