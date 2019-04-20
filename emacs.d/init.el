@@ -144,6 +144,13 @@
   :config
   (counsel-mode 1))
 
+(use-package crux
+  :ensure t
+  :bind
+  (("C-c t" . crux-visit-term-buffer)
+   ("s-j" . crux-top-join-line)
+   ("C-<backspace>" . crux-kill-line-backwards)))
+
 (use-package fill-column-indicator
   :ensure t
   :config
