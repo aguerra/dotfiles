@@ -199,10 +199,8 @@
 
 (use-package paredit
   :ensure t
-  :config
-  (add-hook 'emacs-lisp-mode-hook #'paredit-mode)
-  (add-hook 'lisp-interaction-mode-hook #'paredit-mode)
-  (add-hook 'eval-expression-minibuffer-setup-hook #'paredit-mode))
+  :hook
+  ((emacs-lisp-mode lisp-interaction-mode) . paredit-mode))
 
 (use-package paren
   :config
@@ -228,8 +226,7 @@
 
 (use-package savehist
   :config
-  (setq savehist-additional-variables
-        '(search-ring regexp-search-ring))
+  (setq savehist-additional-variables '(search-ring regexp-search-ring))
   (savehist-mode 1))
 
 (use-package saveplace
