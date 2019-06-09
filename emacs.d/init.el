@@ -165,11 +165,13 @@
 
 (use-package ivy
   :ensure t
+  :bind
+  ([f6] . ivy-resume)
   :config
   (ivy-mode 1)
+  (setq ivy-height 15)
   (setq ivy-use-virtual-buffers t)
-  (setq enable-recursive-minibuffers t)
-  (global-set-key (kbd "<f6>") 'ivy-resume))
+  (setq enable-recursive-minibuffers t))
 
 (use-package magit
   :ensure t
@@ -182,20 +184,19 @@
   (("\\.md\\'" . gfm-mode)
    ("\\.markdown\\'" . gfm-mode))
   :config
-  (setq markdown-fontify-code-blocks-natively t
-        markdown-command
-        "pandoc -f markdown_github -t html5 -s --mathjax"))
+  (setq markdown-fontify-code-blocks-natively t)
+  (setq markdown-command "pandoc -f markdown_github -t html5 -s --mathjax"))
+
+(use-package material-theme
+  :ensure t
+  :config
+  (load-theme 'material t))
 
 (use-package move-text
   :ensure t
   :bind
   (([(meta shift up)] . move-text-up)
    ([(meta shift down)] . move-text-down)))
-
-(use-package material-theme
-  :ensure t
-  :config
-  (load-theme 'material t))
 
 (use-package paredit
   :ensure t
