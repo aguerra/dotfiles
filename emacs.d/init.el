@@ -3,7 +3,7 @@
 ;; Look and feel
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (blink-cursor-mode -1)
-(set-frame-font "Ubuntu Mono-15" nil t)
+(set-frame-font "Ubuntu Mono-14" nil t)
 (setq inhibit-startup-screen t
       linum-format "%4d "
       ring-bell-function 'ignore)
