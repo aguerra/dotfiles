@@ -169,9 +169,9 @@
   ([f6] . ivy-resume)
   :config
   (ivy-mode 1)
-  (setq ivy-height 15)
-  (setq ivy-use-virtual-buffers t)
-  (setq enable-recursive-minibuffers t))
+  (setq enable-recursive-minibuffers t)
+  (setq ivy-fixed-height-minibuffer 15)
+  (setq ivy-use-virtual-buffers t))
 
 (use-package magit
   :ensure t
