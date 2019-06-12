@@ -163,6 +163,11 @@
         gofmt-command "goimports")
   (add-hook 'before-save-hook 'gofmt-before-save))
 
+(use-package imenu-anywhere
+  :ensure t
+  :bind
+  ("s-i" . imenu-anywhere))
+
 (use-package ivy
   :ensure t
   :bind
