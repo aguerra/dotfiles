@@ -15,11 +15,7 @@
 
 ;; Misc settings
 (add-hook 'focus-out-hook 'garbage-collect)
-(add-hook 'prog-mode-hook
-          (lambda ()
-            (linum-mode)
-            (hl-line-mode)
-            (set-face-attribute hl-line-face nil :underline nil)))
+(add-hook 'prog-mode-hook (lambda () (linum-mode)))
 (delete-selection-mode 1)
 (fset 'yes-or-no-p 'y-or-n-p)
 (global-auto-revert-mode 1)
@@ -159,9 +155,12 @@
 (use-package go-mode
   :ensure t
   :config
-  (setq exec-path (append '("~/go/bin") exec-path)
-        gofmt-command "goimports")
+  (setq gofmt-command "goimports")
   (add-hook 'before-save-hook 'gofmt-before-save))
+
+(use-package hl-line
+  :config
+  (global-hl-line-mode 1))
 
 (use-package imenu-anywhere
   :ensure t
