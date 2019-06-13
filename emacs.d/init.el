@@ -153,6 +153,17 @@
   :config
   (setq fci-rule-width 5))
 
+(use-package flycheck
+  :ensure t
+  :config
+  (global-flycheck-mode 1))
+
+(use-package flyspell
+  :config
+  :hook
+  ((prog-mode . flyspell-prog-mode)
+   (text-mode . flyspell-mode)))
+
 (use-package go-mode
   :ensure t
   :config
