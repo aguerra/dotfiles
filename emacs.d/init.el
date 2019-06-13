@@ -47,7 +47,6 @@
 (global-set-key (kbd "M-<up>") #'beginning-of-buffer)
 (global-set-key (kbd "M-<down>") #'end-of-buffer)
 (global-set-key (kbd "RET") 'newline-and-indent)
-(global-set-key (kbd "<f6>") 'fci-mode)
 (global-set-key (kbd "<f3>") 'jump-to-mark)
 (global-set-key (kbd "<f2>") 'push-mark-no-activate)
 (define-key global-map [remap exchange-point-and-mark] 'exchange-point-and-mark-no-activate)
@@ -149,6 +148,8 @@
 
 (use-package fill-column-indicator
   :ensure t
+  :bind
+  ([f7] . fci-mode)
   :config
   (setq fci-rule-width 5))
 
