@@ -146,6 +146,22 @@
    ("s-j" . crux-top-join-line)
    ("C-<backspace>" . crux-kill-line-backwards)))
 
+(use-package easy-kill
+  :ensure t
+  :bind
+  (([remap kill-ring-save] . easy-kill)
+   ([remap mark-sexp] . easy-mark)))
+
+(use-package elixir-mode
+  :ensure t
+  :hook
+  ((elixir-mode . subword-mode)))
+
+(use-package exec-path-from-shell
+  :ensure t
+  :config
+  (exec-path-from-shell-initialize))
+
 (use-package fill-column-indicator
   :ensure t
   :bind
