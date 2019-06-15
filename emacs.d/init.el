@@ -146,6 +146,13 @@
    ("s-j" . crux-top-join-line)
    ("C-<backspace>" . crux-kill-line-backwards)))
 
+(use-package diff-hl
+  :ensure t
+  :hook
+  (magic-post-refresh . diff-hl-magit-post-refresh)
+  :config
+  (global-diff-hl-mode 1))
+
 (use-package easy-kill
   :ensure t
   :bind
