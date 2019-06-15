@@ -149,7 +149,7 @@
 (use-package diff-hl
   :ensure t
   :hook
-  (magic-post-refresh . diff-hl-magit-post-refresh)
+  (magit-post-refresh . diff-hl-magit-post-refresh)
   :config
   (global-diff-hl-mode 1))
 
