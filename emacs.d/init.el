@@ -167,7 +167,8 @@
   :hook
   (magit-post-refresh . diff-hl-magit-post-refresh)
   :config
-  (global-diff-hl-mode 1))
+  (global-diff-hl-mode)
+  (diff-hl-flydiff-mode))
 
 (use-package easy-kill
   :ensure t
