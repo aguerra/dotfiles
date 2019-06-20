@@ -255,6 +255,10 @@
   (([(meta shift up)] . move-text-up)
    ([(meta shift down)] . move-text-down)))
 
+(use-package org
+  :config
+  (setq org-directory "~/git/notes"))
+
 (use-package paredit
   :ensure t
   :hook
