@@ -142,9 +142,25 @@
 (use-package crux
   :ensure t
   :bind
-  (("C-c t" . crux-visit-term-buffer)
+  (("C-c o" . crux-open-with)
+   ("C-c n" . crux-cleanup-buffer-or-region)
+   ("C-c f" . crux-recentf-find-file)
+   ("C-M-z" . crux-indent-defun)
+   ("C-c u" . crux-view-url)
+   ("C-c e" . crux-eval-and-replace)
+   ("C-c w" . crux-swap-windows)
+   ("C-c D" . crux-delete-file-and-buffer)
+   ("C-c r" . crux-rename-buffer-and-file)
+   ("C-c t" . crux-visit-term-buffer)
+   ("C-c k" . crux-kill-other-buffers)
+   ("C-c TAB" . crux-indent-rigidly-and-copy-to-clipboard)
    ("s-j" . crux-top-join-line)
-   ("C-<backspace>" . crux-kill-line-backwards)))
+   ("s-k" . crux-kill-whole-line)
+   ("C-<backspace>" . crux-kill-line-backwards)
+   ("C-c d" . crux-duplicate-current-line-or-region)
+   ([remap move-beginning-of-line] . crux-move-beginning-of-line)
+   ([(shift return)] . crux-smart-open-line)
+   ([(control shift return)] . crux-smart-open-line-above)))
 
 (use-package diff-hl
   :ensure t
