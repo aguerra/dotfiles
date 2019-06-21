@@ -168,9 +168,8 @@
 
 (use-package diff-hl
   :ensure t
-  :hook
-  (magit-post-refresh . diff-hl-magit-post-refresh)
-  :config
+  :init
+  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
   (global-diff-hl-mode)
   (diff-hl-flydiff-mode))
 
