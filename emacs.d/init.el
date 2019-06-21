@@ -1,4 +1,8 @@
-;; init.el
+;;; init.el --- Alex' emacs config
+
+;;; Commentary:
+
+;;; Code:
 
 ;; Look and feel
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
