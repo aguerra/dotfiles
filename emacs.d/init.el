@@ -1,4 +1,4 @@
-;;; init.el --- Alex' emacs config
+;;; init.el --- Alex' emacs configuration
 
 ;;; Commentary:
 
