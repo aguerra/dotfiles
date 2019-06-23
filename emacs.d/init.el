@@ -7,10 +7,10 @@
 ;; Look and feel
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (blink-cursor-mode -1)
+(menu-bar-mode -1)
 (set-frame-font "Ubuntu Mono-14" nil t)
-(setq inhibit-startup-screen t
-      linum-format "%4d "
-      ring-bell-function 'ignore)
+(setq inhibit-startup-screen t)
+(setq ring-bell-function 'ignore)
 (tool-bar-mode -1)
 
 ;; Mode line settings
