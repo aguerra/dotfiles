@@ -298,6 +298,12 @@
   :config
   (save-place-mode 1))
 
+(use-package smart-mode-line
+   :ensure t
+   :config
+   (setq sml/no-confirm-load-theme t)
+   (sml/setup))
+
 (use-package super-save
   :ensure t
   :config
