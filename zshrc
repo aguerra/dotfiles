@@ -140,9 +140,6 @@ function tcp-file()
     socat -u FILE:"$file" TCP-L:"$port",reuseaddr,fork
 }
 
-# Startup actions
-[[ $TERM =~ '^screen' ]] || tmux attach
-
 VENV_WRAPPER=/usr/share/virtualenvwrapper/virtualenvwrapper.sh
 [[ -f $VENV_WRAPPER ]] && source $VENV_WRAPPER
 
