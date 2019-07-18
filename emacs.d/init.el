@@ -48,8 +48,8 @@
   (package-refresh-contents))
 
 ;; Key bindings
-(global-set-key (kbd "M-<up>") #'beginning-of-buffer)
-(global-set-key (kbd "M-<down>") #'end-of-buffer)
+(global-set-key (kbd "M-[") 'beginning-of-buffer)
+(global-set-key (kbd "M-]") 'end-of-buffer)
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "<f3>") 'jump-to-mark)
 (global-set-key (kbd "<f2>") 'push-mark-no-activate)
