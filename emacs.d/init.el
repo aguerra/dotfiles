@@ -93,6 +93,8 @@
   :ensure t
   :config
   (cljr-add-keybindings-with-prefix "C-c C-r")
+  (setq cljr-eagerly-build-asts-on-startup nil)
+  (setq cljr-ignore-analyzer-errors t)
   (setq cljr-warn-on-eval nil))
 
 (use-package clojure-mode
