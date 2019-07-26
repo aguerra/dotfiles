@@ -186,6 +186,8 @@
   :hook
   ((elixir-mode . subword-mode)))
 
+(use-package epa)
+
 (use-package exec-path-from-shell
   :ensure t
   :config
