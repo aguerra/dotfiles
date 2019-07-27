@@ -54,7 +54,7 @@
 (global-set-key (kbd "s-j") 'delete-indentation)
 (global-set-key (kbd "<f3>") 'jump-to-mark)
 (global-set-key (kbd "<f2>") 'push-mark-no-activate)
-(define-key global-map [remap exchange-point-and-mark] 'exchange-point-and-mark-no-activate)
+(global-set-key [remap exchange-point-and-mark] 'exchange-point-and-mark-no-activate)
 
 ;; Install use-package
 (unless (package-installed-p 'use-package)
