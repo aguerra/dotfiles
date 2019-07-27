@@ -164,6 +164,7 @@
    ("s-k" . crux-kill-whole-line)
    ("C-<backspace>" . crux-kill-line-backwards)
    ("C-c d" . crux-duplicate-current-line-or-region)
+   ("s-J" . crux-top-join-line)
    ([remap move-beginning-of-line] . crux-move-beginning-of-line)
    ([(shift return)] . crux-smart-open-line)
    ([(control shift return)] . crux-smart-open-line-above)))
