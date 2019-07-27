@@ -1,4 +1,4 @@
-;;; init.el --- Alex' emacs configuration
+;;; package --- Alex' emacs configuration
 
 ;;; Commentary:
 
@@ -362,25 +362,20 @@
 
 ;; From https://www.masteringemacs.org/article/fixing-mark-commands-transient-mark-mode
 (defun push-mark-no-activate ()
-  "Pushes `point' to `mark-ring' and does not activate the region"
+  "Pushes 'point' to 'mark-ring' and does not activate the region."
   (interactive)
   (push-mark (point) t nil))
 
 (defun jump-to-mark ()
-  "Jumps to the local mark, respecting the `mark-ring' order"
+  "Jumps to the local mark, respecting the 'mark-ring' order."
   (interactive)
   (set-mark-command 1))
 
 (defun exchange-point-and-mark-no-activate ()
-  "Identical to \\[exchange-point-and-mark] but will not activate the region"
+  "Identical to 'exchange-point-and-mark' but will not activate the region."
   (interactive)
   (exchange-point-and-mark)
   (deactivate-mark nil))
-
-(defun projectile-ag-regex ()
-  (interactive)
-  (let ((current-prefix-arg '(4)))
-    (call-interactively 'projectile-ag)))
 
 ;; Changes from the customize UI
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
