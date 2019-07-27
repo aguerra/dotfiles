@@ -1,4 +1,4 @@
-;;; package --- Alex' emacs configuration
+;;; init.el --- Alex' Emacs configuration
 
 ;;; Commentary:
 
@@ -14,8 +14,8 @@
 (tool-bar-mode -1)
 
 ;; Mode line settings
-(column-number-mode 1)
-(size-indication-mode 1)
+(column-number-mode)
+(size-indication-mode)
 
 ;; Misc settings
 (add-hook 'focus-out-hook 'garbage-collect)
