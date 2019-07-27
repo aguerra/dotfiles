@@ -346,6 +346,9 @@
   :config
   (setq whitespace-style '(face tabs empty trailing)))
 
+(use-package wgrep
+  :ensure t)
+
 (use-package windmove
   :config
   (windmove-default-keybindings))
