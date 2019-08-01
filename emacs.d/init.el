@@ -347,7 +347,9 @@
   (setq whitespace-style '(face tabs empty trailing)))
 
 (use-package wgrep
-  :ensure t)
+  :ensure t
+  :config
+  (setq wgrep-auto-save-buffer t))
 
 (use-package windmove
   :config
