@@ -46,8 +46,11 @@
 (global-set-key (kbd "M-]") 'end-of-buffer)
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "s-j") 'delete-indentation)
-(global-set-key (kbd "<f3>") 'jump-to-mark)
 (global-set-key (kbd "<f2>") 'push-mark-no-activate)
+(global-set-key (kbd "<f3>") 'jump-to-mark)
+(global-set-key (kbd "<f4>") 'query-replace)
+(global-set-key (kbd "<f5>") 'query-replace-regexp)
+
 (global-set-key [remap exchange-point-and-mark] 'exchange-point-and-mark-no-activate)
 
 ;; Install use-package
@@ -62,14 +65,6 @@
   (setq abbrev-file-name (expand-file-name "abbrev_defs" user-emacs-directory))
   (setq save-abbrevs 'silently)
   (setq-default abbrev-mode t))
-
-(use-package anzu
-  :ensure t
-  :bind
-  (([f4] . anzu-query-replace)
-   ([f5] . anzu-query-replace-regexp))
-  :config
-  (global-anzu-mode 1))
 
 (use-package cider
   :ensure t
