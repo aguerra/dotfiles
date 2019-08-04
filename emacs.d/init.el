@@ -30,14 +30,8 @@
       make-backup-files nil
       split-width-threshold 9999
       tab-always-indent 'complete)
-(setq frame-title-format
-      '((:eval (if (buffer-file-name)
-                   (abbreviate-file-name (buffer-file-name))
-                 "%b"))))
 (setq-default indent-tabs-mode nil)
 (set-default-coding-systems 'utf-8)
-(set-keyboard-coding-system 'utf-8)
-(set-terminal-coding-system 'utf-8)
 
 ;; Package settings
 (require 'package)
