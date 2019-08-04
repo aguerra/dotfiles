@@ -48,8 +48,8 @@
 (global-set-key (kbd "s-j") 'delete-indentation)
 (global-set-key (kbd "<f2>") 'push-mark-no-activate)
 (global-set-key (kbd "<f3>") 'jump-to-mark)
-(global-set-key (kbd "<f4>") 'query-replace)
-(global-set-key (kbd "<f5>") 'query-replace-regexp)
+(global-set-key (kbd "<f4>") 'query-replace-from-beginning-of-buffer)
+(global-set-key (kbd "<f5>") 'query-replace-regexp-from-beginning-of-buffer)
 
 (global-set-key [remap exchange-point-and-mark] 'exchange-point-and-mark-no-activate)
 
@@ -370,6 +370,20 @@
   (interactive)
   (exchange-point-and-mark)
   (deactivate-mark nil))
+
+(defun query-replace-from-beginning-of-buffer ()
+  "Call 'query-replace' from beginning of buffer."
+  (interactive)
+  (save-excursion
+    (goto-char (point-min))
+    (call-interactively 'query-replace)))
+
+(defun query-replace-regexp-from-beginning-of-buffer ()
+  "Call 'query-replace-regexp' from beginning of buffer."
+  (interactive)
+  (save-excursion
+    (goto-char (point-min))
+    (call-interactively 'query-replace-regexp)))
 
 ;; Changes from the customize UI
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
