@@ -22,12 +22,10 @@
 (delete-selection-mode)
 (fset 'yes-or-no-p 'y-or-n-p)
 (global-auto-revert-mode)
-(setq auto-save-default nil
-      gc-cons-threshold 50000000
-      load-prefer-newer t
-      make-backup-files nil
-      split-width-threshold 9999
-      tab-always-indent 'complete)
+(setq auto-save-default nil)
+(setq load-prefer-newer t)
+(setq make-backup-files nil)
+(setq tab-always-indent 'complete)
 (setq-default indent-tabs-mode nil)
 (set-default-coding-systems 'utf-8)
 
