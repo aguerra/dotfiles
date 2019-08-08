@@ -19,11 +19,9 @@
 
 ;; Misc settings
 (add-hook 'focus-out-hook 'garbage-collect)
-(add-hook 'prog-mode-hook (lambda () (linum-mode)))
-(delete-selection-mode 1)
+(delete-selection-mode)
 (fset 'yes-or-no-p 'y-or-n-p)
-(global-auto-revert-mode 1)
-(prefer-coding-system 'utf-8)
+(global-auto-revert-mode)
 (setq auto-save-default nil
       gc-cons-threshold 50000000
       load-prefer-newer t
@@ -226,6 +224,10 @@
   (setq ivy-fixed-height-minibuffer t)
   (setq ivy-height 20)
   (setq ivy-use-virtual-buffers t))
+
+(use-package linum
+  :hook
+  (prog-mode . linum-mode))
 
 (use-package magit
   :ensure t
