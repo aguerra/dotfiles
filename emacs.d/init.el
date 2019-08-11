@@ -42,12 +42,8 @@
 (global-set-key (kbd "M-]") 'end-of-buffer)
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "s-j") 'delete-indentation)
-(global-set-key (kbd "<f2>") 'push-mark-no-activate)
-(global-set-key (kbd "<f3>") 'jump-to-mark)
 (global-set-key (kbd "<f4>") 'query-replace-from-beginning-of-buffer)
 (global-set-key (kbd "<f5>") 'query-replace-regexp-from-beginning-of-buffer)
-
-(global-set-key [remap exchange-point-and-mark] 'exchange-point-and-mark-no-activate)
 
 ;; Install use-package
 (unless (package-installed-p 'use-package)
@@ -61,6 +57,16 @@
   (setq abbrev-file-name (expand-file-name "abbrev_defs" user-emacs-directory))
   (setq save-abbrevs 'silently)
   (setq-default abbrev-mode t))
+
+(use-package bm
+  :ensure t
+  :config
+  (setq bm-cycle-all-buffers t)
+  (setq bm-highlight-style 'bm-highlight-only-fringe)
+  :bind
+  (("<f2>" . bm-toggle)
+   ("<f3>" . bm-next)
+   ("C-<f3>" . bm-previous)))
 
 (use-package cider
   :ensure t
@@ -353,23 +359,6 @@
   (let ((buffer (current-buffer)))
     (cider-switch-to-repl-buffer)
     (pop-to-buffer buffer)))
-
-;; From https://www.masteringemacs.org/article/fixing-mark-commands-transient-mark-mode
-(defun push-mark-no-activate ()
-  "Pushes 'point' to 'mark-ring' and does not activate the region."
-  (interactive)
-  (push-mark (point) t nil))
-
-(defun jump-to-mark ()
-  "Jumps to the local mark, respecting the 'mark-ring' order."
-  (interactive)
-  (set-mark-command 1))
-
-(defun exchange-point-and-mark-no-activate ()
-  "Identical to 'exchange-point-and-mark' but will not activate the region."
-  (interactive)
-  (exchange-point-and-mark)
-  (deactivate-mark nil))
 
 (defun query-replace-from-beginning-of-buffer ()
   "Call 'query-replace' from beginning of buffer."
