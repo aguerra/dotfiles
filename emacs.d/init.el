@@ -72,10 +72,10 @@
   :ensure t
   :bind
   (:map cider-mode-map
-   ([f9] . cider-show-repl-buffer))
+   ([f8] . cider-show-repl-buffer))
   :config
   (setq cider-prompt-for-symbol nil)
-  (setq cider-repl-pop-to-buffer-on-connect 'display-only)
+  (setq cider-repl-pop-to-buffer-on-connect nil)
   :hook
   ((cider-mode . eldoc-mode)
    (cider-repl-mode . paredit-mode)))
@@ -90,10 +90,8 @@
 
 (use-package clojure-mode
   :ensure t
-  :bind
-  (:map clojure-mode-map
-   ([f8] . cider-jack-in-clj))
   :config
+  (add-hook 'clojure-mode-hook 'clojure-jack-in)
   (define-clojure-indent
     (against-background 'defun)
     (alet 'defun)
@@ -359,6 +357,11 @@
   (let ((buffer (current-buffer)))
     (cider-switch-to-repl-buffer)
     (pop-to-buffer buffer)))
+
+(defun clojure-jack-in ()
+  "Start the repl on demand."
+  (unless (cider-current-connection)
+    (cider-jack-in '())))
 
 (defun query-replace-from-beginning-of-buffer ()
   "Call 'query-replace' from beginning of buffer."
