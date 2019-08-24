@@ -116,15 +116,17 @@
   :hook
   ((clojure-mode . paredit-mode)
    (clojure-mode . subword-mode)
-   (clojure-mode . clj-refactor-mode)
-   (clojure-mode . yas-minor-mode)))
+   (clojure-mode . clj-refactor-mode)))
 
 (use-package company
   :ensure t
   :config
   (setq company-idle-delay 0.3)
   (setq company-minimum-prefix-length 2)
-  (global-company-mode 1))
+  (global-company-mode 1)
+  :hook
+  (prog-mode . (lambda () (set (make-local-variable 'company-backends)
+                               '((company-dabbrev-code company-yasnippet))))))
 
 (use-package company-go
   :ensure t
@@ -350,6 +352,14 @@
   (windmove-default-keybindings))
 
 (use-package yaml-mode
+  :ensure t)
+
+(use-package yasnippet
+  :ensure t
+  :hook
+  (prog-mode . yas-minor-mode))
+
+(use-package yasnippet-snippets
   :ensure t)
 
 ;; Custom functions
