@@ -23,6 +23,7 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 (global-auto-revert-mode)
 (setq auto-save-default nil)
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 (setq load-prefer-newer t)
 (setq make-backup-files nil)
 (setq tab-always-indent 'complete)
