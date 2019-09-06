@@ -388,12 +388,12 @@
     (goto-char (point-min))
     (call-interactively 'query-replace-regexp)))
 
-(defvar custom-file (expand-file-name "custom.el" user-emacs-directory)
+(defconst custom-file (expand-file-name "custom.el" user-emacs-directory)
   "Changes from the customize user interface.")
 (when (file-exists-p custom-file)
   (load custom-file))
 
-(defvar local-file (expand-file-name "local.el" user-emacs-directory)
+(defconst local-file (expand-file-name "local.el" user-emacs-directory)
   "Local customization.")
 (when (file-exists-p local-file)
   (load local-file))
