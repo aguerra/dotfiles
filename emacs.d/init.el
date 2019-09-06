@@ -388,8 +388,7 @@
     (goto-char (point-min))
     (call-interactively 'query-replace-regexp)))
 
-(defconst custom-file (expand-file-name "custom.el" user-emacs-directory)
-  "Changes from the customize user interface.")
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (when (file-exists-p custom-file)
   (load custom-file))
 
