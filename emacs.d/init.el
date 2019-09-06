@@ -362,39 +362,50 @@
 (use-package yasnippet-snippets
   :ensure t)
 
-;; Custom functions
+;; Functions
 (defun cider-show-repl-buffer ()
+  "Show cider repl buffer."
   (interactive)
   (let ((buffer (current-buffer)))
     (cider-switch-to-repl-buffer)
     (pop-to-buffer buffer)))
 
 (defun clojure-jack-in ()
-  "Start the repl on demand."
+  "Start the repl if there is no current connection."
   (unless (cider-current-connection)
     (cider-jack-in '())))
+
+(defun call-func-from-beginning-of-buffer (func)
+  "Call FUNC from beginning of buffer."
+  (interactive)
+  (save-excursion
+    (goto-char (point-min))
+    (call-interactively func)))
 
 (defun query-replace-from-beginning-of-buffer ()
   "Call 'query-replace' from beginning of buffer."
   (interactive)
-  (save-excursion
-    (goto-char (point-min))
-    (call-interactively 'query-replace)))
+  (call-func-from-beginning-of-buffer 'query-replace))
 
 (defun query-replace-regexp-from-beginning-of-buffer ()
   "Call 'query-replace-regexp' from beginning of buffer."
   (interactive)
-  (save-excursion
-    (goto-char (point-min))
-    (call-interactively 'query-replace-regexp)))
+  (call-func-from-beginning-of-buffer 'query-replace-regexp))
 
+;; Hooks
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+
 (when (file-exists-p custom-file)
   (load custom-file))
 
 (defconst local-file (expand-file-name "local.el" user-emacs-directory)
   "Local customization.")
+
 (when (file-exists-p local-file)
   (load local-file))
+
+;; Local Variables:
+;; byte-compile-warnings: (not noruntime redefine)
+;; End:
 
 ;;; init.el ends here
