@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: adefn
+# key: adefn
+# --
+(defn $1
+  [$2]$>
+  $0)$>
