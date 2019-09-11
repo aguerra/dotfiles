@@ -327,12 +327,17 @@
 (use-package volatile-highlights
   :ensure t
   :config
-  (volatile-highlights-mode 1))
+  (volatile-highlights-mode))
+
+(use-package wgrep
+  :ensure t
+  :config
+  (setq wgrep-auto-save-buffer t))
 
 (use-package which-key
   :ensure t
   :config
-  (which-key-mode 1))
+  (which-key-mode))
 
 (use-package whitespace
   :bind
@@ -341,11 +346,6 @@
   ((prog-mode text-mode) . whitespace-mode)
   :config
   (setq whitespace-style '(face tabs empty trailing)))
-
-(use-package wgrep
-  :ensure t
-  :config
-  (setq wgrep-auto-save-buffer t))
 
 (use-package windmove
   :config
