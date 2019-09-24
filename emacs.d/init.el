@@ -318,7 +318,7 @@
 (use-package undo-tree
   :ensure t
   :config
-  (global-undo-tree-mode 1))
+  (global-undo-tree-mode))
 
 (use-package uniquify
   :config
