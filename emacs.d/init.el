@@ -52,6 +52,14 @@
 (require 'use-package)
 (setq use-package-verbose t)
 
+;; We need this function earlier
+(defun call-func-and-previous-buffer (func)
+  "Call FUNC then go to the previous buffer."
+  (interactive)
+  (let ((buffer (current-buffer)))
+    (call-interactively func)
+    (pop-to-buffer buffer)))
+
 ;; Package list
 (use-package abbrev
   :config
@@ -315,6 +323,16 @@
   :bind
   ("C-s" . swiper))
 
+(use-package treemacs
+  :ensure t
+  :bind
+  ([f6] . treemacs)
+  :config
+  (call-func-and-previous-buffer 'treemacs))
+
+(use-package treemacs-projectile
+  :ensure t)
+
 (use-package undo-tree
   :ensure t
   :config
@@ -372,9 +390,7 @@
 (defun cider-show-repl-buffer ()
   "Show cider repl buffer."
   (interactive)
-  (let ((buffer (current-buffer)))
-    (cider-switch-to-repl-buffer)
-    (pop-to-buffer buffer)))
+  (call-func-and-previous-buffer 'cider-switch-to-repl-buffer))
 
 (defun clojure-jack-in ()
   "Start the repl if there is no current connection."
