@@ -43,8 +43,8 @@
 (global-set-key (kbd "M-]") 'end-of-buffer)
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "s-j") 'delete-indentation)
-(global-set-key (kbd "<f4>") 'query-replace-from-beginning-of-buffer)
-(global-set-key (kbd "<f5>") 'query-replace-regexp-from-beginning-of-buffer)
+(global-set-key (kbd "<f4>") 'query-replace-buffer)
+(global-set-key (kbd "<f5>") 'query-replace-regexp-buffer)
 
 ;; Install use-package
 (unless (package-installed-p 'use-package)
@@ -53,7 +53,7 @@
 (setq use-package-verbose t)
 
 ;; We need this function earlier
-(defun call-func-and-previous-buffer (func)
+(defun call-and-go-to-previous-buffer (func)
   "Call FUNC then go to the previous buffer."
   (interactive)
   (let ((buffer (current-buffer)))
@@ -100,7 +100,7 @@
 (use-package clojure-mode
   :ensure t
   :config
-  (add-hook 'clojure-mode-hook 'clojure-jack-in)
+  (add-hook 'clojure-mode-hook 'maybe-cider-jack-in)
   (define-clojure-indent
     (against-background 'defun)
     (alet 'defun)
@@ -289,7 +289,7 @@
   (define-key projectile-mode-map (kbd "M-p s") 'counsel-ag)
   (setq projectile-switch-project-action (lambda ()
                                            (projectile-recentf)
-                                           (call-func-and-previous-buffer 'treemacs-select-window)))
+                                           (call-and-go-to-previous-buffer 'treemacs-select-window)))
   (projectile-mode 1))
 
 (use-package rainbow-delimiters
@@ -393,29 +393,29 @@
 (defun cider-show-repl-buffer ()
   "Show cider repl buffer."
   (interactive)
-  (call-func-and-previous-buffer 'cider-switch-to-repl-buffer))
+  (call-and-go-to-previous-buffer 'cider-switch-to-repl-buffer))
 
-(defun clojure-jack-in ()
+(defun maybe-cider-jack-in ()
   "Start the repl if there is no current connection."
   (unless (cider-current-connection)
     (cider-jack-in '())))
 
-(defun call-func-from-beginning-of-buffer (func)
-  "Call FUNC from beginning of buffer."
+(defun call-on-buffer (func)
+  "Call FUNC on buffer."
   (interactive)
   (save-excursion
     (goto-char (point-min))
     (call-interactively func)))
 
-(defun query-replace-from-beginning-of-buffer ()
-  "Call 'query-replace' from beginning of buffer."
+(defun query-replace-buffer ()
+  "Call 'query-replace' on buffer."
   (interactive)
-  (call-func-from-beginning-of-buffer 'query-replace))
+  (call-on-buffer 'query-replace))
 
-(defun query-replace-regexp-from-beginning-of-buffer ()
-  "Call 'query-replace-regexp' from beginning of buffer."
+(defun query-replace-regexp-buffer ()
+  "Call 'query-replace-regexp' on buffer."
   (interactive)
-  (call-func-from-beginning-of-buffer 'query-replace-regexp))
+  (call-on-buffer 'query-replace-regexp))
 
 ;; Hooks
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
