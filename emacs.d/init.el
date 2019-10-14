@@ -287,6 +287,9 @@
   :config
   (define-key projectile-mode-map (kbd "M-p") 'projectile-command-map)
   (define-key projectile-mode-map (kbd "M-p s") 'counsel-ag)
+  (setq projectile-switch-project-action (lambda ()
+                                           (projectile-recentf)
+                                           (call-func-and-previous-buffer 'treemacs-select-window)))
   (projectile-mode 1))
 
 (use-package rainbow-delimiters
@@ -328,7 +331,7 @@
   :bind
   ([f6] . treemacs)
   :config
-  (call-func-and-previous-buffer 'treemacs))
+  (setq treemacs-project-follow-cleanup t))
 
 (use-package treemacs-projectile
   :ensure t)
