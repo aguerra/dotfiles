@@ -70,7 +70,7 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-aheadbehind
 alias cp='cp -i'
 alias debuild='debuild -us -uc'
 alias disassemble='objdump -d'
-alias g='xdg-open'
+alias g=git
 alias grep='grep --color=auto'
 alias http-mirror='wget -mkEp'
 alias http-server='python3 -mhttp.server 8080'
@@ -86,6 +86,7 @@ alias reset-terminal='dconf reset -f /org/gnome/terminal/legacy/profiles:/'
 alias safe-vim='vim -i NONE'
 alias rm='rm -i'
 alias tree='tree -C'
+alias x=xdg-open
 
 # Misc
 umask 022
