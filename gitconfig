@@ -12,7 +12,9 @@ extendRegexp = true
 lineNumber = true
 
 [alias]
+f = log --name-status --extended-regexp --grep
 g = grep --break --heading
+s = status --short --branch
 
 # Example
 # [credential "http://xxx"]
