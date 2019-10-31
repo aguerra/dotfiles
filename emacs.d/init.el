@@ -29,6 +29,7 @@
 (setq tab-always-indent 'complete)
 (setq-default indent-tabs-mode nil)
 (set-default-coding-systems 'utf-8)
+(setq package-check-signature nil)
 
 ;; Package settings
 (require 'package)
@@ -288,7 +289,7 @@
   (define-key projectile-mode-map (kbd "M-p") 'projectile-command-map)
   (define-key projectile-mode-map (kbd "M-p s") 'counsel-ag)
   (setq projectile-switch-project-action (lambda ()
-                                           (projectile-recentf)
+                                           (projectile-find-file)
                                            (call-and-go-to-previous-buffer 'treemacs-select-window)))
   (projectile-mode 1))
 
