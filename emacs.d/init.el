@@ -301,16 +301,16 @@
 
 (use-package recentf
   :config
-  (recentf-mode 1))
+  (recentf-mode))
 
 (use-package savehist
   :config
   (setq savehist-additional-variables '(search-ring regexp-search-ring))
-  (savehist-mode 1))
+  (savehist-mode))
 
 (use-package saveplace
   :config
-  (save-place-mode 1))
+  (save-place-mode))
 
 (use-package smart-mode-line
    :ensure t
@@ -322,7 +322,7 @@
 (use-package super-save
   :ensure t
   :config
-  (super-save-mode 1))
+  (super-save-mode))
 
 (use-package swiper
   :ensure t
