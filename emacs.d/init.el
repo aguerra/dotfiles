@@ -316,6 +316,7 @@
    :ensure t
    :config
    (setq sml/no-confirm-load-theme t)
+   (setq sml/shortener-func 'sml/not-shorten-directory)
    (sml/setup))
 
 (use-package super-save
