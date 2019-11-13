@@ -205,8 +205,11 @@
 
 (use-package flycheck
   :ensure t
-  :config
-  (global-flycheck-mode 1))
+  :hook
+  (after-init . global-flycheck-mode))
+
+(use-package flycheck-joker
+  :ensure t)
 
 (use-package flyspell
   :config
