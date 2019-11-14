@@ -283,7 +283,7 @@
 
 (use-package paren
   :config
-  (show-paren-mode 1))
+  (show-paren-mode))
 
 (use-package projectile
   :ensure t
