@@ -23,7 +23,7 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 (global-auto-revert-mode)
 (setq auto-save-default nil)
-(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+;(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 (setq load-prefer-newer t)
 (setq make-backup-files nil)
 (setq tab-always-indent 'complete)
@@ -292,10 +292,8 @@
   :config
   (define-key projectile-mode-map (kbd "M-p") 'projectile-command-map)
   (define-key projectile-mode-map (kbd "M-p s") 'counsel-ag)
-  (setq projectile-switch-project-action (lambda ()
-                                           (projectile-find-file)
-                                           (call-and-go-to-previous-buffer 'treemacs-select-window)))
-  (projectile-mode 1))
+  (setq projectile-switch-project-action 'my-projectile-switch-project-action)
+  (projectile-mode))
 
 (use-package rainbow-delimiters
   :ensure t
@@ -422,6 +420,20 @@
   "Call 'query-replace-regexp' on buffer."
   (interactive)
   (call-on-buffer 'query-replace-regexp))
+
+(defun projectile-recentf-or-find-file ()
+  "Call 'projectile-recentf' if there are recent files, else 'projectile-find-file'."
+  (interactive)
+  (let ((files (projectile-recentf-files)))
+    (if (> (length files) 0)
+        (projectile-recentf)
+      (projectile-find-file))))
+
+(defun my-projectile-switch-project-action ()
+  "Projectile default action when switching projects."
+  (interactive)
+  (projectile-recentf-or-find-file)
+  (call-and-go-to-previous-buffer 'treemacs-select-window))
 
 ;; Hooks
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
