@@ -83,6 +83,11 @@
    ("<f3>" . bm-next)
    ("C-<f3>" . bm-previous)))
 
+(use-package browse-kill-ring
+  :ensure t
+  :bind
+  ([f10] . browse-kill-ring))
+
 (use-package cider
   :ensure t
   :bind
