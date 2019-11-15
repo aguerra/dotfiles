@@ -82,7 +82,7 @@
   :ensure t
   :bind
   (:map cider-mode-map
-   ([f8] . cider-show-repl-buffer))
+   ([f9] . cider-show-repl-buffer))
   :config
   (setq cider-prompt-for-symbol nil)
   (setq cider-repl-pop-to-buffer-on-connect nil)
@@ -101,7 +101,6 @@
 (use-package clojure-mode
   :ensure t
   :config
-  (add-hook 'clojure-mode-hook 'maybe-cider-jack-in)
   (define-clojure-indent
     (against-background 'defun)
     (alet 'defun)
@@ -123,7 +122,8 @@
     (tabular-flow 'defun)
     (verify 'defun))
   :hook
-  ((clojure-mode . paredit-mode)
+  ((clojure-mode . maybe-cider-jack-in)
+   (clojure-mode . paredit-mode)
    (clojure-mode . subword-mode)
    (clojure-mode . clj-refactor-mode)))
 
@@ -132,7 +132,7 @@
   :config
   (setq company-idle-delay 0.3)
   (setq company-minimum-prefix-length 2)
-  (global-company-mode 1)
+  (global-company-mode)
   :hook
   (prog-mode . (lambda () (set (make-local-variable 'company-backends)
                                '((company-dabbrev-code company-yasnippet))))))
