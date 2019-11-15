@@ -23,7 +23,6 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 (global-auto-revert-mode)
 (setq auto-save-default nil)
-;(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 (setq load-prefer-newer t)
 (setq make-backup-files nil)
 (setq tab-always-indent 'complete)
@@ -33,8 +32,9 @@
 
 ;; Package settings
 (require 'package)
-(add-to-list 'package-archives
-             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+(setq package-archives
+      '(("gnu" . "https://elpa.gnu.org/packages/")
+        ("melpa-stable" . "https://stable.melpa.org/packages/")))
 (package-initialize)
 (unless package-archive-contents
   (package-refresh-contents))
