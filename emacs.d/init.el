@@ -68,6 +68,11 @@
   (setq save-abbrevs 'silently)
   (setq-default abbrev-mode t))
 
+(use-package beacon
+  :ensure t
+  :config
+  (beacon-mode))
+
 (use-package bm
   :ensure t
   :config
