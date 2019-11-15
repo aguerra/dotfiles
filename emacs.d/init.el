@@ -217,6 +217,11 @@
   ((prog-mode . flyspell-prog-mode)
    (text-mode . flyspell-mode)))
 
+(use-package git-timemachine
+  :ensure t
+  :bind
+  ("s-g" . git-timemachine))
+
 (use-package go-mode
   :ensure t
   :config
