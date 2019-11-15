@@ -173,9 +173,10 @@
 (use-package diff-hl
   :ensure t
   :init
-  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
+  (diff-hl-flydiff-mode)
   (global-diff-hl-mode)
-  (diff-hl-flydiff-mode))
+  :hook
+  (magit-post-refresh . diff-hl-magit-post-refresh))
 
 (use-package easy-kill
   :ensure t
