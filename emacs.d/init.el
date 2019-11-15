@@ -178,6 +178,9 @@
   :hook
   (magit-post-refresh . diff-hl-magit-post-refresh))
 
+(use-package diminish
+  :ensure t)
+
 (use-package easy-kill
   :ensure t
   :bind
@@ -358,6 +361,7 @@
 
 (use-package undo-tree
   :ensure t
+  :diminish
   :config
   (global-undo-tree-mode))
 
