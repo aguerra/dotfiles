@@ -230,12 +230,12 @@
 (use-package imenu-anywhere
   :ensure t
   :bind
-  ("s-i" . imenu-anywhere))
+  ("s-i" . ivy-imenu-anywhere))
 
 (use-package ivy
   :ensure t
   :bind
-  ([f6] . ivy-resume)
+  ([f7] . ivy-resume)
   :config
   (ivy-mode 1)
   (setq enable-recursive-minibuffers t)
