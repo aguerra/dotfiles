@@ -116,6 +116,9 @@
   ((cider-mode . eldoc-mode)
    (cider-repl-mode . paredit-mode)))
 
+(use-package cider-eval-sexp-fu
+  :ensure t)
+
 (use-package clj-refactor
   :ensure t
   :config
