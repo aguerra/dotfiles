@@ -183,6 +183,10 @@
   (([remap kill-ring-save] . easy-kill)
    ([remap mark-sexp] . easy-mark)))
 
+(use-package elec-pair
+  :config
+  (electric-pair-mode))
+
 (use-package elixir-mode
   :ensure t
   :hook
@@ -195,6 +199,11 @@
   :config
   (exec-path-from-shell-copy-env "NU_HOME")
   (exec-path-from-shell-initialize))
+
+(use-package expand-region
+  :ensure t
+  :bind
+  ("C-=" . er/expand-region))
 
 (use-package fill-column-indicator
   :ensure t
