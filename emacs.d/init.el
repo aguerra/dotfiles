@@ -186,7 +186,7 @@
 (use-package elixir-mode
   :ensure t
   :hook
-  ((elixir-mode . subword-mode)))
+  (elixir-mode . subword-mode))
 
 (use-package epa)
 
@@ -199,7 +199,7 @@
 (use-package fill-column-indicator
   :ensure t
   :bind
-  ([f7] . fci-mode)
+  ([f8] . fci-mode)
   :config
   (setq fci-rule-width 5))
 
