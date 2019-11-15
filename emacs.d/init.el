@@ -221,11 +221,12 @@
   :ensure t
   :config
   (setq gofmt-command "goimports")
-  (add-hook 'before-save-hook 'gofmt-before-save))
+  :hook
+  (before-save . gofmt-before-save))
 
 (use-package hl-line
   :config
-  (global-hl-line-mode 1))
+  (global-hl-line-mode))
 
 (use-package imenu-anywhere
   :ensure t
