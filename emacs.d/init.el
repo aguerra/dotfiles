@@ -484,6 +484,13 @@
   (projectile-recentf-or-find-file)
   (call-and-go-to-previous-buffer 'treemacs-select-window))
 
+(defun cider-namespace-refresh ()
+  "Call 'clojure.tools.namespace.repl/refresh'."
+  (interactive)
+  (cider-interactive-eval
+   "(require 'clojure.tools.namespace.repl)
+    (clojure.tools.namespace.repl/refresh)"))
+
 ;; Hooks
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
