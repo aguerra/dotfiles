@@ -108,7 +108,7 @@
   :ensure t
   :bind
   (:map cider-mode-map
-   ([f9] . cider-show-repl-buffer))
+   ([f9] . cider-toggle-show-repl))
   :config
   (setq cider-prompt-for-symbol nil)
   (setq cider-repl-pop-to-buffer-on-connect nil)
@@ -445,10 +445,16 @@
    ([remap zap-up-to-char] . zop-up-to-char)))
 
 ;; Functions
-(defun cider-show-repl-buffer ()
-  "Show cider repl buffer."
+(defun cider-toggle-show-repl ()
+  "Toggle to show repl."
   (interactive)
-  (call-and-go-to-previous-buffer 'cider-switch-to-repl-buffer))
+  (let ((state (get 'cider-toggle-show-repl 'state)))
+    (if state
+        (progn
+          (cider-switch-to-repl-buffer)
+          (delete-window))
+      (call-and-go-to-previous-buffer 'cider-switch-to-repl-buffer))
+    (put 'cider-toggle-show-repl 'state (not state))))
 
 (defun maybe-cider-jack-in ()
   "Start the repl if there is no current connection."
