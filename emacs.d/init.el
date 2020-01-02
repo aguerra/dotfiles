@@ -53,14 +53,6 @@
 (require 'use-package)
 (setq use-package-verbose t)
 
-;; We need this function earlier
-(defun call-and-go-to-previous-buffer (func)
-  "Call FUNC then go to the previous buffer."
-  (interactive)
-  (let ((buffer (current-buffer)))
-    (call-interactively func)
-    (pop-to-buffer buffer)))
-
 ;; Package list
 (use-package abbrev
   :config
@@ -337,12 +329,11 @@
 
 (use-package projectile
   :ensure t
-  :init
-  (setq projectile-completion-system 'ivy)
   :config
   (define-key projectile-mode-map (kbd "M-p") 'projectile-command-map)
-  (define-key projectile-mode-map (kbd "M-p s") 'counsel-ag)
-  (setq projectile-switch-project-action 'my-projectile-switch-project-action)
+  (define-key projectile-mode-map [remap projectile-ag] 'counsel-ag)
+  (setq projectile-completion-system 'ivy)
+  (setq projectile-switch-project-action 'projectile-commander)
   (projectile-mode))
 
 (use-package rainbow-delimiters
@@ -445,6 +436,13 @@
    ([remap zap-up-to-char] . zop-up-to-char)))
 
 ;; Functions
+(defun call-and-go-to-previous-buffer (func)
+  "Call FUNC then go to the previous buffer."
+  (interactive)
+  (let ((buffer (current-buffer)))
+    (call-interactively func)
+    (pop-to-buffer buffer)))
+
 (defun cider-toggle-show-repl ()
   "Toggle to show repl."
   (interactive)
@@ -477,20 +475,6 @@
   "Call 'query-replace-regexp' on buffer."
   (interactive)
   (call-on-buffer 'query-replace-regexp))
-
-(defun projectile-recentf-or-find-file ()
-  "Call 'projectile-recentf' if there are recent files, else 'projectile-find-file'."
-  (interactive)
-  (let ((files (projectile-recentf-files)))
-    (if (> (length files) 0)
-        (projectile-recentf)
-      (projectile-find-file))))
-
-(defun my-projectile-switch-project-action ()
-  "Projectile default action when switching projects."
-  (interactive)
-  (projectile-recentf-or-find-file)
-  (call-and-go-to-previous-buffer 'treemacs-select-window))
 
 (defun cider-namespace-refresh ()
   "Call 'clojure.tools.namespace.repl/refresh'."
