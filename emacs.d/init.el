@@ -104,6 +104,7 @@
   :config
   (setq cider-prompt-for-symbol nil)
   (setq cider-repl-pop-to-buffer-on-connect nil)
+  (setq cider-save-file-on-load t)
   :hook
   ((cider-mode . eldoc-mode)
    (cider-repl-mode . paredit-mode)))
