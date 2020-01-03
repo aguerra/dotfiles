@@ -23,6 +23,13 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 (global-auto-revert-mode)
 (setq auto-save-default nil)
+(setq hippie-expand-try-functions-list '(try-expand-dabbrev
+                                         try-expand-dabbrev-all-buffers
+                                         try-expand-dabbrev-from-kill
+                                         try-complete-file-name-partially
+                                         try-complete-file-name
+                                         try-expand-list
+                                         try-expand-line))
 (setq load-prefer-newer t)
 (setq make-backup-files nil)
 (setq tab-always-indent 'complete)
@@ -46,6 +53,7 @@
 (global-set-key (kbd "s-j") 'delete-indentation)
 (global-set-key (kbd "<f4>") 'query-replace-buffer)
 (global-set-key (kbd "<f5>") 'query-replace-regexp-buffer)
+(global-set-key (kbd "M-o") 'hippie-expand)
 
 ;; Install use-package
 (unless (package-installed-p 'use-package)
@@ -54,12 +62,6 @@
 (setq use-package-verbose t)
 
 ;; Package list
-(use-package abbrev
-  :config
-  (setq abbrev-file-name (expand-file-name "abbrev_defs" user-emacs-directory))
-  (setq save-abbrevs 'silently)
-  (setq-default abbrev-mode t))
-
 (use-package anzu
   :ensure t
   :bind
