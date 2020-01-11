@@ -63,6 +63,7 @@
 
 ;; Package list
 (use-package anzu
+  :diminish (anzu-mode . "anz")
   :ensure t
   :bind
   (([remap query-replace] . anzu-query-replace)
@@ -472,12 +473,12 @@
 (defun query-replace-buffer ()
   "Call 'query-replace' on buffer."
   (interactive)
-  (call-on-buffer 'query-replace))
+  (call-on-buffer 'anzu-query-replace))
 
 (defun query-replace-regexp-buffer ()
   "Call 'query-replace-regexp' on buffer."
   (interactive)
-  (call-on-buffer 'query-replace-regexp))
+  (call-on-buffer 'anzu-query-replace-regexp))
 
 (defun cider-namespace-refresh ()
   "Call 'clojure.tools.namespace.repl/refresh'."
