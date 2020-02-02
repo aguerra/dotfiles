@@ -63,13 +63,13 @@
 
 ;; Package list
 (use-package anzu
-  :diminish (anzu-mode . "anz")
+  :diminish "anz"
   :ensure t
   :bind
   (([remap query-replace] . anzu-query-replace)
    ([remap query-replace-regexp] . anzu-query-replace-regexp))
-  :config
-  (global-anzu-mode))
+  :hook ;; Better than :config when interacting with mode-line
+  ((prog-mode text-mode) . anzu-mode))
 
 (use-package avy
   :ensure t
