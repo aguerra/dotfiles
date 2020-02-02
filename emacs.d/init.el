@@ -80,11 +80,6 @@
   :config
   (setq avy-all-windows nil))
 
-(use-package beacon
-  :ensure t
-  :config
-  (beacon-mode))
-
 (use-package bm
   :ensure t
   :config
