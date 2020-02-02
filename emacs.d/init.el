@@ -68,16 +68,17 @@
   :bind
   (([remap query-replace] . anzu-query-replace)
    ([remap query-replace-regexp] . anzu-query-replace-regexp))
-  :hook ;; Better than :config when interacting with mode-line
+  :hook ;; Better than :config for interacting with smart-mode-line
   ((prog-mode text-mode) . anzu-mode))
 
 (use-package avy
   :ensure t
   :bind
   (("s-." . avy-goto-word-or-subword-1)
-   ("s-," . avy-goto-char))
+   ("s-," . avy-goto-char-timer)
+   ("s-/" . avy-goto-line))
   :config
-  (setq avy-background t))
+  (setq avy-all-windows nil))
 
 (use-package beacon
   :ensure t
