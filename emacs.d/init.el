@@ -429,12 +429,6 @@
 (use-package yasnippet-snippets
   :ensure t)
 
-(use-package zop-to-char
-  :ensure t
-  :bind
-  (([remap zap-to-char] . zop-to-char)
-   ([remap zap-up-to-char] . zop-up-to-char)))
-
 ;; Functions
 (defun call-and-go-to-previous-buffer (func)
   "Call FUNC then go to the previous buffer."
