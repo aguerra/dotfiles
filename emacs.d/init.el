@@ -8,7 +8,7 @@
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (blink-cursor-mode -1)
 (menu-bar-mode -1)
-(set-frame-font "Ubuntu Mono-14" nil t)
+(set-frame-font "Monospace-12" nil t)
 (setq inhibit-startup-screen t)
 (setq ring-bell-function 'ignore)
 (tool-bar-mode -1)
@@ -63,7 +63,6 @@
 
 ;; Package list
 (use-package anzu
-  :diminish "anz"
   :ensure t
   :bind
   (([remap query-replace] . anzu-query-replace)
@@ -199,8 +198,15 @@
   :hook
   (magit-post-refresh . diff-hl-magit-post-refresh))
 
-(use-package diminish
-  :ensure t)
+(use-package doom-modeline
+  :ensure t
+  :init
+  (doom-modeline-mode))
+
+(use-package doom-themes
+  :ensure t
+  :config
+  (load-theme 'doom-vibrant t))
 
 (use-package easy-kill
   :ensure t
@@ -301,11 +307,6 @@
   (setq markdown-fontify-code-blocks-natively t)
   (setq markdown-command "pandoc -f markdown_github -t html5 -s --mathjax"))
 
-(use-package material-theme
-  :ensure t
-  :config
-  (load-theme 'material t))
-
 (use-package move-text
   :ensure t
   :bind
@@ -354,13 +355,6 @@
   :config
   (save-place-mode))
 
-(use-package smart-mode-line
-   :ensure t
-   :config
-   (setq sml/no-confirm-load-theme t)
-   (setq sml/shortener-func 'sml/not-shorten-directory)
-   (sml/setup))
-
 (use-package super-save
   :ensure t
   :config
@@ -383,7 +377,6 @@
 
 (use-package undo-tree
   :ensure t
-  :diminish
   :config
   (global-undo-tree-mode))
 
