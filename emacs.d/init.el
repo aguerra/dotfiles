@@ -1,124 +1,10 @@
-;;; init.el --- Alex's Emacs configuration
-
-;;; Commentary:
-
-;;; Code:
-
-;; Look and feel
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
-(blink-cursor-mode -1)
-(menu-bar-mode -1)
-(set-frame-font "Ubuntu Mono-14" nil t)
-(setq inhibit-startup-screen t)
-(setq ring-bell-function 'ignore)
-(tool-bar-mode -1)
-
-;; Mode line settings
-(column-number-mode)
-(size-indication-mode)
-
-;; Misc settings
-(add-hook 'focus-out-hook 'garbage-collect)
-(delete-selection-mode)
-(fset 'yes-or-no-p 'y-or-n-p)
-(global-auto-revert-mode)
-(setq auto-save-default nil)
-(setq hippie-expand-try-functions-list '(try-expand-dabbrev
-                                         try-expand-dabbrev-all-buffers
-                                         try-expand-dabbrev-from-kill
-                                         try-complete-file-name-partially
-                                         try-complete-file-name
-                                         try-expand-list
-                                         try-expand-line))
-(setq load-prefer-newer t)
-(setq make-backup-files nil)
-(setq tab-always-indent 'complete)
-(setq-default indent-tabs-mode nil)
-(set-default-coding-systems 'utf-8)
-(setq package-check-signature nil)
-
-;; Package settings
-(require 'package)
-(setq package-archives
-      '(("gnu" . "https://elpa.gnu.org/packages/")
-        ("melpa-stable" . "https://stable.melpa.org/packages/")))
-(package-initialize)
-(unless package-archive-contents
-  (package-refresh-contents))
-
 ;; Key bindings
-(global-set-key (kbd "M-[") 'beginning-of-buffer)
-(global-set-key (kbd "M-]") 'end-of-buffer)
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "s-j") 'delete-indentation)
 (global-set-key (kbd "<f4>") 'query-replace-buffer)
 (global-set-key (kbd "<f5>") 'query-replace-regexp-buffer)
-(global-set-key (kbd "M-o") 'hippie-expand)
-
-;; Install use-package
-(unless (package-installed-p 'use-package)
-  (package-install 'use-package))
-(require 'use-package)
-(setq use-package-verbose t)
 
 ;; Package list
-(use-package anzu
-  :diminish "anz"
-  :ensure t
-  :bind
-  (([remap query-replace] . anzu-query-replace)
-   ([remap query-replace-regexp] . anzu-query-replace-regexp))
-  :hook ;; Better than :config for interacting with smart-mode-line
-  ((prog-mode text-mode) . anzu-mode))
-
-(use-package avy
-  :ensure t
-  :bind
-  (("s-." . avy-goto-word-or-subword-1)
-   ("s-," . avy-goto-char-timer)
-   ("s-/" . avy-goto-line))
-  :config
-  (setq avy-all-windows nil))
-
-(use-package bm
-  :ensure t
-  :config
-  (setq bm-cycle-all-buffers t)
-  (setq bm-highlight-style 'bm-highlight-only-fringe)
-  :bind
-  (("<f2>" . bm-toggle)
-   ("<f3>" . bm-next)
-   ("C-<f3>" . bm-previous)))
-
-(use-package browse-kill-ring
-  :ensure t
-  :bind
-  ([f10] . browse-kill-ring))
-
-(use-package cider
-  :ensure t
-  :bind
-  (:map cider-mode-map
-   ([f9] . cider-toggle-show-repl))
-  :config
-  (setq cider-prompt-for-symbol nil)
-  (setq cider-repl-pop-to-buffer-on-connect nil)
-  (setq cider-save-file-on-load t)
-  :hook
-  ((cider-mode . eldoc-mode)
-   (cider-repl-mode . paredit-mode)))
-
-(use-package cider-eval-sexp-fu
-  :ensure t)
-
-(use-package clj-refactor
-  :ensure t
-  :config
-  (cljr-add-keybindings-with-prefix "C-c C-r")
-  (setq cljr-eagerly-build-asts-on-startup nil)
-  (setq cljr-ignore-analyzer-errors t)
-  (setq cljr-warn-on-eval nil))
-
 (use-package clojure-mode
   :ensure t
   :config
@@ -163,11 +49,6 @@
   :config
   (add-to-list 'company-backends 'company-go))
 
-(use-package counsel
-  :ensure t
-  :config
-  (counsel-mode 1))
-
 (use-package crux
   :ensure t
   :bind
@@ -199,9 +80,6 @@
   :hook
   (magit-post-refresh . diff-hl-magit-post-refresh))
 
-(use-package diminish
-  :ensure t)
-
 (use-package easy-kill
   :ensure t
   :bind
@@ -230,13 +108,6 @@
   :bind
   ("C-=" . er/expand-region))
 
-(use-package fill-column-indicator
-  :ensure t
-  :bind
-  ([f8] . fci-mode)
-  :config
-  (setq fci-rule-width 5))
-
 (use-package flycheck
   :ensure t
   :hook
@@ -256,17 +127,6 @@
   :bind
   ("s-g" . git-timemachine))
 
-(use-package go-mode
-  :ensure t
-  :config
-  (setq gofmt-command "goimports")
-  :hook
-  (before-save . gofmt-before-save))
-
-(use-package hl-line
-  :config
-  (global-hl-line-mode))
-
 (use-package imenu-anywhere
   :ensure t
   :bind
@@ -283,10 +143,6 @@
   (setq ivy-height 20)
   (setq ivy-use-virtual-buffers t))
 
-(use-package linum
-  :hook
-  (prog-mode . linum-mode))
-
 (use-package magit
   :ensure t
   :bind
@@ -300,11 +156,6 @@
   :config
   (setq markdown-fontify-code-blocks-natively t)
   (setq markdown-command "pandoc -f markdown_github -t html5 -s --mathjax"))
-
-(use-package material-theme
-  :ensure t
-  :config
-  (load-theme 'material t))
 
 (use-package move-text
   :ensure t
@@ -323,53 +174,17 @@
   :hook
   ((emacs-lisp-mode lisp-interaction-mode) . paredit-mode))
 
-(use-package paren
-  :config
-  (show-paren-mode))
-
 (use-package projectile
   :ensure t
   :config
-  (define-key projectile-mode-map (kbd "M-p") 'projectile-command-map)
   (define-key projectile-mode-map [remap projectile-ag] 'counsel-ag)
-  (setq projectile-completion-system 'ivy)
   (setq projectile-switch-project-action 'projectile-commander)
   (projectile-mode))
-
-(use-package rainbow-delimiters
-  :ensure t
-  :hook
-  (prog-mode . rainbow-delimiters-mode))
-
-(use-package recentf
-  :config
-  (recentf-mode))
-
-(use-package savehist
-  :config
-  (setq savehist-additional-variables '(search-ring regexp-search-ring))
-  (savehist-mode))
-
-(use-package saveplace
-  :config
-  (save-place-mode))
-
-(use-package smart-mode-line
-   :ensure t
-   :config
-   (setq sml/no-confirm-load-theme t)
-   (setq sml/shortener-func 'sml/not-shorten-directory)
-   (sml/setup))
 
 (use-package super-save
   :ensure t
   :config
   (super-save-mode))
-
-(use-package swiper
-  :ensure t
-  :bind
-  ("C-s" . swiper))
 
 (use-package treemacs
   :ensure t
@@ -387,10 +202,6 @@
   :config
   (global-undo-tree-mode))
 
-(use-package uniquify
-  :config
-  (setq uniquify-buffer-name-style 'forward))
-
 (use-package volatile-highlights
   :ensure t
   :config
@@ -400,11 +211,6 @@
   :ensure t
   :config
   (setq wgrep-auto-save-buffer t))
-
-(use-package which-key
-  :ensure t
-  :config
-  (which-key-mode))
 
 (use-package whitespace
   :bind
@@ -428,12 +234,6 @@
 
 (use-package yasnippet-snippets
   :ensure t)
-
-(use-package zop-to-char
-  :ensure t
-  :bind
-  (([remap zap-to-char] . zop-to-char)
-   ([remap zap-up-to-char] . zop-up-to-char)))
 
 ;; Functions
 (defun call-and-go-to-previous-buffer (func)
@@ -482,21 +282,3 @@
   (cider-interactive-eval
    "(require 'clojure.tools.namespace.repl)
     (clojure.tools.namespace.repl/refresh)"))
-
-;; Hooks
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-
-(when (file-exists-p custom-file)
-  (load custom-file))
-
-(defconst local-file (expand-file-name "local.el" user-emacs-directory)
-  "Local customization.")
-
-(when (file-exists-p local-file)
-  (load local-file))
-
-;; Local Variables:
-;; byte-compile-warnings: (not noruntime redefine)
-;; End:
-
-;;; init.el ends here
