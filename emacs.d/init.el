@@ -20,6 +20,7 @@
 (delete-selection-mode)
 (fset 'yes-or-no-p 'y-or-n-p)
 (global-auto-revert-mode)
+(prefer-coding-system 'utf-8)
 (setq auto-save-default nil)
 (setq hippie-expand-try-functions-list '(try-expand-dabbrev
                                          try-expand-dabbrev-all-buffers
@@ -28,12 +29,9 @@
                                          try-complete-file-name
                                          try-expand-list
                                          try-expand-line))
-(setq load-prefer-newer t)
 (setq make-backup-files nil)
 (setq tab-always-indent 'complete)
 (setq-default indent-tabs-mode nil)
-(set-default-coding-systems 'utf-8)
-(setq package-check-signature nil)
 
 ;; Package settings
 (require 'package)
