@@ -1,7 +1,5 @@
-;;; init.el --- Alex's Emacs configuration
-
+;;; init --- Initialization file for Emacs
 ;;; Commentary:
-
 ;;; Code:
 
 ;; Look and feel
