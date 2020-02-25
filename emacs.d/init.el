@@ -63,8 +63,8 @@
   :bind
   (([remap query-replace] . anzu-query-replace)
    ([remap query-replace-regexp] . anzu-query-replace-regexp))
-  :hook ;; Better than :config for interacting with smart-mode-line
-  ((prog-mode text-mode) . anzu-mode))
+  :config
+  (global-anzu-mode))
 
 (use-package avy
   :ensure t
