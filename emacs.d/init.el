@@ -71,7 +71,7 @@
   :bind
   (("s-." . avy-goto-word-or-subword-1)
    ("s-," . avy-goto-char-timer)
-   ("s-/" . avy-goto-line))
+   ("s-;" . avy-goto-line))
   :config
   (setq avy-all-windows nil))
 
