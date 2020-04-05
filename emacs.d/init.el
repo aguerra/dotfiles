@@ -108,6 +108,7 @@
 
 (use-package clj-refactor
   :ensure t
+  :defer t
   :config
   (cljr-add-keybindings-with-prefix "C-c C-r")
   (setq cljr-eagerly-build-asts-on-startup nil)
@@ -412,11 +413,13 @@
 
 (use-package yasnippet
   :ensure t
+  :defer t
   :hook
   (prog-mode . yas-minor-mode))
 
 (use-package yasnippet-snippets
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;; Functions
 (defun call-and-go-to-previous-buffer (func)
