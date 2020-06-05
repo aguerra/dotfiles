@@ -69,9 +69,9 @@
 (use-package avy
   :ensure t
   :bind
-  (("s-." . avy-goto-word-or-subword-1)
-   ("s-," . avy-goto-char-timer)
-   ("s-;" . avy-goto-line))
+  (("C-'" . avy-goto-word-or-subword-1)
+   ("s-'" . avy-goto-char-timer)
+   ([remap goto-line] . avy-goto-line))
   :config
   (setq avy-all-windows nil))
 
