@@ -75,16 +75,6 @@
   :config
   (setq avy-all-windows nil))
 
-(use-package bm
-  :ensure t
-  :config
-  (setq bm-cycle-all-buffers t)
-  (setq bm-highlight-style 'bm-highlight-only-fringe)
-  :bind
-  (("<f2>" . bm-toggle)
-   ("<f3>" . bm-next)
-   ("C-<f3>" . bm-previous)))
-
 (use-package browse-kill-ring
   :ensure t
   :bind
