@@ -68,16 +68,12 @@
 
 (use-package cider
   :ensure t
-  :bind
-  (:map cider-mode-map
-   ([f9] . cider-toggle-show-repl))
   :config
   (setq cider-prompt-for-symbol nil)
   (setq cider-repl-pop-to-buffer-on-connect nil)
-  (setq cider-save-file-on-load t)
+  (setq cider-save-file-on-load nil)
   :hook
-  ((cider-mode . eldoc-mode)
-   (cider-repl-mode . paredit-mode)))
+  ((cider-mode . eldoc-mode)))
 
 (use-package cider-eval-sexp-fu
   :ensure t)
