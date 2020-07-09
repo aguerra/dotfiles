@@ -83,9 +83,7 @@
   :defer t
   :config
   (cljr-add-keybindings-with-prefix "C-c C-r")
-  (setq cljr-eagerly-build-asts-on-startup nil)
-  (setq cljr-ignore-analyzer-errors t)
-  (setq cljr-warn-on-eval nil))
+  (setq cljr-eagerly-build-asts-on-startup nil))
 
 (use-package clojure-mode
   :ensure t
@@ -111,8 +109,7 @@
     (tabular-flow 'defun)
     (verify 'defun))
   :hook
-  ((clojure-mode . maybe-cider-jack-in)
-   (clojure-mode . paredit-mode)
+  ((clojure-mode . paredit-mode)
    (clojure-mode . subword-mode)
    (clojure-mode . clj-refactor-mode)))
 
