@@ -33,8 +33,7 @@
 (setq tab-always-indent 'complete)
 (setq-default indent-tabs-mode nil)
 
-;; Package settings
-(require 'package)
+;; Setup package
 (setq package-archives
       '(("gnu" . "https://elpa.gnu.org/packages/")
         ("melpa-stable" . "https://stable.melpa.org/packages/")))
@@ -51,11 +50,11 @@
 (global-set-key (kbd "<f5>") 'query-replace-regexp-buffer)
 (global-set-key (kbd "M-o") 'hippie-expand)
 
-;; Install use-package
+;; Setup use-package
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
 (require 'use-package)
-(setq use-package-verbose t)
+(setq use-package-verbose nil)
 
 ;; Package list
 (use-package anzu
