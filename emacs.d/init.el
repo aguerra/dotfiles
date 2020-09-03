@@ -1,3 +1,4 @@
+
 ;;; init --- Initialization file for Emacs
 ;;; Commentary:
 ;;; Code:
@@ -167,6 +168,10 @@
   :hook
   (magit-post-refresh . diff-hl-magit-post-refresh))
 
+(use-package display-line-numbers
+  :hook
+  (prog-mode . display-line-numbers-mode))
+
 (use-package doom-modeline
   :ensure t
   :init
@@ -256,10 +261,6 @@
   (setq enable-recursive-minibuffers t)
   (setq ivy-initial-inputs-alist nil)
   (setq ivy-use-virtual-buffers t))
-
-(use-package linum
-  :hook
-  (prog-mode . linum-mode))
 
 (use-package magit
   :ensure t
