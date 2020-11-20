@@ -385,13 +385,13 @@
 
 (use-package yasnippet
   :ensure t
-  :defer t
+  :config
+  (yas-reload-all)
   :hook
   (prog-mode . yas-minor-mode))
 
 (use-package yasnippet-snippets
-  :ensure t
-  :defer t)
+  :ensure t)
 
 ;; Functions
 (defun call-and-go-to-previous-buffer (func)
