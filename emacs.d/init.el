@@ -1,4 +1,3 @@
-
 ;;; init --- Initialization file for Emacs
 ;;; Commentary:
 ;;; Code:
@@ -352,11 +351,6 @@
 (use-package uniquify
   :config
   (setq uniquify-buffer-name-style 'forward))
-
-(use-package volatile-highlights
-  :ensure t
-  :config
-  (volatile-highlights-mode))
 
 (use-package wgrep
   :ensure t
