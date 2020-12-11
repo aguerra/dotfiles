@@ -350,7 +350,8 @@
 
 (use-package uniquify
   :config
-  (setq uniquify-buffer-name-style 'forward))
+  (setq uniquify-buffer-name-style 'forward)
+  (setq uniquify-min-dir-content 1))
 
 (use-package wgrep
   :ensure t
