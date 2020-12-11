@@ -333,16 +333,6 @@
   :bind
   ("C-s" . swiper))
 
-(use-package treemacs
-  :ensure t
-  :bind
-  ([f6] . treemacs)
-  :config
-  (setq treemacs-project-follow-cleanup t))
-
-(use-package treemacs-projectile
-  :ensure t)
-
 (use-package undo-tree
   :ensure t
   :config
