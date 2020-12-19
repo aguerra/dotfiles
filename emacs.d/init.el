@@ -287,8 +287,6 @@
 
 (use-package paredit
   :ensure t
-  :bind
-  ("s-D" . paredit-forward-down)
   :hook
   ((emacs-lisp-mode lisp-interaction-mode) . paredit-mode))
 
