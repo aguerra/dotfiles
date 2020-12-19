@@ -326,6 +326,7 @@
 (use-package super-save
   :ensure t
   :config
+  (setq super-save-auto-save-when-idle t)
   (super-save-mode))
 
 (use-package swiper
