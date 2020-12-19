@@ -380,24 +380,6 @@
   :ensure t)
 
 ;; Functions
-(defun call-and-go-to-previous-buffer (func)
-  "Call FUNC then go to the previous buffer."
-  (interactive)
-  (let ((buffer (current-buffer)))
-    (call-interactively func)
-    (pop-to-buffer buffer)))
-
-(defun cider-toggle-show-repl ()
-  "Toggle to show repl."
-  (interactive)
-  (let ((state (get 'cider-toggle-show-repl 'state)))
-    (if state
-        (progn
-          (cider-switch-to-repl-buffer)
-          (delete-window))
-      (call-and-go-to-previous-buffer 'cider-switch-to-repl-buffer))
-    (put 'cider-toggle-show-repl 'state (not state))))
-
 (defun maybe-cider-jack-in ()
   "Start the repl if there is no current connection."
   (unless (cider-current-connection)
