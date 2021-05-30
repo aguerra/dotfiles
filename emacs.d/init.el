@@ -323,6 +323,17 @@
   :config
   (save-place-mode))
 
+(use-package slime
+  :ensure t
+  :config
+  (setq inferior-lisp-program "sbcl")
+  (setq slime-contribs '(slime-fancy))
+  :hook
+  ((lisp-mode . paredit-mode)))
+
+(use-package slime-company
+  :ensure t)
+
 (use-package super-save
   :ensure t
   :config
