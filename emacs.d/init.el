@@ -68,9 +68,11 @@
 (use-package cider
   :ensure t
   :config
+  (setq cider-font-lock-dynamically '(macro core function var))
   (setq cider-prompt-for-symbol nil)
   (setq cider-repl-pop-to-buffer-on-connect nil)
   (setq cider-save-file-on-load nil)
+  (setq nrepl-hide-special-buffers t)
   :hook
   ((cider-mode . eldoc-mode)))
 
