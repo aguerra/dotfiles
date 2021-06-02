@@ -83,8 +83,7 @@
   :ensure t
   :defer t
   :config
-  (cljr-add-keybindings-with-prefix "C-c C-r")
-  (setq cljr-eagerly-build-asts-on-startup nil))
+  (cljr-add-keybindings-with-prefix "C-c C-r"))
 
 (use-package clojure-mode
   :ensure t
