@@ -1,7 +1,3 @@
-;;; init --- Initialization file for Emacs
-;;; Commentary:
-;;; Code:
-
 ;; Look and feel
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (blink-cursor-mode -1)
@@ -298,10 +294,7 @@
 (use-package projectile
   :ensure t
   :config
-  (define-key projectile-mode-map (kbd "M-p") 'projectile-command-map)
-  (define-key projectile-mode-map [remap projectile-ag] 'counsel-ag)
   (setq projectile-completion-system 'ivy)
-  (setq projectile-switch-project-action 'projectile-commander)
   (projectile-mode))
 
 (use-package rainbow-delimiters
@@ -321,17 +314,6 @@
 (use-package saveplace
   :config
   (save-place-mode))
-
-(use-package slime
-  :ensure t
-  :config
-  (setq inferior-lisp-program "sbcl")
-  (setq slime-contribs '(slime-fancy))
-  :hook
-  ((lisp-mode . paredit-mode)))
-
-(use-package slime-company
-  :ensure t)
 
 (use-package super-save
   :ensure t
@@ -390,11 +372,6 @@
   :ensure t)
 
 ;; Functions
-(defun maybe-cider-jack-in ()
-  "Start the repl if there is no current connection."
-  (unless (cider-current-connection)
-    (cider-jack-in '())))
-
 (defun call-on-buffer (func)
   "Call FUNC on buffer."
   (interactive)
@@ -430,9 +407,3 @@
 
 (when (file-exists-p local-file)
   (load local-file))
-
-;; Local Variables:
-;; byte-compile-warnings: (not noruntime redefine)
-;; End:
-
-;;; init.el ends here
