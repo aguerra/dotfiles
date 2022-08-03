@@ -123,11 +123,6 @@
   (prog-mode . (lambda () (set (make-local-variable 'company-backends)
                                '((company-dabbrev-code company-yasnippet))))))
 
-(use-package company-go
-  :ensure t
-  :config
-  (add-to-list 'company-backends 'company-go))
-
 (use-package counsel
   :ensure t
   :config
