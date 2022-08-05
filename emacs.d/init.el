@@ -253,6 +253,18 @@
   (setq ivy-initial-inputs-alist nil)
   (setq ivy-use-virtual-buffers t))
 
+
+
+(use-package lsp-mode
+  :ensure t
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  :hook
+  ((python-mode . lsp-deferred)
+   (lsp-mode . lsp-enable-which-key-integration)))
+
+
+
 (use-package magit
   :ensure t
   :bind
