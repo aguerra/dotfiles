@@ -298,11 +298,18 @@
   :config
   (show-paren-mode))
 
+
+
 (use-package projectile
   :ensure t
-  :config
-  (setq projectile-completion-system 'ivy)
-  (projectile-mode))
+  :init
+  (setq projectile-project-search-path '(("~/checkout" . 1)))
+  (projectile-mode)
+  :bind
+  (:map projectile-mode-map
+        ("C-c p" . projectile-command-map)))
+
+
 
 (use-package rainbow-delimiters
   :ensure t
