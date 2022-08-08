@@ -7,6 +7,8 @@
 (setq ring-bell-function 'ignore)
 (tool-bar-mode -1)
 
+
+
 ;; Mode line settings
 (column-number-mode)
 (size-indication-mode)
@@ -421,3 +423,7 @@
 
 (when (file-exists-p local-file)
   (load local-file))
+
+;; Local Variables:
+;; flycheck-disabled-checkers: (emacs-lisp-checkdoc)
+;; End:
