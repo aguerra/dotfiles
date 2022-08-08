@@ -7,29 +7,26 @@
 (setq ring-bell-function 'ignore)
 (tool-bar-mode -1)
 
-
-
 ;; Mode line settings
 (column-number-mode)
 (size-indication-mode)
 
 ;; Misc settings
-(add-hook 'focus-out-hook 'garbage-collect)
 (delete-selection-mode)
 (fset 'yes-or-no-p 'y-or-n-p)
 (global-auto-revert-mode)
 (prefer-coding-system 'utf-8)
 (setq auto-save-default nil)
-(setq hippie-expand-try-functions-list '(try-expand-dabbrev
-                                         try-expand-dabbrev-all-buffers
-                                         try-expand-dabbrev-from-kill
-                                         try-complete-file-name-partially
-                                         try-complete-file-name
-                                         try-expand-list
-                                         try-expand-line))
+(setq confirm-kill-processes nil)
+(setq gc-cons-threshold 50000000)
+(setq load-prefer-newer t)
 (setq make-backup-files nil)
+(setq scroll-conservatively 100000
+      scroll-preserve-screen-position t)
 (setq tab-always-indent 'complete)
 (setq-default indent-tabs-mode nil)
+
+
 
 ;; Setup package
 (setq package-archives
