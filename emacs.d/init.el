@@ -44,16 +44,16 @@
   (package-install 'use-package))
 (require 'use-package)
 
-
-
 ;; Package list
 (use-package anzu
   :ensure t
   :bind
-  (([remap query-replace] . anzu-query-replace)
-   ([remap query-replace-regexp] . anzu-query-replace-regexp))
+  (([f2] . anzu-query-replace)
+   ([f3] . anzu-query-replace-regexp))
   :config
   (global-anzu-mode))
+
+
 
 (use-package cider
   :ensure t
