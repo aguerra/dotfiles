@@ -26,8 +26,6 @@
 (setq tab-always-indent 'complete)
 (setq-default indent-tabs-mode nil)
 
-
-
 ;; Setup package
 (setq package-archives
       '(("gnu" . "https://elpa.gnu.org/packages/")
@@ -37,19 +35,16 @@
   (package-refresh-contents))
 
 ;; Key bindings
-(global-set-key (kbd "M-[") 'beginning-of-buffer)
-(global-set-key (kbd "M-]") 'end-of-buffer)
-(global-set-key (kbd "RET") 'newline-and-indent)
-(global-set-key (kbd "s-j") 'delete-indentation)
-(global-set-key (kbd "<f4>") 'query-replace-buffer)
-(global-set-key (kbd "<f5>") 'query-replace-regexp-buffer)
-(global-set-key (kbd "M-o") 'hippie-expand)
+(global-set-key (kbd "<f4>") 'anzu-query-replace-buffer)
+(global-set-key (kbd "<f5>") 'anzu-query-replace-regexp-buffer)
+(global-set-key [remap dabbrev-expand] 'hippie-expand)
 
 ;; Setup use-package
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
 (require 'use-package)
-(setq use-package-verbose nil)
+
+
 
 ;; Package list
 (use-package anzu
@@ -392,12 +387,12 @@
     (goto-char (point-min))
     (call-interactively func)))
 
-(defun query-replace-buffer ()
+(defun anzu-query-replace-buffer ()
   "Call 'query-replace' on buffer."
   (interactive)
   (call-on-buffer 'anzu-query-replace))
 
-(defun query-replace-regexp-buffer ()
+(defun anzu-query-replace-regexp-buffer ()
   "Call 'query-replace-regexp' on buffer."
   (interactive)
   (call-on-buffer 'anzu-query-replace-regexp))
