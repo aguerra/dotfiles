@@ -53,27 +53,18 @@
   :config
   (global-anzu-mode))
 
-
-
 (use-package cider
   :ensure t
   :config
-  (setq cider-font-lock-dynamically '(macro core function var))
+  (setq cider-eldoc-display-for-symbol-at-point nil)
   (setq cider-prompt-for-symbol nil)
   (setq cider-repl-pop-to-buffer-on-connect nil)
   (setq cider-save-file-on-load nil)
-  (setq nrepl-hide-special-buffers t)
   :hook
-  ((cider-mode . eldoc-mode)))
+  ((cider-repl-mode . paredit-mode)
+   (cider-repl-mode . rainbow-delimiters-mode)))
 
-(use-package cider-eval-sexp-fu
-  :ensure t)
 
-(use-package clj-refactor
-  :ensure t
-  :defer t
-  :config
-  (cljr-add-keybindings-with-prefix "C-c C-r"))
 
 (use-package clojure-mode
   :ensure t
@@ -104,8 +95,7 @@
     (verify 'defun))
   :hook
   ((clojure-mode . paredit-mode)
-   (clojure-mode . subword-mode)
-   (clojure-mode . clj-refactor-mode)))
+   (clojure-mode . subword-mode)))
 
 (use-package company
   :ensure t
