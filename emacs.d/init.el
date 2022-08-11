@@ -64,35 +64,8 @@
   ((cider-repl-mode . paredit-mode)
    (cider-repl-mode . rainbow-delimiters-mode)))
 
-
-
 (use-package clojure-mode
   :ensure t
-  :config
-  (define-clojure-indent
-    (against-background 'defun)
-    (alet 'defun)
-    (as-> 1)
-    (as-customer 1)
-    (as-of 1)
-    (constraint-fn 'defun)
-    (data-fn 'defun)
-    (defflow 'defun)
-    (fact 'defun)
-    (facts 'defun)
-    (flow 'defun)
-    (for-all 'defun)
-    (future-fact 'defun)
-    (let-entities 'defun)
-    (log-messages 'defun)
-    (match? 'defun)
-    (mlet 'defun)
-    (provided 'defun)
-    (providing 'defun)
-    (request-context 'defun)
-    (tabular 'defun)
-    (tabular-flow 'defun)
-    (verify 'defun))
   :hook
   ((clojure-mode . paredit-mode)
    (clojure-mode . subword-mode)))
@@ -100,12 +73,11 @@
 (use-package company
   :ensure t
   :config
-  (setq company-idle-delay 0.3)
+  (setq company-idle-delay 0)
   (setq company-minimum-prefix-length 2)
-  (global-company-mode)
-  :hook
-  (prog-mode . (lambda () (set (make-local-variable 'company-backends)
-                               '((company-dabbrev-code company-yasnippet))))))
+  (global-company-mode))
+
+
 
 (use-package counsel
   :ensure t
