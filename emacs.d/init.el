@@ -77,12 +77,13 @@
   (setq company-minimum-prefix-length 2)
   (global-company-mode))
 
-
-
 (use-package counsel
   :ensure t
   :config
-  (counsel-mode 1))
+  (counsel-mode 1)
+  (global-set-key (kbd "C-c a") 'counsel-ag))
+
+
 
 (use-package crux
   :ensure t
