@@ -107,7 +107,9 @@
    ([(shift return)] . crux-smart-open-line)
    ([(control shift return)] . crux-smart-open-line-above)))
 
-
+(use-package desktop
+  :config
+  (desktop-save-mode))
 
 (use-package diff-hl
   :ensure t
@@ -115,6 +117,7 @@
   (diff-hl-flydiff-mode)
   (global-diff-hl-mode)
   :hook
+  (magit-pre-refresh . diff-hl-magit-pre-refresh)
   (magit-post-refresh . diff-hl-magit-post-refresh))
 
 (use-package display-line-numbers
@@ -129,7 +132,10 @@
 (use-package doom-themes
   :ensure t
   :config
-  (load-theme 'doom-vibrant t))
+  (load-theme 'doom-vibrant t)
+  (set-foreground-color "#d1d7e1"))
+
+
 
 (use-package easy-kill
   :ensure t
