@@ -135,8 +135,6 @@
   (load-theme 'doom-vibrant t)
   (set-foreground-color "#d1d7e1"))
 
-
-
 (use-package easy-kill
   :ensure t
   :bind
@@ -157,13 +155,15 @@
 (use-package exec-path-from-shell
   :ensure t
   :config
-  (exec-path-from-shell-copy-env "NU_HOME")
-  (exec-path-from-shell-initialize))
+  (when (memq window-system '(mac ns x))
+    (exec-path-from-shell-initialize)))
 
 (use-package expand-region
   :ensure t
   :bind
   ("C-=" . er/expand-region))
+
+
 
 (use-package fill-column-indicator
   :ensure t
