@@ -83,8 +83,6 @@
   (counsel-mode 1)
   (global-set-key (kbd "C-c a") 'counsel-ag))
 
-
-
 (use-package crux
   :ensure t
   :bind
@@ -100,13 +98,16 @@
    ("C-c t" . crux-visit-term-buffer)
    ("C-c k" . crux-kill-other-buffers)
    ("C-c TAB" . crux-indent-rigidly-and-copy-to-clipboard)
-   ("s-k" . crux-kill-whole-line)
    ("C-<backspace>" . crux-kill-line-backwards)
    ("C-c d" . crux-duplicate-current-line-or-region)
-   ("s-J" . crux-top-join-line)
+   ("C-c j" . crux-top-join-line)
+   ("C-c i" . crux-ispell-word-then-abbrev)
    ([remap move-beginning-of-line] . crux-move-beginning-of-line)
+   ([remap kill-whole-line] . crux-kill-whole-line)
    ([(shift return)] . crux-smart-open-line)
    ([(control shift return)] . crux-smart-open-line-above)))
+
+
 
 (use-package diff-hl
   :ensure t
