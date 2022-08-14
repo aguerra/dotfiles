@@ -163,22 +163,10 @@
   :bind
   ("C-=" . er/expand-region))
 
-
-
-(use-package fill-column-indicator
-  :ensure t
-  :bind
-  ([f8] . fci-mode)
-  :config
-  (setq fci-rule-width 5))
-
 (use-package flycheck
   :ensure t
-  :hook
-  (after-init . global-flycheck-mode))
-
-(use-package flycheck-joker
-  :ensure t)
+  :init
+  (global-flycheck-mode))
 
 (use-package flyspell
   :config
@@ -189,7 +177,7 @@
 (use-package git-timemachine
   :ensure t
   :bind
-  ("s-g" . git-timemachine))
+  ("C-c g" . git-timemachine))
 
 (use-package go-mode
   :ensure t
@@ -197,6 +185,8 @@
   (setq gofmt-command "goimports")
   :hook
   (before-save . gofmt-before-save))
+
+
 
 (use-package hl-line
   :config
