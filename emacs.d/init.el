@@ -107,10 +107,6 @@
    ([(shift return)] . crux-smart-open-line)
    ([(control shift return)] . crux-smart-open-line-above)))
 
-(use-package desktop
-  :config
-  (desktop-save-mode))
-
 (use-package diff-hl
   :ensure t
   :init
