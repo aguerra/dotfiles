@@ -182,8 +182,6 @@
   :hook
   (before-save . gofmt-before-save))
 
-
-
 (use-package hl-line
   :config
   (global-hl-line-mode))
@@ -191,19 +189,14 @@
 (use-package imenu-anywhere
   :ensure t
   :bind
-  ("s-i" . ivy-imenu-anywhere))
+  ("C-c m" . ivy-imenu-anywhere))
 
 (use-package ivy
   :ensure t
-  :bind
-  ([f7] . ivy-resume)
   :config
-  (ivy-mode 1)
+  (ivy-mode t)
   (setq enable-recursive-minibuffers t)
-  (setq ivy-initial-inputs-alist nil)
   (setq ivy-use-virtual-buffers t))
-
-
 
 (use-package lsp-mode
   :ensure t
@@ -211,6 +204,7 @@
   (setq lsp-keymap-prefix "C-c l")
   :hook
   ((python-mode . lsp-deferred)
+   (clojure-mode . lsp-deferred)
    (lsp-mode . lsp-enable-which-key-integration)))
 
 
