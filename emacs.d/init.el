@@ -247,8 +247,6 @@
   :bind
   (:map projectile-mode-map ("C-c p" . projectile-command-map)))
 
-
-
 (use-package rainbow-delimiters
   :ensure t
   :hook
@@ -270,13 +268,14 @@
 (use-package super-save
   :ensure t
   :config
-  (setq super-save-auto-save-when-idle t)
   (super-save-mode))
 
 (use-package swiper
   :ensure t
   :bind
   ("C-s" . swiper))
+
+
 
 (use-package undo-tree
   :ensure t
