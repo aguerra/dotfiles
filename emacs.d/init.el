@@ -230,27 +230,22 @@
   :config
   (setq org-directory "~/notes"))
 
-
-
 (use-package paredit
   :ensure t
   :hook
-  ((emacs-lisp-mode lisp-interaction-mode) . paredit-mode))
+  ((emacs-lisp-mode . paredit-mode)))
 
 (use-package paren
   :config
   (show-paren-mode))
 
-
-
 (use-package projectile
   :ensure t
   :init
-  (setq projectile-project-search-path '(("~/checkout" . 1)))
+  (setq projectile-project-search-path '("~/checkout"))
   (projectile-mode)
   :bind
-  (:map projectile-mode-map
-        ("C-c p" . projectile-command-map)))
+  (:map projectile-mode-map ("C-c p" . projectile-command-map)))
 
 
 
