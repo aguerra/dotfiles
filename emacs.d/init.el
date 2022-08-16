@@ -275,17 +275,10 @@
   :bind
   ("C-s" . swiper))
 
-
-
-(use-package undo-tree
-  :ensure t
-  :config
-  (global-undo-tree-mode))
-
 (use-package uniquify
   :config
   (setq uniquify-buffer-name-style 'forward)
-  (setq uniquify-min-dir-content 1))
+  (setq uniquify-strip-common-suffix nil))
 
 (use-package wgrep
   :ensure t
@@ -299,7 +292,7 @@
 
 (use-package whitespace
   :bind
-  ([f1] . whitespace-cleanup)
+  ("C-c c" . whitespace-cleanup)
   :hook
   ((prog-mode text-mode) . whitespace-mode)
   :config
