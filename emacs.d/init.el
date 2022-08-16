@@ -207,8 +207,6 @@
    (clojure-mode . lsp-deferred)
    (lsp-mode . lsp-enable-which-key-integration)))
 
-
-
 (use-package magit
   :ensure t
   :bind
@@ -217,8 +215,7 @@
 (use-package markdown-mode
   :ensure t
   :mode
-  (("\\.md\\'" . gfm-mode)
-   ("\\.markdown\\'" . gfm-mode))
+  (("\\.md\\'" . gfm-mode))
   :config
   (setq markdown-fontify-code-blocks-natively t)
   (setq markdown-command "pandoc -f markdown_github -t html5 -s --mathjax"))
@@ -231,7 +228,9 @@
 
 (use-package org
   :config
-  (setq org-directory "~/git/notes"))
+  (setq org-directory "~/notes"))
+
+
 
 (use-package paredit
   :ensure t

@@ -1,0 +1,32 @@
+(undo-tree-save-format-version . 1)
+"aebfe9463d2ee5e7ff680aee60e1630494c1d5be"
+[nil nil nil nil (25325 41862 734607 970000) 0 nil]
+([nil nil ((653 . 896) (#("
+" 0 1 (fontified nil)) . -653) (274 . 654) (#(" " 0 1 (fontified nil)) . 274) (1 . 275) (t . -1)) nil (25325 41862 734601 324000) 0 nil])
+([nil nil ((656 . 895) (#("(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )" 0 239 (fontified nil)) . -656) (653 . 655) (#("
+" 0 1 (fontified nil)) . -653) (274 . 654) (#(" " 0 1 (fontified nil)) . 274) (1 . 275) (#("(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(yasnippet-snippets yaml-mode which-key wgrep undo-tree super-save rainbow-delimiters projectile move-text magit lsp-mode imenu-anywhere go-mode git-timemachine flycheck-joker flycheck fill-column-indicator expand-region exec-path-from-shell elixir-mode easy-kill doom-themes doom-modeline diff-hl crux counsel company clj-refactor cider-eval-sexp-fu cider anzu use-package)))" 0 654 (fontified nil)) . -1) (t 25325 41862 738580 166000)) nil (25325 41875 59944 535000) 0 nil])
+([nil current ((716 . 955) (#("(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )" 0 239 (fontified nil)) . -716) (653 . 715) (#("
+" 0 1 (fontified nil)) . -653) (274 . 654) (#(" " 0 1 (fontified nil)) . 274) (1 . 275) (#("(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(yasnippet-snippets yaml-mode which-key wgrep undo-tree super-save rainbow-delimiters projectile move-text magit lsp-mode imenu-anywhere go-mode git-timemachine flycheck-joker flycheck fill-column-indicator expand-region exec-path-from-shell elixir-mode easy-kill doom-themes doom-modeline diff-hl crux counsel company clj-refactor cider-eval-sexp-fu cider anzu use-package)))" 0 654 (fontified nil)) . -1) (t 25325 41875 63335 599000)) nil (25334 43391 880794 225000) 0 nil])
+nil
