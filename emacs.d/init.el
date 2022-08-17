@@ -35,8 +35,6 @@
   (package-refresh-contents))
 
 ;; Key bindings
-(global-set-key (kbd "<f4>") 'anzu-query-replace-buffer)
-(global-set-key (kbd "<f5>") 'anzu-query-replace-regexp-buffer)
 (global-set-key [remap dabbrev-expand] 'hippie-expand)
 
 ;; Setup use-package
@@ -48,8 +46,8 @@
 (use-package anzu
   :ensure t
   :bind
-  (([f2] . anzu-query-replace)
-   ([f3] . anzu-query-replace-regexp))
+  (([remap query-replace] . anzu-query-replace)
+   ([remap query-replace-regexp] . anzu-query-replace-regexp))
   :config
   (global-anzu-mode))
 
@@ -315,23 +313,6 @@
   :ensure t)
 
 ;; Functions
-(defun call-on-buffer (func)
-  "Call FUNC on buffer."
-  (interactive)
-  (save-excursion
-    (goto-char (point-min))
-    (call-interactively func)))
-
-(defun anzu-query-replace-buffer ()
-  "Call 'query-replace' on buffer."
-  (interactive)
-  (call-on-buffer 'anzu-query-replace))
-
-(defun anzu-query-replace-regexp-buffer ()
-  "Call 'query-replace-regexp' on buffer."
-  (interactive)
-  (call-on-buffer 'anzu-query-replace-regexp))
-
 (defun cider-namespace-refresh ()
   "Call 'clojure.tools.namespace.repl/refresh'."
   (interactive)
