@@ -308,9 +308,7 @@
 (use-package yasnippet
   :ensure t
   :config
-  (yas-reload-all)
-  :hook
-  (prog-mode . yas-minor-mode))
+  (yas-global-mode))
 
 (use-package yasnippet-snippets
   :ensure t)
