@@ -73,6 +73,7 @@
   :config
   (setq company-idle-delay 0)
   (setq company-minimum-prefix-length 2)
+  (setq company-show-numbers t)
   (push '(company-capf :with company-yasnippet) company-backends)
   (global-company-mode))
 
