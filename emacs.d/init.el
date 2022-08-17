@@ -75,6 +75,7 @@
   :config
   (setq company-idle-delay 0)
   (setq company-minimum-prefix-length 2)
+  (push '(company-capf :with company-yasnippet) company-backends)
   (global-company-mode))
 
 (use-package counsel
