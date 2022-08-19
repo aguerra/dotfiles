@@ -319,14 +319,6 @@
 (use-package yasnippet-snippets
   :ensure t)
 
-;; Functions
-(defun cider-namespace-refresh ()
-  "Call 'clojure.tools.namespace.repl/refresh'."
-  (interactive)
-  (cider-interactive-eval
-   "(require 'clojure.tools.namespace.repl)
-    (clojure.tools.namespace.repl/refresh)"))
-
 ;; Hooks
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
