@@ -62,6 +62,12 @@
   ((cider-repl-mode . paredit-mode)
    (cider-repl-mode . rainbow-delimiters-mode)))
 
+(use-package clj-refactor
+  :ensure t
+  :defer t
+  :config
+  (cljr-add-keybindings-with-prefix "C-c C-r"))
+
 (use-package clojure-mode
   :ensure t
   :hook
