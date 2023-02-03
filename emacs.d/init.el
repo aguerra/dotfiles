@@ -249,6 +249,8 @@
   :ensure t
   :init
   (setq projectile-project-search-path '("~/checkout"))
+  (setq projectile-indexing-method 'hybrid)
+  (setq projectile-sort-order 'recentf)
   (projectile-mode)
   :bind
   (:map projectile-mode-map ("C-c p" . projectile-command-map)))
