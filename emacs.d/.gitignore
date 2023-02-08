@@ -10,4 +10,5 @@ places
 recentf
 session.*
 .cache
+.lsp-session-*
 transient
