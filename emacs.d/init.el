@@ -202,6 +202,7 @@
   :config
   (ivy-mode t)
   (setq enable-recursive-minibuffers t)
+  (setq ivy-height 25)
   (setq ivy-use-virtual-buffers t))
 
 (use-package lsp-mode
