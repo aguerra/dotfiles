@@ -2,7 +2,7 @@
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (blink-cursor-mode -1)
 (menu-bar-mode -1)
-(set-frame-font "Monospace-12" nil t)
+(set-frame-font "DejaVu Sans Mono-13" nil t)
 (setq inhibit-startup-screen t)
 (setq ring-bell-function 'ignore)
 (tool-bar-mode -1)
@@ -25,6 +25,7 @@
       scroll-preserve-screen-position t)
 (setq tab-always-indent 'complete)
 (setq-default indent-tabs-mode nil)
+(server-start)
 
 ;; Setup package
 (setq package-archives
