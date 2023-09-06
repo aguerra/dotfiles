@@ -30,7 +30,12 @@
 ;; Setup package
 (setq package-archives
       '(("gnu" . "https://elpa.gnu.org/packages/")
-        ("melpa-stable" . "https://stable.melpa.org/packages/")))
+        ("melpa-stable" . "https://stable.melpa.org/packages/")
+        ("melpa" . "https://melpa.org/packages/")))
+(setq package-archive-priorities
+      '(("melpa-stable" . 3)
+        ("gnu" . 2)
+        ("melpa" . 1)))
 (package-initialize)
 (unless package-archive-contents
   (package-refresh-contents))
