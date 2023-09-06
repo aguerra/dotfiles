@@ -22,3 +22,6 @@ s = status --short --branch
 
 [pull]
 rebase = true
+
+[commit]
+gpgsign = true
