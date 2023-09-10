@@ -263,6 +263,13 @@
   :bind
   (:map projectile-mode-map ("C-c p" . projectile-command-map)))
 
+(use-package pyvenv
+  :ensure t
+  :config
+  (pyvenv-mode t)
+  (add-hook 'pyvenv-post-activate-hooks (lambda ()
+                                          (call-interactively 'lsp-workspace-restart))))
+
 (use-package rainbow-delimiters
   :ensure t
   :hook
