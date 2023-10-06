@@ -12,3 +12,4 @@ session.*
 .cache
 .lsp-session-*
 transient
+eln-cache
