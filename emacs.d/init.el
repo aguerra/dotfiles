@@ -215,6 +215,10 @@
   :ensure t
   :init
   (setq lsp-keymap-prefix "C-c l")
+  :config
+  (with-no-warnings
+    (lsp-register-custom-settings
+     '(("pylsp.plugins.ruff.extendSelect" "I" nil))))
   :hook
   ((python-mode . lsp-deferred)
    (clojure-mode . lsp-deferred)
