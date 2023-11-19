@@ -272,8 +272,7 @@
   :ensure t
   :config
   (pyvenv-mode t)
-  (add-hook 'pyvenv-post-activate-hooks (lambda ()
-                                          (call-interactively 'lsp-workspace-restart))))
+  (pyvenv-tracking-mode t))
 
 (use-package rainbow-delimiters
   :ensure t
