@@ -224,6 +224,9 @@
    (clojure-mode . lsp-deferred)
    (lsp-mode . lsp-enable-which-key-integration)))
 
+(use-package lsp-ui
+  :ensure t)
+
 (use-package magit
   :ensure t
   :defer 2
