@@ -13,3 +13,4 @@ session.*
 .lsp-session-*
 transient
 eln-cache
+ellama-sessions
