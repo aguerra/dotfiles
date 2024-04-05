@@ -149,6 +149,11 @@
   (([remap kill-ring-save] . easy-kill)
    ([remap mark-sexp] . easy-mark)))
 
+(use-package ellama
+  :ensure t
+  :custom
+  (llm-warn-on-nonfree nil))
+
 (use-package elec-pair
   :config
   (electric-pair-mode))
