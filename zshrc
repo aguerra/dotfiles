@@ -145,4 +145,4 @@ VENV_WRAPPER=/usr/share/virtualenvwrapper/virtualenvwrapper.sh
 [[ -f /usr/share/doc/fzf/examples/completion.zsh ]] && source /usr/share/doc/fzf/examples/completion.zsh
 
 # Local hook
-[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local || :
