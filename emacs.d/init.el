@@ -300,20 +300,6 @@
   :config
   (save-place-mode))
 
-
-(use-package slime
-  :ensure t
-  :config
-  (setq slime-lisp-implementations '((sbcl ("/usr/bin/sbcl"))
-                                     (ecl ("/usr/bin/ecl"))))
-  (slime-setup '(slime-fancy slime-quicklisp slime-asdf slime-mrepl))
-  :hook
-  ((lisp-mode . paredit-mode)))
-
-(use-package slime-company
-  :ensure t)
-
-
 (use-package super-save
   :ensure t
   :config
