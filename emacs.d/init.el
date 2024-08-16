@@ -216,6 +216,10 @@
   (setq ivy-height 25)
   (setq ivy-use-virtual-buffers t))
 
+(use-package lsp-ivy
+  :ensure t
+  :after (ivy lsp-mode))
+
 (use-package lsp-mode
   :ensure t
   :init
@@ -227,7 +231,11 @@
   :hook
   ((python-mode . lsp-deferred)
    (clojure-mode . lsp-deferred)
+   (c-mode . lsp-deferred)
    (lsp-mode . lsp-enable-which-key-integration)))
+
+(use-package lsp-treemacs
+  :ensure t)
 
 (use-package lsp-ui
   :ensure t)
