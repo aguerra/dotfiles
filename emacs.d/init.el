@@ -18,6 +18,7 @@
 (prefer-coding-system 'utf-8)
 (setq auto-save-default nil)
 (setq confirm-kill-processes nil)
+(setq enable-recursive-minibuffers t)
 (setq gc-cons-threshold 50000000)
 (setq load-prefer-newer t)
 (setq make-backup-files nil)
@@ -211,9 +212,7 @@
 (use-package ivy
   :ensure t
   :config
-  (ivy-mode t)
-  (setq enable-recursive-minibuffers t)
-  (setq ivy-height 25)
+  (ivy-mode 1)
   (setq ivy-use-virtual-buffers t))
 
 (use-package lsp-ivy
