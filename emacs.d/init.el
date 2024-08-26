@@ -22,6 +22,7 @@
 (setq gc-cons-threshold 50000000)
 (setq load-prefer-newer t)
 (setq make-backup-files nil)
+(setq native-comp-async-report-warnings-errors 'silent)
 (setq scroll-conservatively 100000
       scroll-preserve-screen-position t)
 (setq tab-always-indent 'complete)
