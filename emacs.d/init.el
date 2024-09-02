@@ -17,6 +17,7 @@
 (global-auto-revert-mode)
 (prefer-coding-system 'utf-8)
 (setq auto-save-default nil)
+(setq browse-url-browser-function #'browse-url-chrome)
 (setq confirm-kill-processes nil)
 (setq enable-recursive-minibuffers t)
 (setq gc-cons-threshold 50000000)
@@ -242,8 +243,6 @@
 (use-package lsp-ui
   :ensure t)
 
-
-
 (use-package magit
   :ensure t
   :defer 2
@@ -256,7 +255,9 @@
   (("\\.md\\'" . gfm-mode))
   :config
   (setq markdown-fontify-code-blocks-natively t)
-  (setq markdown-command "pandoc -f markdown_github -t html5 -s --mathjax"))
+  (setq markdown-command "pandoc -f gfm -t html5 -s --mathjax"))
+
+
 
 (use-package move-text
   :ensure t
