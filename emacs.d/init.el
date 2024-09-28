@@ -67,6 +67,7 @@
   (setq cider-prompt-for-symbol nil)
   (setq cider-repl-pop-to-buffer-on-connect nil)
   (setq cider-save-file-on-load nil)
+  (setq cider-xref-fn-depth 90)
   :hook
   ((cider-repl-mode . paredit-mode)
    (cider-repl-mode . rainbow-delimiters-mode)))
