@@ -363,6 +363,14 @@
 (use-package yasnippet-snippets
   :ensure t)
 
+;; Fix for diff-hl and very long file names
+(advice-add 'make-auto-save-file-name :around #'shorten-auto-save-file-name)
+
+(defun shorten-auto-save-file-name (&rest args)
+  (let ((buffer-file-name
+         (when buffer-file-name (sha1 buffer-file-name))))
+    (apply args)))
+
 ;; Hooks
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
