@@ -232,6 +232,7 @@
   (with-no-warnings
     (lsp-register-custom-settings
      '(("pylsp.plugins.ruff.extendSelect" "I" nil))))
+  (setq lsp-file-watch-threshold nil)
   :hook
   ((python-mode . lsp-deferred)
    (clojure-mode . lsp-deferred)
