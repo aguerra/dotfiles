@@ -52,6 +52,11 @@
 (require 'use-package)
 
 ;; Package list
+(use-package abbrev
+  :config
+  (setq save-abbrevs 'silently)
+  (setq-default abbrev-mode t))
+
 (use-package anzu
   :ensure t
   :bind
