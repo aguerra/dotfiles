@@ -5,8 +5,7 @@
 # shell more consistent across machines.
 setopt NO_GLOBAL_RCS
 
-export ALTERNATE_EDITOR=vim
 export EDITOR=emacsclient
-export PATH="/usr/lib/ccache:$HOME/.local/bin:$PATH"
+export PATH="~/.local/bin:/usr/local/go/bin:$PATH"
 
-[[ -f ~/.zshenv.local ]] && . ~/.zshenv.local || :
+. ~/.zshenv.local 2>/dev/null || :
