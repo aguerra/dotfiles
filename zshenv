@@ -6,6 +6,7 @@
 setopt NO_GLOBAL_RCS
 
 export EDITOR=emacsclient
+export GOPATH=~/.go
 export PATH="~/.local/bin:/usr/local/go/bin:$PATH"
 
 . ~/.zshenv.local 2>/dev/null || :
