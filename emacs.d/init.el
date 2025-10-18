@@ -202,11 +202,7 @@
   ("C-c g" . git-timemachine))
 
 (use-package go-mode
-  :ensure t
-  :config
-  (setq gofmt-command "goimports")
-  :hook
-  (before-save . gofmt-before-save))
+  :ensure t)
 
 
 
@@ -242,6 +238,7 @@
   ((python-mode . lsp-deferred)
    (clojure-mode . lsp-deferred)
    (c-mode . lsp-deferred)
+   (go-mode . lsp-deferred)
    (lsp-mode . lsp-enable-which-key-integration)))
 
 (use-package lsp-treemacs
