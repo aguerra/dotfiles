@@ -66,16 +66,17 @@
   (global-anzu-mode))
 
 (use-package cider
+  :after clojure-mode
   :ensure t
   :config
   (setq cider-eldoc-display-for-symbol-at-point nil)
-  (setq cider-prompt-for-symbol nil)
-  (setq cider-repl-pop-to-buffer-on-connect nil)
-  (setq cider-save-file-on-load nil)
-  (setq cider-xref-fn-depth 90)
+  (setq cider-repl-pop-to-buffer-on-connect 'display-only)
+  (setq cider-save-file-on-load t)
+  (setq cider-use-xref nil)
   :hook
   ((cider-repl-mode . paredit-mode)
    (cider-repl-mode . rainbow-delimiters-mode)))
+
 
 (use-package clj-refactor
   :ensure t
