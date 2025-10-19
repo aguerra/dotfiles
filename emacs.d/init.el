@@ -66,7 +66,6 @@
   (global-anzu-mode))
 
 (use-package cider
-  :after clojure-mode
   :ensure t
   :config
   (setq cider-eldoc-display-for-symbol-at-point nil)
@@ -77,18 +76,12 @@
   ((cider-repl-mode . paredit-mode)
    (cider-repl-mode . rainbow-delimiters-mode)))
 
-
-(use-package clj-refactor
-  :ensure t
-  :defer t
-  :config
-  (cljr-add-keybindings-with-prefix "C-c C-r"))
-
 (use-package clojure-mode
   :ensure t
   :hook
   ((clojure-mode . paredit-mode)
    (clojure-mode . subword-mode)))
+
 
 (use-package company
   :ensure t
