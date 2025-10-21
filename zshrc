@@ -1,10 +1,9 @@
 # zshrc
 
-# Exports
-export HISTSIZE='5000'
-export HISTFILE="$HOME/.zsh_history"
-export SAVEHIST="$HISTSIZE"
-export KEYTIMEOUT=1
+# Enable persistent history
+export HISTFILE=~/.zsh_history
+export HISTSIZE=100000
+export SAVEHIST=100000
 
 # Options
 setopt AUTO_CD
