@@ -152,6 +152,9 @@
   (([remap kill-ring-save] . easy-kill)
    ([remap mark-sexp] . easy-mark)))
 
+(use-package eca
+  :ensure t)
+
 (use-package ellama
   :ensure t
   :custom
