@@ -8,11 +8,14 @@ setopt NO_GLOBAL_RCS
 # Basic exports
 export EDITOR=emacsclient
 export GOPATH=~/.go
-export PATH=~/.local/bin:/usr/local/go/bin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+
+# Keep only the first occurrence of each duplicated value
+typeset -U path
+path=(~/.local/bin /usr/local/go/bin /usr/games $path)
 
 # Things that should be always available
-. ~/.sdkman/bin/sdkman-init.sh 2>/dev/null || :
-. /usr/share/virtualenvwrapper/virtualenvwrapper.sh 2>/dev/null || :
+. ~/.sdkman/bin/sdkman-init.sh
+. /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 
 # Local hook
-. ~/.zshenv.local 2>/dev/null || :
+. ~/.zshenv.local
