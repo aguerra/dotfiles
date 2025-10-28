@@ -1,8 +1,7 @@
 # zshenv
 
-# The global zshenv file is always read. When GLOBAL_RCS is unset here, global
-# zprofile, zshrc, zlogin and zlogout files will not be sourced, making the
-# shell more consistent across machines.
+# The global zshenv is always read; however, if GLOBAL_RCS is unset,
+# global zprofile, zshrc, zlogin, and zlogout files are not.
 setopt NO_GLOBAL_RCS
 
 # Basic exports
