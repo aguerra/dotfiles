@@ -1,14 +1,29 @@
 # zshrc
 
 # Enable persistent history
-export HISTFILE=~/.zsh_history
-export HISTSIZE=100000
-export SAVEHIST=100000
+HISTFILE=~/.zsh_history
+HISTSIZE=100000
+SAVEHIST=100000
 
-# Options
+# If a command can't be executed and it is a directory name, cd to it.
 setopt AUTO_CD
+
+# Treat #, ~ and ^ as part of patterns for # filename generation, etc.
 setopt EXTENDED_GLOB
+
+# Adding a command that duplicates an older one removes the previous
+# entry from the history.
 setopt HIST_IGNORE_ALL_DUPS
+
+# Like APPEND_HISTORY except that new history lines are added
+# incrementally as soon as they are entered.
+setopt INC_APPEND_HISTORY
+
+# Disable all beeps
+setopt NO_BEEP
+
+# Parameter expansion, command substitution and arithmetic expansion
+# are performed in prompts.
 setopt PROMPT_SUBST
 
 # Modules
