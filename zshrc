@@ -26,10 +26,16 @@ setopt NO_BEEP
 # are performed in prompts.
 setopt PROMPT_SUBST
 
-# Modules
-autoload -U colors compinit promptinit terminfo vcs_info
+# Autoload functions supplied with zsh without alias expansion
+autoload -U colors compinit promptinit vcs_info
+
+# Standard ANSI color codes in shell parameters for easy use
 colors
+
+# Initialize new style completion
 compinit
+
+# Initialize prompt themes extension
 promptinit
 
 # zle
