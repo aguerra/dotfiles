@@ -38,25 +38,6 @@ compinit
 # Initialize prompt themes extension
 promptinit
 
-# zle
-bindkey -e
-
-bindkey "${terminfo[khome]}" beginning-of-line
-bindkey "${terminfo[kend]}"  end-of-line
-bindkey '^r'                 history-incremental-search-backward
-
-# Custom widgets
-zle-line-init zle-keymap-select()
-{
-	zle reset-prompt
-}
-
-zle -N zle-line-init
-zle -N zle-keymap-select
-
-bindkey '^[[A' up-line-or-search
-bindkey '^[[B' down-line-or-search
-
 # Prompt
 PROMPT='%{$fg_bold[white]%}%n@%m:%{$reset_color%}%{$fg_bold[blue]%}%~\
 %{$reset_color%}%{$fg_bold[yellow]%}${vcs_info_msg_0_}%{$reset_color%}\
