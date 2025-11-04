@@ -139,6 +139,10 @@ function tcp-file()
     socat -u FILE:"$file" TCP-L:"$port",reuseaddr,fork
 }
 
+# Setup sdkman and virtualenvwrapper
+. ~/.sdkman/bin/sdkman-init.sh
+. /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+
 [[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]] && source /usr/share/doc/fzf/examples/key-bindings.zsh
 [[ -f /usr/share/doc/fzf/examples/completion.zsh ]] && source /usr/share/doc/fzf/examples/completion.zsh
 

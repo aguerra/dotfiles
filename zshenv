@@ -12,9 +12,5 @@ export GOPATH=~/.go
 typeset -U path
 path=(~/.local/bin /usr/local/go/bin /usr/games $path)
 
-# Things that should be always available
-. ~/.sdkman/bin/sdkman-init.sh
-. /usr/share/virtualenvwrapper/virtualenvwrapper.sh
-
 # Local hook
 . ~/.zshenv.local
