@@ -27,30 +27,17 @@ setopt NO_BEEP
 setopt PROMPT_SUBST
 
 # Autoload functions supplied with zsh without alias expansion
-autoload -U colors compinit promptinit vcs_info
-
-# Standard ANSI color codes in shell parameters for easy use
-colors
+autoload -U add-zsh-hook compinit vcs_info
 
 # Initialize new style completion
 compinit
 
-# Initialize prompt themes extension
-promptinit
+# Add vcs_info to precmd hook to get updated info in the prompt
+add-zsh-hook precmd vcs_info
 
-# Prompt
-PROMPT='%{$fg_bold[white]%}%n@%m:%{$reset_color%}%{$fg_bold[blue]%}%~\
-%{$reset_color%}%{$fg_bold[yellow]%}${vcs_info_msg_0_}%{$reset_color%}\
-%{$fg_bold[magenta]%}{$(basename "$VIRTUAL_ENV")}%{$fg_bold[cyan]%}[%?]\
-%{$reset_color%}%{$reset_color%}> '
-
-# Hook functions
-precmd()
-{
-    vcs_info
-    # No hs, tsl or fsl in the termcap entry
-    printf "\e]0;${USER}@${HOST}:${PWD}\a"
-}
+# Setup a minimalist prompt
+prompt='%n@%m:%F{cyan}%~
+%F{magenta}[%l]%F{yellow}${vcs_info_msg_0_} %(?.%F{green}✔.%F{red}✘) %F{white}> '
 
 # Completion configuration
 zstyle ':completion:*' menu select # Keyboard navigable completion list
