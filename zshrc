@@ -39,8 +39,9 @@ add-zsh-hook precmd vcs_info
 prompt='%n@%m:%F{cyan}%~
 %F{magenta}[%l]%F{yellow}${vcs_info_msg_0_} %(?.%F{green}✔.%F{red}✘) %F{white}> '
 
-# Completion configuration
-zstyle ':completion:*' menu select # Keyboard navigable completion list
+# Menu completion will be started unconditionally
+zstyle ':completion:*' menu select
+
 zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 zstyle ':completion:*' rehash true
 
