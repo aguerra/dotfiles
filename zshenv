@@ -2,7 +2,7 @@
 
 # The global zshenv is always read; however, if GLOBAL_RCS is unset,
 # global zprofile, zshrc, zlogin, and zlogout files are not.
-setopt NO_GLOBAL_RCS
+setopt no_global_rcs
 
 # Basic exports
 export EDITOR=emacsclient

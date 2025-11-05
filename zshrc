@@ -6,25 +6,25 @@ HISTSIZE=100000
 SAVEHIST=100000
 
 # If a command can't be executed and it is a directory name, cd to it.
-setopt AUTO_CD
+setopt auto_cd
 
 # Treat #, ~ and ^ as part of patterns for # filename generation, etc.
-setopt EXTENDED_GLOB
+setopt extended_glob
 
 # Adding a command that duplicates an older one removes the previous
 # entry from the history.
-setopt HIST_IGNORE_ALL_DUPS
+setopt hist_ignore_all_dups
 
 # Like APPEND_HISTORY except that new history lines are added
 # incrementally as soon as they are entered.
-setopt INC_APPEND_HISTORY
+setopt inc_append_history
 
 # Disable all beeps
-setopt NO_BEEP
+setopt no_beep
 
 # Parameter expansion, command substitution and arithmetic expansion
 # are performed in prompts.
-setopt PROMPT_SUBST
+setopt prompt_subst
 
 # Autoload functions supplied with zsh without alias expansion
 autoload -U add-zsh-hook compinit vcs_info
