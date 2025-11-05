@@ -42,7 +42,10 @@ prompt='%n@%m:%F{cyan}%~
 # Menu completion will be started unconditionally
 zstyle ':completion:*' menu select
 
-zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
+# Use $LS_COLORS for completion as well
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+
+# Automatically find new executables in $PATH
 zstyle ':completion:*' rehash true
 
 # vcs_info
