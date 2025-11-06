@@ -48,12 +48,11 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 # Automatically find new executables in $PATH
 zstyle ':completion:*' rehash true
 
-# vcs_info
-zstyle ':vcs_info:*' enable git hg
-zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:git*' formats "(%s/%b/%c/%u/%m)"
-zstyle ':vcs_info:git*+set-message:*' hooks git-aheadbehind
+# Only try to detect git
+zstyle ':vcs_info:*' enable git
 
+# Show when the working directory has uncommitted changes
+zstyle ':vcs_info:*' check-for-changes true
 
 # User aliases
 alias cp='cp -i'
@@ -79,26 +78,6 @@ alias x=xdg-open
 
 # Misc
 umask 022
-
-# Functions
-
-# git: Show +N/-N when your local branch is ahead-of or behind remote HEAD
-# Make sure you have added misc to your 'formats': %m
-function +vi-git-aheadbehind()
-{
-    local ahead behind
-    local -a gitstatus
-
-    ahead=$(git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null \
-            | wc -l)
-    (($ahead)) && gitstatus+=("%B%F{blue}+${ahead}%f%b")
-
-    behind=$(git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null \
-             | wc -l)
-    (($behind)) && gitstatus+=("%B%F{red}-${behind}%f%b")
-
-    hook_com[misc]+=${(j::)gitstatus}
-}
 
 function ssh-tunnel()
 {
