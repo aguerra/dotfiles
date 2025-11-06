@@ -59,7 +59,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 
-# List all entries except . and .. 
+# List all entries except . and ..
 alias la='ls -A'
 
 # Use long listing format with human readable sizes
@@ -72,41 +72,11 @@ alias ls='ls --color=auto'
 # Always use colors
 alias tree='tree -C'
 
-# Call command based on file type 
+# Call command based on file type
 alias x=xdg-open
 
 # The default permissionis are 644 for files and 755 for directories
 umask 022
-
-function ssh-tunnel()
-{
-    local mode="$1"
-    local port="$2"
-    local host="$3"
-    local dest="$4"
-    shift 4
-
-    print ssh "$mode" "$port:$dest" "$host" "$@"
-    ssh "$mode" "$port:$dest" "$host" "$@"
-}
-
-function ssh-remote-tunnel()
-{
-    ssh-tunnel -R "$@"
-}
-
-function ssh-local-tunnel()
-{
-    ssh-tunnel -L "$@"
-}
-
-function tcp-file()
-{
-    local file="$1"
-    local port="$2"
-
-    socat -u FILE:"$file" TCP-L:"$port",reuseaddr,fork
-}
 
 # Setup sdkman, virtualenvwrapper and fzf
 . ~/.sdkman/bin/sdkman-init.sh
