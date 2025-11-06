@@ -54,29 +54,28 @@ zstyle ':vcs_info:*' enable git
 # Show when the working directory has uncommitted changes
 zstyle ':vcs_info:*' check-for-changes true
 
-# User aliases
+# Prompt before overwrite/removal
 alias cp='cp -i'
-alias debuild='debuild -us -uc'
-alias disassemble='objdump -d'
-alias g=git
-alias grep='grep --color=auto'
-alias http-mirror='wget -mkEp'
-alias http-server='python3 -mhttp.server 8080'
-alias la='ls -A'
-alias ll='ls -l'
-alias ls='ls --color=auto'
-alias mirror='rsync -aci --delete'
-alias mkvirtualenv3='mkvirtualenv -p /usr/bin/python3'
 alias mv='mv -i'
-alias openssl-cert-info='openssl x509 -text -noout -in'
-alias ppager='ps axuf | pager'
-alias reset-terminal='dconf reset -f /org/gnome/terminal/legacy/profiles:/'
-alias safe-vim='vim -i NONE'
 alias rm='rm -i'
+
+# List all entries except . and .. 
+alias la='ls -A'
+
+# Use long listing format with human readable sizes
+alias ll='ls -lh'
+
+# Use colors when stdout is connected to a terminal
+alias grep='grep --color=auto'
+alias ls='ls --color=auto'
+
+# Always use colors
 alias tree='tree -C'
+
+# Call command based on file type 
 alias x=xdg-open
 
-# Misc
+# The default permissionis are 644 for files and 755 for directories
 umask 022
 
 function ssh-tunnel()
