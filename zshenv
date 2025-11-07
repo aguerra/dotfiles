@@ -7,7 +7,7 @@ setopt no_global_rcs
 export EDITOR=emacsclient
 export GOPATH=~/.go
 
-# Remove duplicated values. PATH is tied to path.
+# Remove duplicated values. PATH is tied to path
 typeset -U path=(~/.local/bin /usr/local/go/bin /usr/games $path)
 typeset -U fpath=(~/.zsh.d $fpath)
 

@@ -5,25 +5,22 @@ HISTFILE=~/config/zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
 
-# If a command can't be executed and it is a directory name, cd to it.
+# If a command can't be executed and it is a directory name, cd to it
 setopt auto_cd
 
-# Treat #, ~ and ^ as part of patterns for # filename generation, etc.
+# Treat #, ~ and ^ as part of patterns for filename generation, etc
 setopt extended_glob
 
-# Adding a command that duplicates an older one removes the previous
-# entry from the history.
+# Adding duplicates removes the previous entry from the history
 setopt hist_ignore_all_dups
 
-# Like APPEND_HISTORY except that new history lines are added
-# incrementally as soon as they are entered.
+# New lines are added incrementally as soon as they are entered
 setopt inc_append_history
 
 # Disable all beeps
 setopt no_beep
 
-# Parameter expansion, command substitution and arithmetic expansion
-# are performed in prompts.
+# Expansions and substitutions are performed in prompts
 setopt prompt_subst
 
 # Autoload functions supplied with zsh without alias expansion
@@ -32,10 +29,10 @@ autoload -U add-zsh-hook compinit vcs_info
 # Initialize new style completion
 compinit
 
-# Add vcs_info to precmd hook to get updated info in the prompt
+# Add vcs_info to precmd hook to get updated info in prompt
 add-zsh-hook precmd vcs_info
 
-# Setup a minimalist prompt
+# Setup a not so minimalist prompt
 prompt='%n@%m:%F{cyan}%~
 %F{magenta}[%l]%F{yellow}${vcs_info_msg_0_} %(?.%F{green}✔.%F{red}✘) %F{white}> '
 
@@ -77,13 +74,13 @@ alias grep='grep --color=auto'
 # Always use colors
 alias tree='tree -C'
 
-# Call command based on file type
+# Run command based on file type
 alias x=xdg-open
 
 # The default permissionis are 644 for files and 755 for directories
 umask 022
 
-# Setup sdkman, virtualenvwrapper and fzf
+# Setup external stuff
 . ~/.sdkman/bin/sdkman-init.sh
 . /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 . <(fzf --zsh)
