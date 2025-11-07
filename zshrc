@@ -59,15 +59,20 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 
+# Use colors when stdout is connected to a terminal
+alias ls='ls --color=auto'
+
 # List all entries except . and ..
 alias la='ls -A'
 
 # Use long listing format with human readable sizes
 alias ll='ls -lh'
 
-# Use colors when stdout is connected to a terminal
+# Combine ll and la
+alias lla='ll -A'
+
+# See the ls alias
 alias grep='grep --color=auto'
-alias ls='ls --color=auto'
 
 # Always use colors
 alias tree='tree -C'
