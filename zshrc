@@ -1,7 +1,7 @@
 # zshrc
 
 # Enable persistent history
-HISTFILE=~/.zsh_history
+HISTFILE=~/config/zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
 
