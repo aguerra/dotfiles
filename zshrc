@@ -51,6 +51,16 @@ zstyle ':vcs_info:*' enable git
 # Show when the working directory has uncommitted changes
 zstyle ':vcs_info:*' check-for-changes true
 
+# Call git-ahead when populating the message variables
+zstyle ':vcs_info:git+set-message:*' hooks git-ahead
+
+# Add %m (misc) to the default formats
+zstyle ':vcs_info:git*' formats ' (%s)-[%b]%u%c-%m'
+
+function +vi-git-ahead() {
+    hook_com[misc]=$(git rev-list --count @{u}..HEAD 2>/dev/null)
+}
+
 # Prompt before overwrite/removal
 alias cp='cp -i'
 alias mv='mv -i'
