@@ -64,6 +64,9 @@ function +vi-git-ahead() {
     hook_com[misc]=$(git rev-list --count @{u}..HEAD 2>/dev/null)
 }
 
+# Useful with auto_cd
+alias ...=../..
+
 # Prompt before overwrite/removal
 alias cp='cp -i'
 alias mv='mv -i'
