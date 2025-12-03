@@ -8,6 +8,9 @@ SAVEHIST=100000
 # If a command can't be executed and it is a directory name, cd to it
 setopt auto_cd
 
+# Try to correct the spelling of all arguments in a line
+setopt correct_all
+
 # Treat #, ~ and ^ as part of patterns for filename generation, etc
 setopt extended_glob
 
