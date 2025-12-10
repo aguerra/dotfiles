@@ -84,6 +84,9 @@ alias ll='ls -lh'
 # Combine ll and la
 alias lla='ll -A'
 
+# Laziness
+alias g=git
+
 # See the ls alias
 alias grep='grep --color=auto'
 
