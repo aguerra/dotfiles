@@ -1,4 +1,3 @@
-dotfiles
-========
+# dotfiles
 
-Config files for vim, zsh, etc.
+Configuration files for emacs, git, zsh, etc.
