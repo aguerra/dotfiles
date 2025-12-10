@@ -102,4 +102,4 @@ umask 022
 . <(fzf --zsh)
 
 # Local hook
-. ~/.zshrc.local
+. ~/config/zshrc.local

@@ -12,4 +12,4 @@ typeset -U path=(~/.local/bin /usr/local/go/bin /usr/games $path)
 typeset -U fpath=(~/.zsh.d $fpath)
 
 # Local hook
-. ~/.zshenv.local
+. ~/config/zshenv.local
