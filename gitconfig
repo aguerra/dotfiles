@@ -1,27 +1,123 @@
-# .gitconfig
-
-[user]
-name = xxxxxxxxxxxx
-email = xxxxxxxxxxx
-
-[color]
-ui = true
+# gitconfig
 
 [grep]
+# Enable extended regular expressions by default
 extendRegexp = true
+
+# Enable prefixing each line of output with the 1-based line number
 lineNumber = true
 
 [alias]
-f = log --name-status --extended-regexp --grep
-g = grep --break --heading
-s = status --short --branch
-
-# Example
-# [credential "http://xxx"]
-# username = john.doe
-
-[pull]
-rebase = true
+# Try to use long options in all aliases for clarity
+a = add
+aa = add --all
+b = branch
+bdf = branch --delete --force
+bmf = branch --move --force
+c = commit
+cm = commit --message
+cl = clone
+co = checkout
+cob = checkout -b
+cof = checkout --force
+d = diff
+g = grep
+l = log
+lp = log --patch --unified
+p = pull
+ps = push
+psf = push --force
+rb = rebase
+rba = rebase --abort
+rbc = rebase --continue
+rbi = rebase --interactive
+rs = reset
+rsh = reset --hard
+rv = revert
+s = status
+st = git stash
+stl = git stash list
+stp = git stash pop
+t = tag
+unadd = reset HEAD
+uncommit = reset --soft HEAD~1
 
 [commit]
+# All commits should be GPG signed
 gpgsign = true
+
+# Put the whole diff output for reference
+verbose = true
+
+[column]
+# Show in columns if the output is to the terminal
+ui = auto
+
+[branch]
+# List by the most recent commit date
+sort = -committerdate
+
+[tag]
+# List by the most recent creation date
+sort = -creatordate
+
+[diff]
+# It can be a bit smarter than the default
+algorithm = histogram
+
+# Moved lines in a diff are colored differently
+colorMoved = plain
+
+# Replace the a/ and b/ in diff header output with where the diff is coming from
+mnemonicPrefix = true
+
+# Enable basic file rename detection
+renames = true
+
+[push]
+# Add --set-upstream by default when no upstream tracking exists
+autoSetupRemote = true
+
+# Push all tags that you have locally that aren’t on the server
+followTags = true
+
+[fetch]
+# Prune stuff that’s gone
+prune = true
+pruneTags = true
+
+# Fetch all remotes
+all = true
+
+[help]
+# Try to suggest the correct command if a typo is detected
+autocorrect = prompt
+
+[rebase]
+# Enable autosquashing of fixup commits by default
+autoSquash = true
+
+# Automatically force-update branches that point to commits being rebased
+updateRefs = true
+
+[rerere]
+# Records the before and after states of rebase conflicts
+enabled = true
+
+# Automatically re-apply the resolutions if it sees them again
+autoupdate = true
+
+[merge]
+# Adds a ||||||| marker and the original text
+conflictstyle = zdiff3
+
+[status]
+# Give the output in the short-format
+short = true
+
+# Show the branch and tracking info even in short-format
+branch = true
+
+[include]
+# Local hook, put the [user] section here
+path = ~/config/gitconfig
