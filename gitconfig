@@ -39,8 +39,8 @@ st = git stash
 stl = git stash list
 stp = git stash pop
 t = tag
-unadd = reset HEAD
-uncommit = reset --soft HEAD~1
+una = reset HEAD
+unc = reset HEAD~1
 
 [commit]
 # All commits should be GPG signed
