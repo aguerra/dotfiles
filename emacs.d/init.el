@@ -226,6 +226,8 @@
   :ensure t
   :init
   (setq lsp-keymap-prefix "C-c l")
+  :bind-keymap
+  ("C-c l" . lsp-command-map)
   :config
   (with-no-warnings
     (lsp-register-custom-settings
