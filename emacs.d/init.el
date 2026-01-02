@@ -47,8 +47,6 @@
 (global-set-key [remap dabbrev-expand] 'hippie-expand)
 
 ;; Setup use-package
-(unless (package-installed-p 'use-package)
-  (package-install 'use-package))
 (require 'use-package)
 
 ;; Package list
@@ -142,6 +140,7 @@
 
 (use-package doom-themes
   :ensure t
+  :pin "melpa"
   :config
   (load-theme 'doom-vibrant t)
   (set-foreground-color "#d1d7e1"))
