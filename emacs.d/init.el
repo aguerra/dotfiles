@@ -372,6 +372,11 @@
     (apply args)))
 
 ;; Hooks
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+
+(when (file-exists-p custom-file)
+  (load custom-file))
+
 (defconst local-file (expand-file-name "local.el" user-emacs-directory)
   "Local customization.")
 
