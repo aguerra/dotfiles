@@ -5,6 +5,9 @@ HISTFILE=~/config/zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
 
+# Default color for dirs looks awful against a dark background
+export LS_COLORS="$(vivid generate iceberg-dark)"
+
 # If a command can't be executed and it is a directory name, cd to it
 setopt auto_cd
 
