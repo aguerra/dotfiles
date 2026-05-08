@@ -63,6 +63,12 @@
   :config
   (global-anzu-mode))
 
+(use-package auto-virtualenv
+  :ensure t
+  :config
+  (setq auto-virtualenv-reload-lsp t)
+  (auto-virtualenv-setup))
+
 (use-package cider
   :ensure t
   :config
@@ -290,12 +296,6 @@
   (projectile-mode)
   :bind
   (:map projectile-mode-map ("C-c p" . projectile-command-map)))
-
-(use-package pyvenv
-  :ensure t
-  :config
-  (pyvenv-mode t)
-  (pyvenv-tracking-mode t))
 
 (use-package rainbow-delimiters
   :ensure t
