@@ -50,6 +50,16 @@
 (require 'use-package)
 
 ;; Package list
+
+;; Initialize `exec-path-from-shell` before other packages as relying
+;; on :after does not seem to work for environment variables.
+(use-package exec-path-from-shell
+  :ensure t
+  :config
+  (when (memq window-system '(mac ns pgtk x))
+    (add-to-list 'exec-path-from-shell-variables "JAVA_HOME")
+    (exec-path-from-shell-initialize)))
+
 (use-package abbrev
   :config
   (setq save-abbrevs 'silently)
@@ -175,12 +185,6 @@
   (elixir-mode . subword-mode))
 
 (use-package epa)
-
-(use-package exec-path-from-shell
-  :ensure t
-  :config
-  (when (memq window-system '(mac ns x))
-    (exec-path-from-shell-initialize)))
 
 (use-package expand-region
   :ensure t
