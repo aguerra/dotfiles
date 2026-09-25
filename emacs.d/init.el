@@ -168,7 +168,15 @@
    ([remap mark-sexp] . easy-mark)))
 
 (use-package eca
-  :ensure t)
+  :ensure t
+  :config
+  ;; Use a regular directional window with standard
+  ;; navigation/commands.
+  (setq eca-chat-use-side-window nil)
+  ;; The eca server is compiled with GraalVM and needs the correct
+  ;; trust store.
+  (let ((java-home (getenv "JAVA_HOME")))
+    (setq eca-extra-args (list (format "-Djavax.net.ssl.trustStore=%s/lib/security/cacerts" java-home)))))
 
 (use-package ellama
   :ensure t
