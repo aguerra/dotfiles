@@ -1,5 +1,8 @@
-;; Look and feel
+;;; init.el -*- lexical-binding: t; -*-
+
+;; Automatically starts and opens all new windows in a maximized view.
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
+
 (blink-cursor-mode -1)
 (menu-bar-mode -1)
 (set-frame-font "DejaVu Sans Mono-18" nil t)
